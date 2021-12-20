@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthInterceptorService} from './shared/services/auth-interceptor.service';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    UsuarioComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
