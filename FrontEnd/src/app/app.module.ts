@@ -9,6 +9,7 @@ import {AuthInterceptorService} from './shared/services/auth-interceptor.service
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './screens/registro/registro.component';
+import { ContactoComponent } from './screens/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegistroComponent } from './screens/registro/registro.component';
     DashboardComponent,
     UsuarioComponent,
     UsuariosComponent,
-    RegistroComponent
+    RegistroComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

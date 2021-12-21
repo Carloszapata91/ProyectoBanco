@@ -1,0 +1,44 @@
+
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" >My Bank</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <a class="nav-item nav-link active" [routerLink]="['../inicio']">Inicio</a>
+                      <a class="nav-item nav-link" [routerLink]="['../inicio']">Quienes somos</a>
+          <a class="nav-item nav-link" [routerLink]="['../contacto']" >Contactanos</a>
+                              
+           <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestros productos</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Cuenta de ahorros</a>
+                <a class="dropdown-item" href="#">Cuenta corriente</a>
+                <a class="dropdown-item" href="#">Hipotecas</a>
+                <a class="dropdown-item" href="#">Prestamos</a>
+              </div>
+            </li>
+                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"   [routerLink]="['../login']">Iniciar sesión</button>  </div>
+                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"  [routerLink]="['../card-product']">Registrarse</button> </div>
+                      
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+           <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+          <div> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>  </div>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <br>
+  <div class="row">
+      <div class="col">
+        
+      </div>
+  </div>
+</div>
+
