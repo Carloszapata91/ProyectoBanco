@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from '../home/home.component';
-import { CategoryComponent } from '../login/category.component';
+import { LoginComponent } from '../login/login.component';
 import { CarProductsComponent } from '../car-products/car-products.component';
 
 
@@ -12,7 +12,7 @@ import { CarProductsComponent } from '../car-products/car-products.component';
   declarations: [
     DashboardComponent,
     HomeComponent,
-    CategoryComponent,
+    LoginComponent,
     CarProductsComponent],
   imports: [
     CommonModule,
