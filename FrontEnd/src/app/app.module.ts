@@ -8,13 +8,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthInterceptorService} from './shared/services/auth-interceptor.service';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { RegistroComponent } from './screens/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     UsuarioComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

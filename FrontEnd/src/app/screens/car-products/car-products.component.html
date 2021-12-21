@@ -1,21 +1,196 @@
-<p>car-products works!</p>
 
-<div class="p-2">
-    <table class="table table-striped table-dark">
-        <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
-        </tbody>
-    </table>
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" >My Bank</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <a class="nav-item nav-link active" [routerLink]="['../inicio']">Inicio</a>
+                      <a class="nav-item nav-link" [routerLink]="['../inicio']">Quienes somos</a>
+          <a class="nav-item nav-link"  >Contactanos</a>
+                              
+           <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestros productos</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown01">
+                <a class="dropdown-item" href="#">Cuenta de ahorros</a>
+                <a class="dropdown-item" href="#">Cuenta corriente</a>
+                <a class="dropdown-item" href="#">Hipotecas</a>
+                <a class="dropdown-item" href="#">Prestamos</a>
+              </div>
+            </li>
+                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"   [routerLink]="['../login']">Iniciar sesión</button>  </div>
+                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"  [routerLink]="['../card-product']">Registrarse</button> </div>
+                      
+          
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+           <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
+          <div> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>  </div>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <br>
+  <div class="row">
+      <div class="col">
+        
+      </div>
+  </div>
 </div>
 
+
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Crea tu cuenta</h3>
+            <form>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+
+                  <select class="select form-control-lg">
+                    <option value="1" disabled>Elije una opcion</option>
+                    <option value="2">Ahorros</option>
+                    <option value="3">Corriente</option>
+                    
+                  </select>
+                  <br>
+                  <label class="form-label" for="form3Example1c">Elige el tipo de cuenta</label>
+                  <br>
+
+                  <div class="form-outline">
+                    <br>
+                    <input type="text" id="firstName" class="form-control form-control-lg" />
+                    <label class="form-label" for="firstName">Nombre</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <select class="select form-control-lg">
+                    <br>
+                    <option value="1" disabled>Elije una opcion</option>
+                    <option value="2">Cedula de ciudadania</option>
+                    <option value="3">Pasaporte</option>
+                    <option value="3">Tarjeta de identidad</option>
+                    
+                  </select>
+                  <br>
+                  <label class="form-label" for="form3Example1c">Elige el tipo de identificacion</label>
+
+
+
+                  <div class="form-outline">
+                    <br>
+                    <input type="text" id="lastName" class="form-control form-control-lg" />
+                    <label class="form-label" for="lastName">Apellidos</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                  <div class="form-outline datepicker w-100">
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="birthdayDate"
+                    />
+                    <label for="birthdayDate" class="form-label">Fecha de nacimiento</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+
+                  <h6 class="mb-2 pb-1">Género: </h6>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="femaleGender"
+                      value="option1"
+                      checked
+                    />
+                    <label class="form-check-label" for="femaleGender">Femenino</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="maleGender"
+                      value="option2"
+                    />
+                    <label class="form-check-label" for="maleGender">Masculino</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="inlineRadioOptions"
+                      id="otherGender"
+                      value="option3"
+                    />
+                    <label class="form-check-label" for="otherGender">Otro</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                    <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                    <label class="form-label" for="emailAddress">Email</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+
+                  <div class="form-outline">
+                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+
+                  <select class="select form-control-lg">
+                    <option value="1" disabled>Choose option</option>
+                    <option value="2">Subject 1</option>
+                    <option value="3">Subject 2</option>
+                    <option value="4">Subject 3</option>
+                  </select>
+                  <label class="form-label select-label">Choose option</label>
+
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2">
+                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
