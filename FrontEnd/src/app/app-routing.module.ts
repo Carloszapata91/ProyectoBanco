@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './screens/home/home.component';
+import {ReactiveFormsModule} from '@angular/forms'
 
 const routes: Routes = [
   { path:'', redirectTo:'dashboard', pathMatch:'full' },
@@ -8,7 +10,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),FormsModule,ReactiveFormsModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
