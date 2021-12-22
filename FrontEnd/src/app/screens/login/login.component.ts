@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   
 login(form: NgForm)  {
   const usuario = form.value.usuario;
-  const contrasena = form.value.contrasena
+  const contrasena = form.value.contrasena;
 
 }
  
