@@ -14,7 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    
   }
   
 login(form: NgForm)  {
