@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './screens/home/home.component';
 import {ReactiveFormsModule} from '@angular/forms'
+import { ContactoComponent } from './screens/contacto/contacto.component';
 
 const routes: Routes = [
   { path:'', redirectTo:'dashboard', pathMatch:'full' },

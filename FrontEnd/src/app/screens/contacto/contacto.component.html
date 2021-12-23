@@ -1,44 +1,49 @@
+<br>
+<br>
 
-<div class="container-fluid">
+<div class="container py-4">
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" >My Bank</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <a class="nav-item nav-link active" [routerLink]="['../inicio']">Inicio</a>
-                      <a class="nav-item nav-link" [routerLink]="['../inicio']">Quienes somos</a>
-          <a class="nav-item nav-link" [routerLink]="['../contacto']" >Contactanos</a>
-                              
-           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestros productos</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Cuenta de ahorros</a>
-                <a class="dropdown-item" href="#">Cuenta corriente</a>
-                <a class="dropdown-item" href="#">Hipotecas</a>
-                <a class="dropdown-item" href="#">Prestamos</a>
-              </div>
-            </li>
-                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"   [routerLink]="['../login']">Iniciar sesión</button>  </div>
-                      <div> <button class="btn btn-success" style="margin-right: 10px" style="margin-left: 5px"  [routerLink]="['../card-product']">Registrarse</button> </div>
-                      
-          
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-           <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
-          <div> <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>  </div>
-        </form>
-      </div>
-    </nav>
-    <br>
-    <br>
-  <div class="row">
-      <div class="col">
-        
-      </div>
-  </div>
+  <!-- Bootstrap 5 starter form -->
+  <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+    <!-- Name input -->
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
+      <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
+    </div>
+
+    <!-- Email address input -->
+    <div class="mb-3">
+      <label class="form-label" for="emailAddress">Email Address</label>
+      <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required, email" />
+      <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+      <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+    </div>
+
+    <!-- Message input -->
+    <div class="mb-3">
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+      <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
+    </div>
+
+    <!-- Form submissions success message -->
+    <div class="d-none" id="submitSuccessMessage">
+      <div class="text-center mb-3">Form submission successful!</div>
+    </div>
+
+    <!-- Form submissions error message -->
+    <div class="d-none" id="submitErrorMessage">
+      <div class="text-center text-danger mb-3">Error sending message!</div>
+    </div>
+
+    <!-- Form submit button -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+    </div>
+
+  </form>
+
 </div>
 
