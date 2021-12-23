@@ -11,7 +11,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {AuthInterceptorService} from './shared/services/auth-interceptor.service';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './screens/registro/registro.component';
 import { ContactoComponent } from './screens/contacto/contacto.component';
 import { OperacionesComponent } from './operaciones/operaciones.component';
@@ -22,7 +21,6 @@ import { OperacionesComponent } from './operaciones/operaciones.component';
     AppComponent,
     DashboardComponent,
     UsuarioComponent,
-    UsuariosComponent,
     RegistroComponent,
     ContactoComponent,
     OperacionesComponent
