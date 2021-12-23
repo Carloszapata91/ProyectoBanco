@@ -89,11 +89,17 @@
                   </select>
                   <br>
                   <label class="form-label" for="form3Example1c">Elige el tipo de identificación</label>
-
-                  <div class="form-outline">
+                  
+                  <div class="form-outline datepicker w-100">
                     <br>
-                    <input type="text" id="city" class="form-control form-control-lg" placeholder="Ciudad" required />
-                    <label class="form-label" for="lastName">Ciudad</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="birthdayDate"
+                      placeholder="Fecha de nacimiento"
+                      required
+                    />
+                    <label for="birthdayDate" class="form-label">Fecha de nacimiento</label>
                   </div>
 
                   <div class="form-outline">
@@ -108,18 +114,15 @@
               <div class="row">
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
-                  <div class="form-outline datepicker w-100">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      id="birthdayDate"
-                      placeholder="Fecha de nacimiento"
-                      required
-                    />
-                    <label for="birthdayDate" class="form-label">Fecha de nacimiento</label>
+                  <div class="form-outline">
+                    <input type="email" id="emailAddress" class="form-control form-control-lg" placeholder="Correo electrónico" required />
+                    <label class="form-label" for="emailAddress">Correo electrónico</label>
                   </div>
-
+  
+                  
                 </div>
+                
+                
                 <div class="col-md-6 mb-4">
 
                   <h6 class="mb-2 pb-1">Género: </h6>
@@ -164,17 +167,17 @@
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
 
-                  <div class="form-outline">
-                    <input type="email" id="emailAddress" class="form-control form-control-lg" placeholder="Correo electrónico" required />
-                    <label class="form-label" for="emailAddress">Correo electrónico</label>
+                  <div class="form-outline mb-4">
+                    <input type="text" name="usuario"  id="form2Example17" placeholder="Usuario" class="form-control form-control-lg" ngModel required size="8" autocomplete="off"/>
+                    <label class="form-label" for="form2Example17">Usuario</label>
                   </div>
 
                 </div>
                 <div class="col-md-6 mb-4 pb-2">
 
-                  <div class="form-outline">
-                    <input type="tel" id="phoneNumber" class="form-control form-control-lg" placeholder="Número de teléfono" required/>
-                    <label class="form-label" for="phoneNumber">Número de teléfono</label>
+                  <div class="form-outline mb-4">
+                    <input type="password"name="contrasena" id="form2Example27" placeholder="Contraseña" class="form-control form-control-lg" ngModel required size="10" autocomplete="off" />
+                    <label class="form-label" for="form2Example27">Contraseña</label>
                   </div>
 
                 </div>
