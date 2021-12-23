@@ -1,46 +1,74 @@
 <br>
 <br>
 
-<div class="container py-4">
 
-  <!-- Bootstrap 5 starter form -->
-  <form  >
+    <h1 style="text-align: center;"> Comunicate con nosotros </h1>
 
-    <!-- Name input -->
-    <div class="mb-3">
-      <label class="form-label" for="name">Nombre y apellidos</label>
-      <input class="form-control" id="name" type="text" required placeholder="Nombre y apellidos"  />
-      
+
+<section class="vh-100" style="background-color: white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block"><br><br><br><br><br>
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                alt="login form"
+                class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <!-- Bootstrap 5 starter form -->
+
+                <form  >
+
+                  <!-- Name input -->
+                  <div class="mb-3">
+                    <label class="form-label" for="name">Nombre y apellidos</label>
+                    <input class="form-control" id="name" type="text" required placeholder="Nombre y apellidos"  />
+                    
+                  </div>
+              
+                  <!-- Email address input -->
+                  <div class="mb-3">
+                    <label class="form-label" for="emailAddress">Correo electrónico</label>
+                    <input class="form-control" required autocomplete="off" id="emailAddress" type="email" placeholder="Correo electrónico" data-sb-validations="required, email" />
+                  </div>
+                  
+                  <!-- Message input -->
+                  <div class="mb-3">
+                    <label class="form-label" for="message">Mensaje</label>
+                    <textarea class="form-control" id="message" type="text" autocomplete="off" required placeholder="Mensaje" style="height: 10rem;" data-sb-validations="required"></textarea>
+                  </div>
+              
+                  <!-- Form submissions success message -->
+                  <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center mb-3">Form submission successful!</div>
+                  </div>
+              
+                  <!-- Form submissions error message -->
+                  <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                  </div>
+              
+                  <!-- Form submit button -->
+                  <div class="d-grid">
+                    <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar</button>
+                  </div>
+              
+                </form>
+              
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+ 
 
-    <!-- Email address input -->
-    <div class="mb-3">
-      <label class="form-label" for="emailAddress">Correo electrónico</label>
-      <input class="form-control" required autocomplete="off" id="emailAddress" type="email" placeholder="Correo electrónico" data-sb-validations="required, email" />
-    </div>
-    
-    <!-- Message input -->
-    <div class="mb-3">
-      <label class="form-label" for="message">Mensaje</label>
-      <textarea class="form-control" id="message" type="text" autocomplete="off" required placeholder="Mensaje" style="height: 10rem;" data-sb-validations="required"></textarea>
-    </div>
-
-    <!-- Form submissions success message -->
-    <div class="d-none" id="submitSuccessMessage">
-      <div class="text-center mb-3">Form submission successful!</div>
-    </div>
-
-    <!-- Form submissions error message -->
-    <div class="d-none" id="submitErrorMessage">
-      <div class="text-center text-danger mb-3">Error sending message!</div>
-    </div>
-
-    <!-- Form submit button -->
-    <div class="d-grid">
-      <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Enviar</button>
-    </div>
-
-  </form>
-
-</div>
-
+</section>

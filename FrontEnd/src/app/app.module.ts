@@ -14,6 +14,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RegistroComponent } from './screens/registro/registro.component';
 import { ContactoComponent } from './screens/contacto/contacto.component';
+import { OperacionesComponent } from './operaciones/operaciones.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ContactoComponent } from './screens/contacto/contacto.component';
     UsuarioComponent,
     UsuariosComponent,
     RegistroComponent,
-    ContactoComponent
+    ContactoComponent,
+    OperacionesComponent
   ],
   imports: [
     BrowserModule,

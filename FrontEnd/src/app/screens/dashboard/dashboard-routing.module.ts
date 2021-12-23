@@ -6,6 +6,7 @@ import{ HomeComponent } from '../home/home.component';
 import { ContactoComponent } from '../contacto/contacto.component';
 import { UsuarioComponent } from 'src/app/usuario/usuario.component';
 import { RegistroComponent } from '../registro/registro.component';
+import { OperacionesComponent } from 'src/app/operaciones/operaciones.component';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -17,7 +18,8 @@ const routes: Routes = [
      {path:'login',component:LoginComponent},
      {path:'contacto',component:ContactoComponent},
      {path:'usuario',component:UsuarioComponent},
-     {path:'registro',component:RegistroComponent}
+     {path:'registro',component:RegistroComponent},
+     {path:'operaciones',component:OperacionesComponent}
    ]},
    {path:'card-product',component:CarProductsComponent}
 ];
