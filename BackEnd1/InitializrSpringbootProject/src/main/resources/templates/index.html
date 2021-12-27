@@ -4,7 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>MyBank</title>
         <meta charset="UTF-8">
@@ -12,5 +12,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
        <h1> Hola: Bienvenido a MyBank </h1> 
+       <p th:text="${mensaje}"></p>
+       <br/>
+       Nombre: <span th:text="${usuario.nombre}">Mostrar Nombre</span>
+       <br/>
+       Apellido: <span th:text="${usuario.apellidos}">Mostrar Apellido</span>
+       
     </body>
 </html>
