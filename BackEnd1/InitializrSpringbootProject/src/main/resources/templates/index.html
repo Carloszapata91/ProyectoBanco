@@ -19,6 +19,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div th:if="${usuarios != null and !usuarios.empty}">
             <table border="1">
                 <tr>
+                    <th>Numero de cuenta</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Tipo identificacion</th>
@@ -29,6 +30,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <th>Teléfono</th>
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id_usuario}">Mostrar Numero de cuenta</td>
                     <td th:text="${usuario.nombre}">Mostrar Nombre</td>
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td th:text="${usuario.tipo_identificacion}">Tipo identificacion</td>

@@ -5,14 +5,14 @@
 package proyectos.bootcamp.web;
 
 import lombok.extern.slf4j.Slf4j;
+import lombok.var;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import proyectos.bootcamp.domain.Usuario;
-import java.util.Date;
-import lombok.var;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import proyectos.bootcamp.dao.UsuarioDao;
+import proyectos.bootcamp.servicio.UsuarioService;
 
 /**
  *
@@ -22,13 +22,13 @@ import proyectos.bootcamp.dao.UsuarioDao;
 @Slf4j       //Facilita visualizar mensajes en la consola (log.console)
 public class ControladorInicio {
 
-    @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioDao en esta clase
-    private UsuarioDao usuarioDao;
+    @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
+    private UsuarioService usuarioService;
     
     @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio(Model model){ 
      
-     var usuarios = usuarioDao.findAll();
+     var usuarios = usuarioService.listarUsuarios();
      
      log.info("Ejecutando un controlador Spring MVC");
      
