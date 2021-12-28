@@ -20,14 +20,14 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long  idUsuario;
+    private Long  id_usuario;
     private String nombre;
-    private String apellidos;
-    private String tipoIdentificacion; 
-    private Double numeroIdentificacion;
-    private String correoElectronico;
-    private String fechaNacimiento;
-    private String fechaCreacionCuenta;
+    private String apellido;
+    private String tipo_identificacion; 
+    private Double numero_identificacion;
+    private String email;
+    private String fecha_nacimiento;
+    private String fecha_creacion_cuenta;
     private Double telefono;
  
 

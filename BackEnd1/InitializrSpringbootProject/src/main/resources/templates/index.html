@@ -12,11 +12,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
        <h1> Hola: Bienvenido a MyBank </h1> 
-       <p th:text="${mensaje}"></p>
        <br/>
-       Nombre: <span th:text="${usuario.nombre}">Mostrar Nombre</span>
-       <br/>
-       Apellido: <span th:text="${usuario.apellidos}">Mostrar Apellido</span>
+      
+        <h1>Inicio</h1>
+        
+        <div th:if="${usuarios != null and !usuarios.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo identificacion</th>
+                    <th>Numero identificacion</th>
+                    <th>Email</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Fecha creacion cuenta</th>
+                    <th>Teléfono</th>
+                </tr>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
+                    <td th:text="${usuario.apellido}">Mostrar Apellido</td>
+                    <td th:text="${usuario.tipo_identificacion}">Tipo identificacion</td>
+                    <td th:text="${usuario.numero_identificacion}">Numero identificacion</td>
+                    <td th:text="${usuario.email}">Mostrar Email</td>
+                    <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
+                    <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
+                    <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
+                </tr>
+            </table>
+        </div>
+        
+       
        
     </body>
 </html>
