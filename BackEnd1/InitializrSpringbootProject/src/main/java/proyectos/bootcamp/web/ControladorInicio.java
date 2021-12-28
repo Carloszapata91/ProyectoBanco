@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import proyectos.bootcamp.dao.UsuarioDao;
+import proyectos.bootcamp.domain.Usuario;
 import proyectos.bootcamp.servicio.UsuarioService;
 
 /**
@@ -36,4 +38,14 @@ public class ControladorInicio {
      return "index";
      }
 
+     @GetMapping("/crearUsuario")
+     public String crearUsuario(Usuario usuario){
+         return "modificar";
+     }
+
+     @PostMapping("/guardar")
+     public String guardar (Usuario usuario){
+          usuarioService.guardar(usuario);
+           return "redirect:/";
+     }
 }
