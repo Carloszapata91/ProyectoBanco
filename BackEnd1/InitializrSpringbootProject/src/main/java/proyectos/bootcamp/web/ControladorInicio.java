@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyectos.bootcamp;
+package proyectos.bootcamp.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,18 +21,10 @@ public class ControladorInicio {
     
     @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio(Model model){
-     String mensaje = "Mensaje usando Thymeleaf";
-
-     Usuario usuario= new Usuario();
-     usuario.setNombre("Coco");
-     usuario.setApellidos("Cocoso");
-     usuario.setCorreoElectronico("cocococoso@gmail.com");
-     usuario.setTipoIdentificacion("Pasaporte canino");
-     usuario.setFechaNacimiento("11/01/2014");
-
+     
      log.info("Ejecutando un controlador Spring MVC");
-     model.addAttribute("mensaje",mensaje);
-     model.addAttribute("usuario",usuario);
+     
+     //model.addAttribute("usuario",usuario);
      return "index";
      }
 
