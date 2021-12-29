@@ -10,24 +10,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-       <h1> Bienvenido a MyBank </h1> 
+    <body style="background-color:#cc6600">
+       <h1>&nbsp;&nbsp; Bienvenido a MyBank </h1> 
        <br/>
-       <h2> ¿Que desea hacer?</h2> 
+       <h2>&nbsp;&nbsp; ¿Qué desea hacer?</h2> 
        <br/>
        
-       <a th:href="@{/crearUsuario}"> Crear Usuario</a>
+       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/crearUsuario}"> Crear Usuario</a>
        <br/>
        <br/>
-       <a th:href="@{/verUsuarios}"> Editar Usuario</a>
+       <br/>
+       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/verUsuarios}"> Editar/Eliminar Usuario</a>
        <br/>
        <br/>
              
        <br/>
        
        <form method="POST" th:action="@{/logout}">
-           <input type="submit" name="Salir" value="Salir"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;   <input type="submit" name="Salir" value="Salir"/>
        </form>
+       
        
        
     </body>

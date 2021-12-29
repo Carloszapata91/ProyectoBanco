@@ -1,17 +1,21 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Datos del nuevo usuario</title>
+        <title>Crear usuario</title>
        
     </head>
-    <body>
+    <body style="background-color:#999900">
+        
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
         <h1>Datos del nuevo usuario</h1>
        
         
     <br/>
         <form th:action="@{/guardar}" method="post" th:object="${usuario}">
             <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
-            <br/>
+            
             <label for="nombre">Nombre:</label>
             <input type="text" placeholder="Nombre" required="true" autocomplete="off" name="nombre" th:field="*{nombre}"/>
             <br/>
