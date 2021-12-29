@@ -48,4 +48,19 @@ public class ControladorInicio {
           usuarioService.guardar(usuario);
            return "redirect:/";
      }
+
+     @GetMapping("/editar/{id_usuario}")
+     public String editar(Usuario usuario, Model model){
+        usuario = usuarioService.encontrarUsuario(usuario);
+        model.addAttribute("usuario", usuario);
+        return "modificar";
+     }
+
+    @GetMapping("/verUsuarios")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String verUsuarios(Model model){ 
+        
+        var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        return "verUsuarios";
+    }
 }

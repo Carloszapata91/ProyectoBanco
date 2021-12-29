@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>MyBank</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de usuarios</title>
+       
     </head>
     <body>
-       <h1> Hola: Bienvenido a MyBank </h1> 
-       <br/>
-      
-       <a th:href="@{/crearUsuario}"> Crear Usuario</a>
-       <br/>
-       <a th:href="@{/verUsuarios}"> Editar Usuario</a>
-       <br/>
-       <a th:href="@{/eliminarUsuario}"> Eliminar Usuario</a>
-       
+        
         <h1>Lista de usuarios</h1>
         
-        <div th:if="${usuarios != null and !usuarios.empty}">
+           <div th:if="${usuarios != null and !usuarios.empty}">
             <table border="1">
                 <tr>
                     <th>Numero de cuenta</th>
@@ -51,8 +37,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </tr>
             </table>
         </div>
-        
        
-       
+        <br/>
+            <a th:href="@{/}"> Regresar </a>
+    
+    
     </body>
+    
 </html>
