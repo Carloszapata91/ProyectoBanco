@@ -23,6 +23,7 @@
                     <th>Fecha creación cuenta</th>
                     <th>Teléfono</th>
                     <th>Editar</th>
+                    <th>Eliminar</th>
                     
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
@@ -36,6 +37,7 @@
                     <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
                     <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
                     <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Editar"/></td>
+                    <td> <a th:href="@{/eliminar/} + ${usuario.id_usuario}" th:text="Eliminar"/></td>
                 </tr>
             </table>
         </div>

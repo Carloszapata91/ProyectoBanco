@@ -63,4 +63,10 @@ public class ControladorInicio {
         model.addAttribute("usuarios",usuarios);
         return "verUsuarios";
     }
+
+    @GetMapping("/eliminar/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String eliminar(Usuario usuario){ 
+        usuarioService.eliminar(usuario);
+        return "redirect:/";
+    }
 }
