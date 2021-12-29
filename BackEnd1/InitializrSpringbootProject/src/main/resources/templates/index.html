@@ -11,46 +11,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-       <h1> Hola: Bienvenido a MyBank </h1> 
+       <h1> Bienvenido a MyBank </h1> 
        <br/>
-      
+       <h2> ¿Que desea hacer?</h2> 
+       <br/>
+       
        <a th:href="@{/crearUsuario}"> Crear Usuario</a>
+       <br/>
        <br/>
        <a th:href="@{/verUsuarios}"> Editar Usuario</a>
        <br/>
+       <br/>
        <a th:href="@{/eliminarUsuario}"> Eliminar Usuario</a>
        
-        <h1>Lista de usuarios</h1>
-        
-        <div th:if="${usuarios != null and !usuarios.empty}">
-            <table border="1">
-                <tr>
-                    <th>Numero de cuenta</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Tipo identificacion</th>
-                    <th>Numero identificacion</th>
-                    <th>Email</th>
-                    <th>Fecha de nacimiento</th>
-                    <th>Fecha creacion cuenta</th>
-                    <th>Teléfono</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-                <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.id_usuario}">Mostrar Numero de cuenta</td>
-                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
-                    <td th:text="${usuario.apellido}">Mostrar Apellido</td>
-                    <td th:text="${usuario.tipo_identificacion}">Tipo identificacion</td>
-                    <td th:text="${usuario.numero_identificacion}">Numero identificacion</td>
-                    <td th:text="${usuario.email}">Mostrar Email</td>
-                    <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
-                    <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
-                    <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
-                    <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Editar"/></td>
-                </tr>
-            </table>
-        </div>
+       
         
        
        

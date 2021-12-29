@@ -5,7 +5,9 @@
        
     </head>
     <body>
-        
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
         <h1>Lista de usuarios</h1>
         
            <div th:if="${usuarios != null and !usuarios.empty}">
@@ -14,11 +16,11 @@
                     <th>Numero de cuenta</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Tipo identificacion</th>
-                    <th>Numero identificacion</th>
+                    <th>Tipo identificación</th>
+                    <th>Numero identificación</th>
                     <th>Email</th>
                     <th>Fecha de nacimiento</th>
-                    <th>Fecha creacion cuenta</th>
+                    <th>Fecha creación cuenta</th>
                     <th>Teléfono</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
@@ -27,8 +29,8 @@
                     <td th:text="${usuario.id_usuario}">Mostrar Numero de cuenta</td>
                     <td th:text="${usuario.nombre}">Mostrar Nombre</td>
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
-                    <td th:text="${usuario.tipo_identificacion}">Tipo identificacion</td>
-                    <td th:text="${usuario.numero_identificacion}">Numero identificacion</td>
+                    <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
+                    <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
                     <td th:text="${usuario.email}">Mostrar Email</td>
                     <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
                     <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
