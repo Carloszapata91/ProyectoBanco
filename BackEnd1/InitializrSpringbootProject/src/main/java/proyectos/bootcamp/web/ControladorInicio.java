@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import proyectos.bootcamp.dao.UsuarioDao;
 import proyectos.bootcamp.domain.Usuario;
+import proyectos.bootcamp.servicio.CuentaService;
 import proyectos.bootcamp.servicio.UsuarioService;
 
 /**
@@ -33,9 +34,8 @@ public class ControladorInicio {
      var usuarios = usuarioService.listarUsuarios();
      
      log.info("Ejecutando un controlador Spring MVC");
-     
      model.addAttribute("usuarios",usuarios);
-     return "index";
+       return "index";
      }
 
      @GetMapping("/crearUsuario")
@@ -69,4 +69,6 @@ public class ControladorInicio {
         usuarioService.eliminar(usuario);
         return "redirect:/";
     }
+
+    
 }
