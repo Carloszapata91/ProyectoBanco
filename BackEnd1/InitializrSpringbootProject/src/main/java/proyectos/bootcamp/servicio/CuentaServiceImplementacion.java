@@ -40,7 +40,7 @@ public class CuentaServiceImplementacion implements CuentaService{
     @Override
     @Transactional(readOnly=true)
     public Cuenta encontrarCuenta (Cuenta cuenta){
-         return cuentaDao.findById(cuenta.getId_cuenta()).orElse(null);
+         return cuentaDao.findById(cuenta.getId_usuario()).orElse(null);
     } 
 
 }
