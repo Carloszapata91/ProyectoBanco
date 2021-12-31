@@ -30,5 +30,6 @@ public class Cuenta implements Serializable{
     private String estado;
     private String fecha_apertura;
     private String saldo; 
+    private Double numero_cuenta;
 }
 

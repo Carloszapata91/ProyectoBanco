@@ -13,7 +13,7 @@
        
         
     <br/>
-        <form th:action="@{/guardar}" method="post" th:object="${usuario}">
+        <form th:action="@{/guardar}" method="post" th:object="${usuario}" >
             <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
             
             <label for="nombre">Nombre:</label>
@@ -29,7 +29,7 @@
             <br/>
             <br/>
             <label for="numero_identificacion">Numero de identificación:</label>
-            <input type="text" name="numero_identificacion" placeholder="Numero de identificación" required="true" th:field="*{numero_identificacion}"/>
+            <input type="text" name="numero_identificacion" placeholder="Numero de identificación" required="true"  th:field="*{numero_identificacion}"/>
             <br/>
             <br/>
             <label for="email">Email:</label>
@@ -48,6 +48,36 @@
             <input type="tel" name="telefono" placeholder="Teléfono" required="true" th:field="*{telefono}"/>
             <br/>
             <br/>
+            
+            <h1>Datos de la cuenta </h1>
+            
+           <!-- <br/>
+            <br/> 
+            <label for="numeroCuenta">Id_usuario:</label>
+           <input type="text" name="numeroCuenta"  placeholder="Numero identificacion" th:field="${usuario.cuenta.id_usuario}"    />
+ 
+           <br/>
+           <br/>
+           
+            <label for="tipo">Tipo de cuenta:</label>
+            <input type="text" name="tipo" placeholder="Ahorros ó Corriente" required="true" th:field="${usuario.cuenta.tipo}"/>
+            <br/>
+            <br/>
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" placeholder="Activa ó Inactiva" required="true" th:field="${usuario.cuenta.estado}"/>
+            <br/>
+            <br/>
+            <label for="fecha_apertura">Fecha apertura:</label>
+            <input type="text" name="fecha_apertura" placeholder="dd/mm/aaaa" required="true" th:field="${usuario.cuenta.fecha_apertura}"/>
+            <br/>
+            <br/>
+           <label for="saldo">Saldo:</label>
+            <input type="number" name="saldo" placeholder="Saldo" required="true" th:field="${usuario.cuenta.saldo}"/>
+            <br/>
+            <br/>
+            
+            -->
+            
             <input type="submit" name="guardar" value="Guardar"/>
         </form>
     

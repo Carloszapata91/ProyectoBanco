@@ -42,4 +42,7 @@ public class Usuario implements Serializable {
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="id_usuario",unique=true)
     private  Cuenta cuenta;
+
+  
+   
 }
