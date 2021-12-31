@@ -4,16 +4,17 @@
  */
 package proyectos.bootcamp.servicio;
 
-
 import proyectos.bootcamp.dao.cuentaDao;
 import proyectos.bootcamp.domain.Cuenta;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author cocot
  */
+@Service
 public class CuentaServiceImplementacion implements CuentaService{
      
     @Autowired
@@ -27,13 +28,13 @@ public class CuentaServiceImplementacion implements CuentaService{
 
     @Override
     @Transactional   //Hace modificaciones)
-    public void guardar (Cuenta cuenta){
+    public void guardarC (Cuenta cuenta){
         cuentaDao.save(cuenta);
     }
     
     @Override
     @Transactional
-    public void eliminar (Cuenta cuenta){
+    public void eliminarC (Cuenta cuenta){
           cuentaDao.delete(cuenta);
     }
 

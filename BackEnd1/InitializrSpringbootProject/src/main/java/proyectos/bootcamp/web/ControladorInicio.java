@@ -4,6 +4,7 @@
  */
 package proyectos.bootcamp.web;
 
+import static java.lang.System.console;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.stereotype.Controller;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import proyectos.bootcamp.dao.UsuarioDao;
+import proyectos.bootcamp.domain.Cuenta;
 import proyectos.bootcamp.domain.Usuario;
 import proyectos.bootcamp.servicio.CuentaService;
 import proyectos.bootcamp.servicio.UsuarioService;
+
 
 /**
  *
@@ -27,14 +30,19 @@ public class ControladorInicio {
 
     @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
     private UsuarioService usuarioService;
-    
-    @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
+
+    @Autowired
+    private CuentaService cuentaService;
+
+        @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio(Model model){ 
      
      var usuarios = usuarioService.listarUsuarios();
-     
+    // var cuentas= cuentaService.listarCuentas();
+
      log.info("Ejecutando un controlador Spring MVC");
      model.addAttribute("usuarios",usuarios);
+    // model.addAttribute("cuentas",cuentas);
        return "index";
      }
 
@@ -69,6 +77,22 @@ public class ControladorInicio {
         usuarioService.eliminar(usuario);
         return "redirect:/";
     }
+
+     @GetMapping("/crearCuenta")
+     public String crearCuenta(Cuenta cuenta){
+         return "crearCuenta";
+     }
+     
+  //  @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface CuentaService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (cuentaDao)
+ //   private CuentaService cuentaService;
+
+     @PostMapping("/guardarC")
+    public String guardarC (Cuenta cuenta){
+          log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
+          
+          cuentaService.guardarC(cuenta);
+           return "redirect:/";
+     }
 
     
 }

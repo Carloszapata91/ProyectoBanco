@@ -12,9 +12,10 @@ import proyectos.bootcamp.domain.Cuenta;
 public interface CuentaService {
 
     public List<Cuenta> listarCuentas();
-    public void guardar (Cuenta cuenta);
+
+    public void guardarC (Cuenta cuenta);
     
-    public void eliminar (Cuenta cuenta);
+    public void eliminarC (Cuenta cuenta);
 
     public Cuenta encontrarCuenta (Cuenta cuenta);
 }

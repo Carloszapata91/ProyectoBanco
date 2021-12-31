@@ -14,3 +14,5 @@ import proyectos.bootcamp.domain.Usuario;
 public interface UsuarioDao extends CrudRepository<Usuario, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
     //Aqui puedo definir todos los querys personalizados que necesite
 }
+
+

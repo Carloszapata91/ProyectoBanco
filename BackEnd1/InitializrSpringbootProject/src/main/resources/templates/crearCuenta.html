@@ -1,0 +1,55 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Crear cuenta</title>
+       
+    </head>
+    <body style="background-color:#999900">
+        
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
+        <h1>Datos de la nueva cuenta</h1>
+        <br/>
+        
+        <form th:action="@{/guardarC}" method="post" th:object="${cuenta}" >
+              
+              <br/>
+            <br/>
+           <label for="id_usuario">Numero Cuenta:</label>
+            <input type="number" name="id_usuario" placeholder="Numero cuenta" required="true" th:field="${cuenta.id_usuario}"/>
+           
+
+            
+           <br/>
+           <br/>
+           
+            <label for="tipo">Tipo de cuenta:</label>
+            <input type="text" name="tipo" placeholder="Ahorros ó Corriente" required="true" th:field="${cuenta.tipo}"/>
+            <br/>
+            <br/>
+            <label for="estado">Estado:</label>
+            <input type="text" name="estado" placeholder="Activa ó Inactiva" required="true" th:field="${cuenta.estado}"/>
+            <br/>
+            <br/>
+            <label for="fecha_apertura">Fecha apertura:</label>
+            <input type="text" name="fecha_apertura" placeholder="dd/mm/aaaa" required="true" th:field="${cuenta.fecha_apertura}"/>
+            <br/>
+            <br/>
+           <label for="saldo">Saldo:</label>
+            <input type="number" name="saldo" placeholder="Saldo" required="true" th:field="${cuenta.saldo}"/>
+            <br/>
+            <br/>
+            
+            
+            
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form> 
+    
+        <br/>
+            <a th:href="@{/}"> Regresar </a>
+            
+    
+    </body>
+    
+</html>

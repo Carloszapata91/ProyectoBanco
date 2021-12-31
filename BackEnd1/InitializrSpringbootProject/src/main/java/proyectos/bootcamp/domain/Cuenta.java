@@ -24,12 +24,12 @@ public class Cuenta implements Serializable{
     private static final long serialVersionUID= 1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    //@GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long  id_usuario;
     private String tipo;
     private String estado;
     private String fecha_apertura;
     private String saldo; 
-    private Double numero_cuenta;
+    
 }
 

@@ -31,17 +31,17 @@ public class Usuario implements Serializable {
     private Double telefono;
  
 
-     public void setCuenta(Cuenta cuenta){
-       this.cuenta=cuenta;
-     }
+ //    public void setCuenta(Cuenta cuenta){
+ //      this.cuenta=cuenta;
+ //    }
 
-    public Cuenta getCuenta(){
-        return cuenta;
-     }
+ //   public Cuenta getCuenta(){
+//        return cuenta;
+ //    }
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="id_usuario",unique=true)
-    private  Cuenta cuenta;
+ //   @OneToOne(cascade=CascadeType.ALL)
+ //   @JoinColumn(name="id_usuario",unique=true)
+ //   private  Cuenta cuenta;
 
   
    
