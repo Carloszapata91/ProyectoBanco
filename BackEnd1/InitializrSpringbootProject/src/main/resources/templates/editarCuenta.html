@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Lista de usuarios</title>
+       
+    </head>
+    <body style="background-color:#999900">
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
+        <h1>Lista de cuentas</h1>
+        
+           <div th:if="${cuentas != null and !cuentas.empty}">
+            <table border="1">
+                <tr>
+                    <th>Numero cuenta</th>
+                    <th>Tipo de cuenta</th>
+                    <th>Estado</th>
+                    <th>Fecha de apertura</th>
+                    <th>Saldo</th>
+                    <th>Editar</th>
+                    
+                    
+                </tr>
+                <tr th:each="cuenta : ${cuentas}">
+                    <td th:text="${cuenta.id_usuario}">Numero de cuenta</td>
+                    <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
+                    <td th:text="${cuenta.estado}">Estado</td>
+                    <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
+                    <td th:text="${cuenta.saldo}">Saldo</td>
+                   
+                </tr>
+            </table>
+        </div>
+       
+        <br/>
+            <a th:href="@{/}"> Regresar </a>
+    
+    
+    </body>
+    
+</html>

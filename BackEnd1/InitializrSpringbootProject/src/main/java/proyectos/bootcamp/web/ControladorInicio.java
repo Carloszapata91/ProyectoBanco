@@ -38,11 +38,11 @@ public class ControladorInicio {
     public String inicio(Model model){ 
      
      var usuarios = usuarioService.listarUsuarios();
-    // var cuentas= cuentaService.listarCuentas();
+     var cuentas= cuentaService.listarCuentas();
 
      log.info("Ejecutando un controlador Spring MVC");
      model.addAttribute("usuarios",usuarios);
-    // model.addAttribute("cuentas",cuentas);
+     model.addAttribute("cuentas",cuentas);
        return "index";
      }
 
@@ -89,10 +89,25 @@ public class ControladorInicio {
      @PostMapping("/guardarC")
     public String guardarC (Cuenta cuenta){
           log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
+          if ( 0<=  Double.parseDouble(cuenta.getSaldo()) ){
+             cuentaService.guardarC(cuenta);
+              return "redirect:/";
           
-          cuentaService.guardarC(cuenta);
-           return "redirect:/";
+           }else
+
+          //cuentaService.guardarC(cuenta);
+          log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
+                return "redirect:/";
      }
 
-    
+    @GetMapping("/editarCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String verCuentas(Model model){ 
+        
+        var cuentas = cuentaService.listarCuentas();
+        model.addAttribute("cuentas",cuentas);
+
+        var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        return "editarCuenta";
+    }
 }
