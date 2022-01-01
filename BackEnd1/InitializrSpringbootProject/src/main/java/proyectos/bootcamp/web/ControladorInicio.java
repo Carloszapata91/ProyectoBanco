@@ -94,9 +94,7 @@ public class ControladorInicio {
               return "redirect:/";
           
            }else
-
-          //cuentaService.guardarC(cuenta);
-          log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
+           log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
                 return "redirect:/";
      }
 
@@ -109,5 +107,21 @@ public class ControladorInicio {
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
         return "editarCuenta";
+    }
+
+    @GetMapping("/crearCuenta/{id_usuario}")
+     public String editarCuenta(Cuenta cuenta, Model model){
+        cuenta = cuentaService.encontrarCuenta(cuenta);
+        model.addAttribute("cuenta", cuenta);
+        return "crearCuenta";
+     }
+
+    @GetMapping("/eliminarC/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String eliminarC(Cuenta cuenta){ 
+       
+                log.info("El saldo es: " + cuenta.getSaldo());
+                cuentaService.eliminarC(cuenta);
+                log.info("Solo se pueden eliminar cuentas con saldo igual a cero (0)");
+              return "redirect:/";
     }
 }

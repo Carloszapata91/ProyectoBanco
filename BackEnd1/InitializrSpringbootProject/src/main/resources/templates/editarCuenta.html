@@ -19,6 +19,7 @@
                     <th>Fecha de apertura</th>
                     <th>Saldo (COL$)</th>
                     <th>Editar</th>
+                    <th>Eliminar</th>
                     
                     
                 </tr>
@@ -28,6 +29,8 @@
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
                     <td th:text="${cuenta.saldo}">Saldo </td>
+                    <td> <a th:href="@{/crearCuenta/} + ${cuenta.id_usuario}" th:text="Editar"/></td>
+                    <td> <a th:href="@{/eliminarC/} + ${cuenta.id_usuario}" th:text="Eliminar"/></td>
                    
                 </tr>
             </table>
