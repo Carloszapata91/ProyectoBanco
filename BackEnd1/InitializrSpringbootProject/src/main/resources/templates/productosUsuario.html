@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Editar/Eliminar usuarios</title>
+
+    </head>
+    
+    
+    <body style="background-color:#6666ff">
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
+        <h2> Los productos contratados por: </h2>
+     
+        
+             <div th:if="${usuario != null }">
+            <table border="1">
+                <tr>
+                    
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo identificación</th>
+                    <th>Numero identificación</th>
+                                               
+                </tr>
+                <tr th:each="usuario : ${usuario}">
+                    
+                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
+                    <td th:text="${usuario.apellido}">Mostrar Apellido</td>
+                    <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
+                    <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
+                 
+                 </tr>
+            </table>
+                 <br/>
+                  <h2> son: </h2>
+     
+                 
+        </div>
+        
+           <div th:if="${cuenta != null}">
+             <table border="1">
+                <tr>
+                    <th>Tipo de cuenta</th>
+                    <th>Numero cuenta</th>
+                    <th>Estado</th>
+                    <th>Fecha de apertura</th>
+                    <th>Saldo (COL$)</th>
+                                       
+                    
+                </tr>
+                <tr th:each="cuenta : ${cuenta}">
+                    <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
+                    <td th:text="${cuenta.id_usuario}">Numero de cuenta</td>
+                    <td th:text="${cuenta.estado}">Estado</td>
+                    <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
+                    <td th:text="${cuenta.saldo}">Saldo </td>
+                   
+                   
+                </tr>
+            </table>
+        </div>
+        </br>
+        <br/>
+            <a th:href="@{/resumenUsuario}"> Regresar </a>
+    
+    
+    </body>
+    
+</html>
+

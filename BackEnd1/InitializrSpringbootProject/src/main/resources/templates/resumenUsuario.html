@@ -10,7 +10,7 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2> Seleccione al usuario para ver los productos contratados</h2>
+        <h2> Seleccione al usuario para ver sus productos contratados</h2>
         </br>
         
         
@@ -25,11 +25,7 @@
                     <th>Apellido</th>
                     <th>Tipo identificación</th>
                     <th>Numero identificación</th>
-                    <th>Email</th>
-                    <th>Fecha de nacimiento</th>
-                    <th>Fecha creación</th>
-                    <th>Teléfono</th>
-                    <th>Ver productos asociados</th>
+                    <th>Ver productos contratados</th>
                     
                     
                 </tr>
@@ -39,11 +35,7 @@
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
                     <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
-                    <td th:text="${usuario.email}">Mostrar Email</td>
-                    <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
-                    <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
-                    <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
-                    <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Ver_productos"/></td>
+                    <td> <a th:href="@{/productosUsuario/} + ${usuario.id_usuario}" th:text="Ver_productos"/></td>
                     
                 </tr>
             </table>

@@ -133,6 +133,16 @@ public class ControladorInicio {
         return "resumenUsuario";
     }
 
+    @GetMapping("/productosUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String productosUsuario(Cuenta cuenta, Usuario usuario, Model model){ 
+         
+         cuenta = cuentaService.encontrarCuenta(cuenta);
+         model.addAttribute("cuenta", cuenta);
+
+         usuario = usuarioService.encontrarUsuario(usuario);
+         model.addAttribute("usuario", usuario);
+         return "productosUsuario";
+    }
     
 
 }
