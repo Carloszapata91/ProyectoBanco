@@ -6,7 +6,7 @@
     </head>
     
     
-    <body style="background-color:#6666ff">
+    <body style="background-color:#ff6666">
         <br/>
         <h1> MyBank </h1>
         <br/>
@@ -18,7 +18,7 @@
         
         
            <div th:if="${usuarios != null and !usuarios.empty}">
-            <table border="1">
+            <table border="1" style="text-align: center">
                 <tr>
                     <th>Numero banco</th>
                     <th>Nombre</th>
@@ -38,7 +38,7 @@
                     <td> <a th:href="@{/productosUsuario/} + ${usuario.id_usuario}" th:text="Ver_productos"/></td>
                     
                 </tr>
-            </table>
+            </table >
         </div>
         </br>
         <br/>
