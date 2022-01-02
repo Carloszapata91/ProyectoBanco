@@ -15,9 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import proyectos.bootcamp.dao.UsuarioDao;
 import proyectos.bootcamp.domain.Cuenta;
+import proyectos.bootcamp.domain.Movimientos;
 import proyectos.bootcamp.domain.Usuario;
 import proyectos.bootcamp.servicio.CuentaService;
 import proyectos.bootcamp.servicio.UsuarioService;
+import proyectos.bootcamp.servicio.MovimientosService;
 
 
 /**
@@ -34,15 +36,20 @@ public class ControladorInicio {
     @Autowired
     private CuentaService cuentaService;
 
-        @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
+    @Autowired
+    private MovimientosService movimientosService;
+
+    @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio(Model model){ 
      
      var usuarios = usuarioService.listarUsuarios();
      var cuentas= cuentaService.listarCuentas();
+     //var movimientoss = movimientosService.listarMovimientos();
 
      log.info("Ejecutando un controlador Spring MVC");
      model.addAttribute("usuarios",usuarios);
      model.addAttribute("cuentas",cuentas);
+     //model.addAttribute("movimientos",movimientoss);
        return "index";
      }
 
@@ -144,5 +151,20 @@ public class ControladorInicio {
          return "productosUsuario";
     }
     
+    @GetMapping("/crearMovimiento")
+    public String crearMovimiento (Movimientos movimientos){
+          return "crearMovimiento";
+     }
+
+      @PostMapping("/guardarMov")
+    public String guardarMov (Movimientos movimientos){
+          if ( 0<=  Double.parseDouble(movimientos.getCantidad()) ){
+             movimientosService.guardarMov(movimientos);
+              return "redirect:/";
+          
+           }else
+           log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
+                return "redirect:/";
+     }
 
 }

@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Nueva operación</title>
+       
+    </head>
+    <body style="background-color:#999999">
+        
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
+        <h2>Nueva operación</h2>
+        <br/>
+        
+        <form th:action="@{/guardarMov}" method="post" th:object="${movimientos}" >
+              
+              
+            
+           <label for="id_cuenta">Numero Cuenta:</label>
+            <input type="number" name="id_cuenta" placeholder="Numero cuenta" required="true" th:field="${movimientos.id_cuenta}"/>
+            <br/>
+            <br/>
+            <label for="tipoOper">Tipo de Operación:</label>
+            <input type="text" name="tipoOper" placeholder="Consignación ó Retiro" required="true" th:field="${movimientos.tipo_movimiento}"/>
+            <br/>
+            <br/>
+            <label for="cantidad">Cantidad (COL$):</label>
+            <input type="number" name="cantidad" placeholder="Cantidad" required="true" th:field="${movimientos.cantidad}"/>
+            <br/>
+            <br/>
+            <label for="fecha_movimiento">Fecha movimiento:</label>
+            <input type="text" name="fecha_movimiento" placeholder="dd/mm/aaaa" required="true" th:field="${movimientos.fecha_movimiento}"/>
+            <br/>
+            <br/>
+                        
+            <input type="submit" name="guardar"   value="Guardar"/>
+        </form> 
+    
+        <br/>
+            <a th:href="@{/}"> Regresar </a>
+            
+    
+    </body>
+    
+</html>

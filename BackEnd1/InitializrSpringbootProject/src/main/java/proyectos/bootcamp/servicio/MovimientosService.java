@@ -13,6 +13,6 @@ public interface MovimientosService {
     
     public void eliminarMov (Movimientos movimientos);
 
-    public Movimientos encontrarMovimientos (Movimientos movimientos);
+    public Movimientos encontrarMov (Movimientos movimientos);
     
 }

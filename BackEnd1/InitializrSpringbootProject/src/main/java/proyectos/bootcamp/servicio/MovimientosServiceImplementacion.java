@@ -34,8 +34,8 @@ public class MovimientosServiceImplementacion implements MovimientosService{
 
     @Override
     @Transactional(readOnly=true)
-    public Movimientos encontrarMovimientos (Movimientos movimientos){
-         return movimientosDao.findById(movimientos.getId_usuario()).orElse(null);
+    public Movimientos encontrarMov (Movimientos movimientos){
+         return movimientosDao.findById(movimientos.getId_cuenta()).orElse(null);
     } 
 
  
