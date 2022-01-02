@@ -1,14 +1,14 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Lista de usuarios</title>
+        <title>Editar cuenta</title>
        
     </head>
-    <body style="background-color:#999900">
+    <body style="background-color:#009999">
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h1>Lista de cuentas</h1>
+        <h2>Lista de cuentas: seleccione una para editar/eliminar</h1>
         
            <div th:if="${cuentas != null and !cuentas.empty}">
             <table border="1">
@@ -36,6 +36,7 @@
             </table>
         </div>
        
+        <br/>
         <br/>
             <a th:href="@{/}"> Regresar </a>
     

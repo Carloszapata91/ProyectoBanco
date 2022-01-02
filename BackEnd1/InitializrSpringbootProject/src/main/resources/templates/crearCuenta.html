@@ -9,13 +9,13 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h1>Datos de la nueva cuenta</h1>
+        <h2>Datos de la nueva cuenta</h2>
         <br/>
         
         <form th:action="@{/guardarC}" method="post" th:object="${cuenta}" >
               
-              <br/>
-            <br/>
+              
+            
            <label for="id_usuario">Numero Cuenta:</label>
             <input type="number" name="id_usuario" placeholder="Numero cuenta" required="true" th:field="${cuenta.id_usuario}"/>
            

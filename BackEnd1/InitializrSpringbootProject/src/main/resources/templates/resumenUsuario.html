@@ -2,13 +2,20 @@
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Editar/Eliminar usuarios</title>
-       
+
     </head>
-    <body style="background-color:#999900">
+    
+    
+    <body style="background-color:#6666ff">
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2>Lista de usuarios: seleccione uno para editar/eliminar</h2>
+        <h2> Seleccione al usuario para ver los productos contratados</h2>
+        </br>
+        
+        
+    <br/>
+        
         
            <div th:if="${usuarios != null and !usuarios.empty}">
             <table border="1">
@@ -22,8 +29,8 @@
                     <th>Fecha de nacimiento</th>
                     <th>Fecha creación</th>
                     <th>Teléfono</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th>Ver productos asociados</th>
+                    
                     
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
@@ -36,13 +43,12 @@
                     <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
                     <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
                     <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
-                    <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Editar"/></td>
-                    <td> <a th:href="@{/eliminar/} + ${usuario.id_usuario}" th:text="Eliminar"/></td>
+                    <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Ver_productos"/></td>
+                    
                 </tr>
             </table>
         </div>
-       
-        <br/>
+        </br>
         <br/>
             <a th:href="@{/}"> Regresar </a>
     

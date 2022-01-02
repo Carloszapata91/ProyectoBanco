@@ -124,4 +124,15 @@ public class ControladorInicio {
                 log.info("Solo se pueden eliminar cuentas con saldo igual a cero (0)");
               return "redirect:/";
     }
+
+    @GetMapping("/resumenUsuario")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String resumenUsuario(Usuario usuario, Cuenta cuenta, Model model){ 
+        
+         var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        return "resumenUsuario";
+    }
+
+    
+
 }
