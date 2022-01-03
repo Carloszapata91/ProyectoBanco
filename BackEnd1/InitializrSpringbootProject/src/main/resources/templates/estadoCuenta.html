@@ -1,15 +1,50 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estado de cuenta</title>
+
     </head>
-    <body>
-        <div>TODO write content</div>
+    
+    
+    <body style="background-color:#cccc00">
+        <br/>
+        <h1> MyBank </h1>
+        <br/>
+        <h2> Seleccione al usuario para ver su estado de cuenta</h2>
+        </br>
+        
+        
+    <br/>
+        
+        
+           <div th:if="${usuarios != null and !usuarios.empty}">
+            <table border="1" style="text-align: center">
+                <tr>
+                    <th>Numero banco</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Tipo identificación</th>
+                    <th>Numero identificación</th>
+                    <th>Ver estado de cuenta</th>
+                    
+                    
+                </tr>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id_usuario}">Mostrar Numero banco</td>
+                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
+                    <td th:text="${usuario.apellido}">Mostrar Apellido</td>
+                    <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
+                    <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
+                    <td> <a th:href="@{/estadoCuentaUsuario/} + ${usuario.id_usuario}" th:text="Ver_estado_cuenta"/></td>
+                    
+                </tr>
+            </table >
+        </div>
+        </br>
+        <br/>
+            <a th:href="@{/}"> Regresar </a>
+    
+    
     </body>
+    
 </html>

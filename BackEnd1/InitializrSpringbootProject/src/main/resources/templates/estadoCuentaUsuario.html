@@ -1,16 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Productos usuario</title>
+        <title>Estado cuenta</title>
 
     </head>
     
     
-    <body style="background-color:#ff6666">
+    <body style="background-color:#cccc00">
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2> Los productos contratados por: </h2>
+        <h2> El estado de la cuenta contratada por: </h2>
      
         
              <div th:if="${usuario != null }">
@@ -33,19 +33,19 @@
                  </tr>
             </table>
                  <br/>
-                  <h2> son: </h2>
+                  <h2> con estas caracteristicas </h2>
      
                  
         </div>
         
-           <div th:if="${cuenta != null}">
+           <div >
              <table border="1" style="text-align: center">
                 <tr>
                     <th>Tipo de cuenta</th>
                     <th>Numero cuenta</th>
                     <th>Estado</th>
                     <th>Fecha de apertura</th>
-                    <th>Saldo (COL$)</th>
+                    <th>Saldo de apertura(COL$)</th>
                                        
                     
                 </tr>
@@ -59,10 +59,40 @@
                    
                 </tr>
             </table>
+               
+               </table>
+                 <br/>
+                                  
+        </div>
+                 <h2> es: </h2>
+                 
+           <div >
+             <table border="1" style="text-align: center">
+                <tr>
+                    <th>id_movimiento</th>
+                    <th>Tipo de movimiento</th>
+                    <th>Cantidad(COL$)</th>
+                    <th>Fecha del movimiento</th>
+                    <th>Saldo (COL$)</th>
+                                       
+                    
+                </tr>
+                <tr th:each="movimientos : ${movimientos}">
+                    <td th:text="${movimientos.id_movimiento}">id_movimiento</td>
+                    <td th:text="${movimientos.tipo_movimiento}">Tipo de movimiento</td>
+                    <td th:text="${movimientos.cantidad}">Cantidad</td>
+                    <td th:text="${movimientos.fecha_movimiento}">Fecha del movimiento</td>
+                    <td th:text="${movimientos.saldo_actual}">Saldo </td>
+                   
+                   
+                </tr>
+            </table>
+               
+               
         </div>
         </br>
         <br/>
-            <a th:href="@{/resumenUsuario}"> Regresar </a>
+            <a th:href="@{/estadoCuenta}"> Regresar </a>
     
     
     </body>

@@ -135,7 +135,7 @@ public class ControladorInicio {
     @GetMapping("/resumenUsuario")     //Solicitud GET (metodo de solicitud) para la consulta
     public String resumenUsuario(Usuario usuario, Cuenta cuenta, Model model){ 
         
-         var usuarios = usuarioService.listarUsuarios();
+        var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
         return "resumenUsuario";
     }
@@ -174,5 +174,30 @@ public class ControladorInicio {
                }
                 return "redirect:/";
      }
+
+    @GetMapping("/estadoCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String estadoCuenta(Usuario usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
+        
+        var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        var movimiento = movimientosService.listarMovimientos();
+        model.addAttribute("movimientos",movimiento);
+        return "estadoCuenta";
+    }
+
+    @GetMapping("/estadoCuentaUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String estadoCuentaUsuario(Cuenta cuenta, Usuario usuario, Movimientos movimientos, Model model){ 
+         
+         cuenta = cuentaService.encontrarCuenta(cuenta);
+         model.addAttribute("cuenta", cuenta);
+
+         usuario = usuarioService.encontrarUsuario(usuario);
+         model.addAttribute("usuario", usuario);
+
+         movimientos = movimientosService.encontrarMov(movimientos);
+         model.addAttribute("movimientos", movimientos);
+
+         return "estadoCuentaUsuario";
+    }
 
 }
