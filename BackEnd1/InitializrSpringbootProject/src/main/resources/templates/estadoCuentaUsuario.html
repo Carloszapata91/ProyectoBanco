@@ -5,14 +5,12 @@
 
     </head>
     
-    
-    <body style="background-color:#cccc00">
+        <body style="background-color:#cccc00">
         <br/>
         <h1> MyBank </h1>
-        <br/>
+      
         <h2> El estado de la cuenta contratada por: </h2>
-     
-        
+             
              <div th:if="${usuario != null }">
             <table border="1" style="text-align: center">
                 <tr>
@@ -34,8 +32,7 @@
             </table>
                  <br/>
                   <h2> con estas caracteristicas </h2>
-     
-                 
+                      
         </div>
         
            <div >
@@ -45,9 +42,8 @@
                     <th>Numero cuenta</th>
                     <th>Estado</th>
                     <th>Fecha de apertura</th>
-                    <th>Saldo de apertura(COL$)</th>
-                                       
-                    
+                    <th>Saldo de apertura (COL$)</th>
+                                   
                 </tr>
                 <tr th:each="cuenta : ${cuenta}">
                     <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
@@ -55,8 +51,7 @@
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
                     <td th:text="${cuenta.saldo}">Saldo </td>
-                   
-                   
+                                      
                 </tr>
             </table>
                
@@ -71,11 +66,10 @@
                 <tr>
                     <th>id_movimiento</th>
                     <th>Tipo de movimiento</th>
-                    <th>Cantidad(COL$)</th>
+                    <th>Cantidad (COL$)</th>
                     <th>Fecha del movimiento</th>
                     <th>Saldo (COL$)</th>
                                        
-                    
                 </tr>
                 <tr th:each="movimientos : ${movimientos}">
                     <td th:text="${movimientos.id_movimiento}">id_movimiento</td>
@@ -83,12 +77,10 @@
                     <td th:text="${movimientos.cantidad}">Cantidad</td>
                     <td th:text="${movimientos.fecha_movimiento}">Fecha del movimiento</td>
                     <td th:text="${movimientos.saldo_actual}">Saldo </td>
-                   
-                   
+                                      
                 </tr>
             </table>
-               
-               
+                            
         </div>
         </br>
         <br/>
