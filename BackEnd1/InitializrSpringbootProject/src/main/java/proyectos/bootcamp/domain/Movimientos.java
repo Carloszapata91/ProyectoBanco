@@ -26,7 +26,7 @@ public class Movimientos implements Serializable{
     private Long  id_usuario;
     private String saldo_inicial;
     private String tipo_movimiento;
-    private double cantidad;
+    private String cantidad;
     private String fecha_movimiento;
     private String saldo_actual;
     

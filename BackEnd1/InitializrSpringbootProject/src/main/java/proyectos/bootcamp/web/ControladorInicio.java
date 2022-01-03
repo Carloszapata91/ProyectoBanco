@@ -160,15 +160,15 @@ public class ControladorInicio {
     public String guardarMov (Movimientos movimientos){
             log.info(movimientos.getTipo_movimiento());
 
-             if ( movimientos.getCantidad() > 0){
-              double saldo_actual = movimientos.getCantidad() + Double.parseDouble(movimientos.getSaldo_inicial());
+             if ( Double.parseDouble(movimientos.getCantidad()) > 0){
+              double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(movimientos.getSaldo_inicial());
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                movimientosService.guardarMov(movimientos);
               
               return "redirect:/";
           
            }else {
-               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ movimientos.getCantidad() ;
+               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(movimientos.getCantidad()) ;
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                movimientosService.guardarMov(movimientos);
                }
