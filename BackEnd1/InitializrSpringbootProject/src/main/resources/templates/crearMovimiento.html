@@ -20,6 +20,10 @@
             <input type="number" name="id_cuenta" placeholder="Numero cuenta" required="true" th:field="${movimientos.id_cuenta}"/>
             <br/>
             <br/>
+            <label for="saldo_inicial">Cantidad (COL$):</label>
+            <input type="number" name="saldo_inicial" placeholder="Saldo inicial" required="true" th:field="${movimientos.saldo_inicial}"/>
+            <br/>
+            <br/>
             <label for="tipoOper">Tipo de Operación:</label>
             <input type="text" name="tipoOper" placeholder="Consignación ó Retiro" required="true" th:field="${movimientos.tipo_movimiento}"/>
             <br/>

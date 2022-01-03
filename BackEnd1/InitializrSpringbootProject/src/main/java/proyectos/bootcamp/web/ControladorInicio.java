@@ -156,14 +156,22 @@ public class ControladorInicio {
           return "crearMovimiento";
      }
 
-      @PostMapping("/guardarMov")
+     @PostMapping("/guardarMov")
     public String guardarMov (Movimientos movimientos){
-          if ( 0<=  Double.parseDouble(movimientos.getCantidad()) ){
-             movimientosService.guardarMov(movimientos);
+            log.info(movimientos.getTipo_movimiento());
+
+             if ( movimientos.getCantidad() > 0){
+              double saldo_actual = movimientos.getCantidad() + Double.parseDouble(movimientos.getSaldo_inicial());
+               movimientos.setSaldo_actual(Double.toString(saldo_actual));
+               movimientosService.guardarMov(movimientos);
+              
               return "redirect:/";
           
-           }else
-           log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
+           }else {
+               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ movimientos.getCantidad() ;
+               movimientos.setSaldo_actual(Double.toString(saldo_actual));
+               movimientosService.guardarMov(movimientos);
+               }
                 return "redirect:/";
      }
 

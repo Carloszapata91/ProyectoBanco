@@ -24,9 +24,11 @@ public class Movimientos implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long  id_movimiento;
     private Long  id_cuenta;
+    private String saldo_inicial;
     private String tipo_movimiento;
-    private String cantidad;
+    private double cantidad;
     private String fecha_movimiento;
+    private String saldo_actual;
     
 }
 
