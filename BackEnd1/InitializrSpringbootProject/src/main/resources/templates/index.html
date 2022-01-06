@@ -22,13 +22,117 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
               border-radius: 6px;
               border: 2px solid #0016b0;
             }
+            
         </style>
+
+                <style type="text/css">
+            .boton_personalizado{
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #1883ba;
+            border-radius: 6px;
+            border: 2px solid #0016b0;
+            }
+            .boton_personalizado:hover{
+            color: #1883ba;
+            background-color: #ffffff;
+            }
+            </style>
+            
+            <style type="text/css">
+            .boton_1{
+              text-decoration: none;
+              padding: 3px;
+              padding-left: 10px;
+              padding-right: 10px;
+              font-family: helvetica;
+              font-weight: 300;
+              font-size: 25px;
+              font-style: italic;
+              color: #006505;
+              background-color: #82b085;
+              border-radius: 15px;
+              border: 3px double #006505;
+            }
+            .boton_1:hover{
+              opacity: 0.6;
+              text-decoration: none;
+            }
+          </style>
+          
+          <style type="text/css">
+            .boton_2{
+              text-decoration: none;
+              padding: 3px;
+              padding-left: 10px;
+              padding-right: 10px;
+              font-family: helvetica;
+              font-weight: 300;
+              font-size: 25px;
+              font-style: italic;
+              color: white;
+              background-color: #ff0033;
+              border-radius: 15px;
+              border: 3px double #000000;
+            }
+            .boton_2:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+          
+          
+          <style type="text/css">
+            .boton_3{
+              text-decoration: none;
+              padding: 3px;
+              padding-left: 10px;
+              padding-right: 10px;
+              font-family: helvetica;
+              font-weight: 300;
+              font-size: 25px;
+              font-style: italic;
+              color: white;
+              background-color: #ff0033;
+              border-radius: 15px;
+              border: 2px double #000000;
+            }
+            .boton_3:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
         
+          <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 600;
+            font-size: 20px;
+            color:#000000;
+            padding-top:15px;
+            padding-bottom:15px;
+            padding-left:40px;
+            padding-right:40px;
+            background-color: transparent;
+            border-width: 3px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+          
     </head>
+    
     <body style="background-color:#ff9900; padding-left:50px ;">
         
         </br>
-      <div style="width: 50%; float:left;   text-align: center; border: 2px solid grey;  width:500px; height:600px; border-radius:22px;">
+      <div style="width: 50%; float:left;   text-align: center; border: 2px solid grey;  width:500px; height:680px; border-radius:22px;">
       
     
         <h1>&nbsp;&nbsp; Bienvenido a MyBank </h1> 
@@ -39,7 +143,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
        <br/>
        <br/>
        <br/>
-       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/verUsuarios}"> Editar/Eliminar Cliente</a>
+       &nbsp;&nbsp;&nbsp;&nbsp;  <a class="boton_1" th:href="@{/verUsuarios}"> Editar/Eliminar Cliente</a>
        <br/>
        
        <br/>
@@ -47,8 +151,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
        &nbsp;&nbsp;&nbsp;&nbsp;<a class="boton_personalizado" th:href="@{/crearCuenta}"> Crear Cuenta</a>
        <br/>
        <br/>  
-       <br/>
-       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/editarCuenta}"> Editar/Eliminar Cuenta</a>
+       <br/>  
+       &nbsp;&nbsp;&nbsp;&nbsp;  <a class="boton_1" th:href="@{/editarCuenta}"> Editar/Eliminar Cuenta</a>
        <br/>
        <br/>  
        <br/>
@@ -56,24 +160,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
        <br/>
        <br/>  
        <br/>
-       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/crearMovimiento}"> Hacer una operación</a>
+       &nbsp;&nbsp;&nbsp;&nbsp; <a class="boton_2" th:href="@{/crearMovimiento}"> Hacer una operación</a>
        <br/>
        <br/>  
        <br/>
-       &nbsp;&nbsp;&nbsp;&nbsp; <a th:href="@{/estadoCuenta}"> Ver Estado de cuenta</a>
+       &nbsp;&nbsp;&nbsp;&nbsp; <a class="boton_3" th:href="@{/estadoCuenta}"> Ver Estado de cuenta</a>
        <br/>
        <br/>  
-       <br/>
+       <br/>         
        
        <form method="POST" th:action="@{/logout}">
-        &nbsp;&nbsp;&nbsp;&nbsp;   <input type="submit" name="Salir" value="Salir"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;   <input class="boton-personalizado-5" type="submit" name="Salir" value="Salir"/>
        </form>  
       
       </div>  
         
       <div style="width: 50%; float:right">
                  
-        <div style="text-align: center;background-color: white;  border: 2px solid grey;  width:500px; height:600px; border-radius:22px; ">
+        <div style="text-align: center;background-color: white;  border: 2px solid grey;  width:500px; height:680px; border-radius:22px; ">
 
             <h1>  MyBank </h1>
 
@@ -89,7 +193,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                               <div class="text-center">
                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
                                 <h4 class="mt-1 mb-5 pb-1">El banco que es simple, como tú</h4>
-
+                                <br>
                                 <h4 class="mt-1 mb-5 pb-1">SIN COMISIONES</h4>
                                 <h4 class="mt-1 mb-5 pb-1">SIN CONDICIONES</h4>
                               </div>
