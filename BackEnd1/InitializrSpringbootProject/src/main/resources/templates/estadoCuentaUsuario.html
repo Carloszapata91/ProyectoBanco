@@ -2,7 +2,28 @@
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Estado cuenta</title>
-
+        
+          <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+   
     </head>
     
         <body style="background-color:#cccc00">
@@ -84,7 +105,7 @@
         </div>
         </br>
         <br/>
-            <a th:href="@{/estadoCuenta}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/estadoCuenta}"> Regresar </a>
     
     
     </body>

@@ -2,7 +2,45 @@
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Crear usuario</title>
-       
+         
+        <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+           
+           <style type="text/css">
+            .boton_personalizado{
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #ffffff;
+            background-color: #ff6600;
+            border-radius: 6px;
+            border: 2px solid #0016b0;
+            }
+            .boton_personalizado:hover{
+            color: #1883ba;
+            background-color: #ffffff;
+            }
+            </style>
+            
     </head>
     <body style="background-color:#cccc00">
         
@@ -25,7 +63,13 @@
             <br/>
             <br/>
             <label for="tipo_identificacion">Tipo de identificación:</label>
-            <input type="text" name="tipo_identificacion" placeholder="CC ó TI" required="true" th:field="*{tipo_identificacion}"/>
+            <select name="tipo_identificacion" required="true" th:field="*{tipo_identificacion}">
+            <option selected value="0"> Elige una opción </option>
+                <option value="CC">Cedula de ciudadania</option> 
+                <option value="TI">Tarjeta de identidad</option> 
+                <option value="P">Pasaporte</option> 
+            </select>
+            
             <br/>
             <br/>
             <label for="numero_identificacion">Numero de identificación:</label>
@@ -49,11 +93,11 @@
             <br/>
             <br/>
                        
-            <input type="submit" name="guardar" value="Crear usuario"/>
+            <input class="boton_personalizado" type="submit" name="guardar" value="Crear cliente"/>
         </form>
     
         <br/>
-            <a th:href="@{/}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
             
     
     </body>

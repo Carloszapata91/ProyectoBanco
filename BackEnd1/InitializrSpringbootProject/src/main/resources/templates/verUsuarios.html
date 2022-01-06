@@ -3,6 +3,27 @@
     <head>
         <title>Editar/Eliminar usuarios</title>
        
+          <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+          
     </head>
     <body style="background-color:#cccc00">
         <br/>
@@ -44,7 +65,7 @@
        
         <br/>
         <br/>
-            <a th:href="@{/}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
     
     
     </body>

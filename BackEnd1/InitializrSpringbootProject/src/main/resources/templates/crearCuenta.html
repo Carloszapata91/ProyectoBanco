@@ -2,7 +2,29 @@
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Crear cuenta</title>
-       
+        
+         <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+        
+        
     </head>
     <body style="background-color:#009999">
         
@@ -25,11 +47,23 @@
            <br/>
            
             <label for="tipo">Tipo de cuenta:</label>
-            <input type="text" name="tipo" placeholder="Ahorros ó Corriente" required="true" th:field="${cuenta.tipo}"/>
+            <select name="tipo" required="true" th:field="${cuenta.tipo}">
+                    <option selected value="0"> Elige una opción </option>
+                        <option value="Ahorros">Ahorros</option> 
+                        <option value="Corriente">Corriente</option> 
+                </select>
+            
+            
             <br/>
             <br/>
             <label for="estado">Estado:</label>
-            <input type="text" name="estado" placeholder="Activa, Inactiva ó Cancelada" required="true" th:field="${cuenta.estado}"/>
+                <select name="estado" required="true" th:field="${cuenta.estado}">
+                    <option selected value="0"> Elige una opción </option>
+                        <option value="Activa">Activa</option> 
+                        <option value="Inactiva">Inactiva</option> 
+                        <option value="Cancelada">Cancelada</option> 
+                </select>
+            
             <br/>
             <br/>
             <label for="fecha_apertura">Fecha apertura:</label>
@@ -47,7 +81,7 @@
         </form> 
     
         <br/>
-            <a th:href="@{/}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
             
     
     </body>

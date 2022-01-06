@@ -3,6 +3,27 @@
     <head>
         <title>Editar cuenta</title>
        
+         <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+        
     </head>
     <body style="background-color:#009999" >
         <br/>
@@ -24,7 +45,7 @@
                     
                 </tr>
                 <tr th:each="cuenta : ${cuentas}">
-                    <td th:text="${cuenta.id_usuario}">Numero de cuenta</td>
+                    <td style="padding: 10px 20px 0px" th:text="${cuenta.id_usuario}">Numero de cuenta</td>
                     <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
@@ -38,7 +59,7 @@
        
         <br/>
         <br/>
-            <a th:href="@{/}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
     
     
     </body>

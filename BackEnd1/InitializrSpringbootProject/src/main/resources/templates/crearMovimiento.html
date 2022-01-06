@@ -2,7 +2,28 @@
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Nueva operación</title>
-       
+         
+        <style>
+         .boton-personalizado-5 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 15px;
+            color:#000000;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #000000;
+            }
+            .boton-personalizado-5:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+          </style>
+        
     </head>
     <body style="background-color:#999999">
         
@@ -32,6 +53,10 @@
             <input type="number" name="cantidad" placeholder="Cantidad" required="true" th:field="${movimientos.cantidad}"/>
             <br/>
             <br/>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" name="descripción" placeholder="Descripción" required="true" th:field="${movimientos.descripcion}"/>
+            <br/>
+            <br/>
             <label for="fecha_movimiento">Fecha movimiento:</label>
             <input type="text" name="fecha_movimiento" placeholder="aaaa-mm-dd" required="true" th:field="${movimientos.fecha_movimiento}"/>
             <br/>
@@ -41,7 +66,7 @@
         </form> 
     
         <br/>
-            <a th:href="@{/}"> Regresar </a>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
             
     
     </body>
