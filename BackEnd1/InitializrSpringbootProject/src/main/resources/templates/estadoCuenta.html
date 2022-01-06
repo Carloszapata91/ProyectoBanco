@@ -10,15 +10,15 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2> Seleccione al usuario para ver su estado de cuenta</h2>
+        <h2> Seleccione al cliente para ver su estado de cuenta</h2>
         </br>
         
         
     <br/>
         
         
-           <div th:if="${usuarios != null and !usuarios.empty}">
-            <table border="1" style="text-align: center">
+           <div th:if="${usuarios != null and !usuarios.empty}" style="text-align: center">
+            <table border="1" style="text-align: center"  >
                 <tr>
                     <th>Numero banco</th>
                     <th>Nombre</th>
@@ -29,8 +29,8 @@
                     
                     
                 </tr>
-                <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.id_usuario}">Mostrar Numero banco</td>
+                <tr th:each="usuario : ${usuarios}" >
+                    <td style="padding: 10px 20px 0px" th:text="${usuario.id_usuario}">Mostrar Numero banco</td>
                     <td th:text="${usuario.nombre}">Mostrar Nombre</td>
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
@@ -44,6 +44,9 @@
         <br/>
             <a th:href="@{/}"> Regresar </a>
     
+            
+            
+            
     
     </body>
     

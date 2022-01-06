@@ -25,7 +25,7 @@
                 </tr>
                 <tr th:each="usuario : ${usuario}">
                     
-                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
+                    <td style="padding: 10px 20px 0px" th:text="${usuario.nombre}">Mostrar Nombre</td>
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
                     <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
@@ -50,7 +50,7 @@
                     
                 </tr>
                 <tr th:each="cuenta : ${cuenta}">
-                    <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
+                    <td style="padding: 10px 20px 0px" th:text="${cuenta.tipo}">Tipo de cuenta</td>
                     <td th:text="${cuenta.id_usuario}">Numero de cuenta</td>
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>

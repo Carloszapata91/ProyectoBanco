@@ -10,7 +10,7 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2> Seleccione al usuario para ver sus productos contratados</h2>
+        <h2> Seleccione al cliente para ver sus productos contratados</h2>
         </br>
         
         
@@ -30,7 +30,7 @@
                     
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.id_usuario}">Mostrar Numero banco</td>
+                    <td style="padding: 10px 20px 0px" th:text="${usuario.id_usuario}">Mostrar Numero banco</td>
                     <td th:text="${usuario.nombre}">Mostrar Nombre</td>
                     <td th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>

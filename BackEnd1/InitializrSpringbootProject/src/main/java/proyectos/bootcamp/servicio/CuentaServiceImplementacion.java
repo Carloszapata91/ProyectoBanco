@@ -10,6 +10,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import proyectos.bootcamp.domain.CuentaPK;
 /**
  *
  * @author cocot
@@ -41,6 +42,9 @@ public class CuentaServiceImplementacion implements CuentaService{
     @Override
     @Transactional(readOnly=true)
     public Cuenta encontrarCuenta (Cuenta cuenta){
+         CuentaPK cuent = new CuentaPK();
+          cuent.setId_usuario(cuenta.getId_usuario());
+          cuent.setTipo(cuenta.getTipo());
          return cuentaDao.findById(cuenta.getId_usuario()).orElse(null);
     } 
 

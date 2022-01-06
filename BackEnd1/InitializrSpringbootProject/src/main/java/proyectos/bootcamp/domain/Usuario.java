@@ -24,11 +24,11 @@ public class Usuario implements Serializable {
     private String nombre;
     private String apellido;
     private String tipo_identificacion; 
-    private Double numero_identificacion;
+    private String numero_identificacion;
     private String email;
     private String fecha_nacimiento;
     private String fecha_creacion_cuenta;
-    private Double telefono;
+    private String telefono;
  
 
  //    public void setCuenta(Cuenta cuenta){
