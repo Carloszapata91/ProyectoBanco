@@ -23,6 +23,23 @@
               text-decoration: none;
             }
           </style>
+          
+          <style type="text/css">
+            .boton_personalizado{
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #ffffff;
+            background-color: #ff6600;
+            border-radius: 6px;
+            border: 2px solid #0016b0;
+            }
+            .boton_personalizado:hover{
+            color: #1883ba;
+            background-color: #ffffff;
+            }
+            </style>
         
         
     </head>
@@ -66,8 +83,11 @@
             
             <br/>
             <br/>
-            <label for="fecha_apertura">Fecha apertura:</label>
-            <input type="text" name="fecha_apertura" placeholder="aaaa-mm-dd" required="true" th:field="${cuenta.fecha_apertura}"/>
+             <label for="fecha_apertura">Fecha apertura:</label>
+                <input type="date" id="start" name="trip-start"
+                       value="2022-01-01"
+                min="1960-01-01" max="2025-12-31" required="true" th:field="${cuenta.fecha_apertura}">
+            
             <br/>
             <br/>
            <label for="saldo">Saldo inicial (COL$):</label>
@@ -77,7 +97,7 @@
             
             
             
-            <input type="submit" name="guardar"   value="Crear cuenta"/>
+            <input class="boton_personalizado" type="submit" name="guardar"   value="Crear cuenta"/>
         </form> 
     
         <br/>

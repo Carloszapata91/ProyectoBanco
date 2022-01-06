@@ -42,15 +42,19 @@
             </style>
             
     </head>
-    <body style="background-color:#cccc00">
+    <body style="background-color:#cccc00; padding-left:50px ;">
         
+    <br/>
+     </br>  
+                      
+      <div style="width: 70%; float:left;   text-align: center; border: 2px solid grey;  width:530px; height:680px; border-radius:22px;">
+               
         <br/>
         <h1> MyBank </h1>
        
         <h2>Datos del nuevo cliente</h2>
-       
+        </br>
         
-    <br/>
         <form th:action="@{/guardar}" method="post" th:object="${usuario}" >
             <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
             
@@ -80,24 +84,51 @@
             <input type="email" name="email" placeholder="Correo electrónico" required="true" th:field="*{email}"/>
             <br/>
             <br/>
-            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-            <input type="text" name="fecha_nacimiento" placeholder="aaaa-mm-dd" required="true" th:field="*{fecha_nacimiento}"/>
+               	<label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="start" name="trip-start"
+                       value="2000-01-01"
+                min="1960-01-01" max="2022-01-01" required="true" th:field="*{fecha_nacimiento}">
             <br/>
             <br/>
-            <label for="fecha_creacion_cuenta">Fecha creación:</label>
-            <input type="text" name="fecha_creacion_cuenta" placeholder="aaaa-mm-dd" required="true" th:field="*{fecha_creacion_cuenta}"/>
+            <label for="fecha_creacion_cuenta">Fecha de creación:</label>
+                <input type="date" id="start" name="trip-start"
+                       value="2022-01-01"
+                min="2022-01-01" max="2025-12-31" required="true" th:field="*{fecha_creacion_cuenta}">
             <br/>
             <br/>
             <label for="telefono">Teléfono:</label>
             <input type="number" name="telefono" placeholder="Teléfono" required="true" th:field="*{telefono}"/>
             <br/>
             <br/>
-                       
+                    </br>   
             <input class="boton_personalizado" type="submit" name="guardar" value="Crear cliente"/>
         </form>
-    
+           </br>
         <br/>
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
+            
+      
+      </div>  
+        
+      <div style="width: 50%; float:right">
+                 
+        <div style="text-align: center;    width:500px; height:680px; border-radius:22px; ">
+
+            <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                  alt="login form"
+                  class="img-fluid" style="border-radius: 1rem 1rem 1rem 1rem; height:680px;"
+                   
+                />
+
+
+        </div>        </br>
+
+              </div>
+       
+        
+        
+        
             
     
     </body>

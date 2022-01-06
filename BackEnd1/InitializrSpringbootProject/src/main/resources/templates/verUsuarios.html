@@ -22,29 +22,172 @@
               opacity: 0.4;
               text-decoration: none;
             }
+            
+            .boton-personalizado-6 {
+            text-decoration:none;
+            font-weight: 450;
+            font-size: 10px;
+            color:#0016b0;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #0016b0;
+            }
+            .boton-personalizado-6:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+            
+            .boton-personalizado-7 {
+            text-decoration:none;
+            font-weight: 550;
+            font-size: 12px;
+            color:#ff0033;
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:10px;
+            padding-right:10px;
+            background-color: transparent;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #ff0033;
+            }
+            .boton-personalizado-7:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
+            
           </style>
           
+          <style>
+	
+	/* 
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media 
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+	
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		tr { border: 1px solid #ccc; }
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee; 
+			position: relative;
+			padding-left: 50%; 
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		
+	}
+	
+	/* Smartphones (portrait and landscape) ----------- */
+	@media only screen
+	and (min-device-width : 320px)
+	and (max-device-width : 480px) {
+		body { 
+			padding: 0; 
+			margin: 0; 
+			width: 320px; }
+		}
+	
+	/* iPads (portrait and landscape) ----------- */
+	@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+		body { 
+			width: 495px; 
+		}
+	}
+	
+        * { 
+	margin: 0; 
+	padding:10; 
+        margin-right: 10;
+        }
+        body { 
+	font: 14px/1.4 Georgia, Serif; 
+        }
+        #page-wrap {
+	margin: 50px;
+        }
+        p {
+	margin: 20px 0; 
+        }
+
+	/* 
+	Generic Styling, for Desktops/Laptops 
+	*/
+	table { 
+		width: 100%; 
+		border-collapse: collapse; 
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+	th { 
+		background: #333; 
+		color: white; 
+		font-weight: bold; 
+	}
+	td, th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: left; 
+	}
+	</style>
+          
     </head>
-    <body style="background-color:#cccc00">
+    
+    <body style="background-color:#cccc00; text-align: center">
+        <div style="width: 100%;    text-align: center; border: 2px solid grey;  width:1150px; height:770px; border-radius:22px;">
         <br/>
         <h1> MyBank </h1>
         <br/>
         <h2>Lista de clientes: seleccione uno para editar/eliminar</h2>
-        
+        </br>
            <div th:if="${usuarios != null and !usuarios.empty}">
-            <table border="1" style="text-align: center">
+            <table border="1" style="text-align: center; border-radius: 2px 2px 2px 2px;">
                 <tr>
                     <th>Numero banco</th>
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Tipo identificación</th>
                     <th>Numero identificación</th>
-                    <th>Email</th>
+                    <th style="text-align: center">Email</th>
                     <th>Fecha de nacimiento</th>
                     <th>Fecha creación</th>
                     <th>Teléfono</th>
                     <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th style="text-align: center">Eliminar</th>
                     
                 </tr>
                 <tr th:each="usuario : ${usuarios}">
@@ -57,8 +200,8 @@
                     <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
                     <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
                     <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
-                    <td> <a th:href="@{/editar/} + ${usuario.id_usuario}" th:text="Editar"/></td>
-                    <td> <a th:href="@{/eliminar/} + ${usuario.id_usuario}" th:text="Eliminar"/></td>
+                    <td> &nbsp;<a th:href="@{/editar/} + ${usuario.id_usuario}" class="boton-personalizado-6" th:text="Editar"/></td>
+                    <td > &nbsp;<a th:href="@{/eliminar/} + ${usuario.id_usuario}" class="boton-personalizado-7" th:text="Eliminar"/></td>
                 </tr>
             </table>
         </div>
@@ -68,6 +211,9 @@
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
     
     
+	
+	</div>
+    </div>       
     </body>
     
 </html>
