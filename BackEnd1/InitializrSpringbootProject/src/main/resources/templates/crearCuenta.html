@@ -43,12 +43,15 @@
         
         
     </head>
-    <body style="background-color:#009999">
-        
+    <body style="background-color:#009999;  padding-left: 40px;">
+    </br>
+        <div style="width: 70%; float:left;  text-align: center; border: 2px solid grey;  width:500px; height:680px; border-radius:22px;">
+           
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2>Datos de la nueva cuenta</h2>
+        <h2>Datos de la cuenta</h2>
+        <br/>
         <br/>
         
         <form th:action="@{/guardarC}" method="post" th:object="${cuenta}" >
@@ -95,15 +98,35 @@
             <br/>
             <br/>
             
-            
+            </br>
             
             <input class="boton_personalizado" type="submit" name="guardar"   value="Crear cuenta"/>
         </form> 
     
         <br/>
+        </br>
+        </br>
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
             
     
+        </div> 
+
     </body>
     
+        
+        <div style="width: 50%; float:right">
+                 
+        <div style="text-align: center;    width:500px; height:680px; border-radius:22px; ">
+
+            <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="login form"
+                  class="img-fluid" style="border-radius: 1rem 1rem 1rem 1rem; height:680px;"
+                   
+                />
+
+
+        </div>        </br>
+
+              </div>
 </html>
