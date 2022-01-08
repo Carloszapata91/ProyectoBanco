@@ -194,8 +194,11 @@ public class ControladorInicio {
          usuario = usuarioService.encontrarUsuario(usuario);
          model.addAttribute("usuario", usuario);
 
+        var movimiento = movimientosService.listarMovimientos();
+        model.addAttribute("movimientos",movimientos);
+
          movimientos = movimientosService.encontrarMov(movimientos);
-         model.addAttribute("movimientos", movimientos);
+         model.addAttribute("movimientos", movimiento);
 
          return "estadoCuentaUsuario";
     }

@@ -22,14 +22,15 @@ public class Movimientos implements Serializable{
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long  id_usuario;    
     private Long  id_movimiento;
-    private Long  id_usuario;
+    private String  descripcion;
     private String saldo_inicial;
     private String tipo_movimiento;
     private String cantidad;
     private String fecha_movimiento;
     private String saldo_actual;
-    private String  descripcion;
+    
     
 }
 

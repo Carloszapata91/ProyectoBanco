@@ -163,12 +163,12 @@
                 </tr>
                 <tr th:each="usuario : ${usuario}">
                     
-                    <td th:text="${usuario.nombre}">Mostrar Nombre</td>
-                    <td th:text="${usuario.apellido}">Mostrar Apellido</td>
-                    <td th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
-                    <td th:text="${usuario.numero_identificacion}">Numero identificación</td>
-                    <td th:text="${usuario.email}">E-mail</td>
-                    <td th:text="${usuario.telefono}">Telefono</td>
+                    <td style="text-align:center" th:text="${usuario.nombre}">Mostrar Nombre</td>
+                    <td style="text-align:center" th:text="${usuario.apellido}">Mostrar Apellido</td>
+                    <td style="text-align:center" th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
+                    <td style="text-align:center" th:text="${usuario.numero_identificacion}">Numero identificación</td>
+                    <td style="text-align:center" th:text="${usuario.email}">E-mail</td>
+                    <td style="text-align:center" th:text="${usuario.telefono}">Telefono</td>
                  
                  </tr>
             </table>
@@ -188,11 +188,11 @@
                                    
                 </tr>
                 <tr th:each="cuenta : ${cuenta}">
-                    <td th:text="${cuenta.tipo}">Tipo de cuenta</td>
-                    <td th:text="${cuenta.id_usuario}">Numero de cuenta</td>
-                    <td th:text="${cuenta.estado}">Estado</td>
-                    <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
-                    <td th:text="${cuenta.saldo}">Saldo </td>
+                    <td style="text-align:center" th:text="${cuenta.tipo}">Tipo de cuenta</td>
+                    <td style="text-align:center" th:text="${cuenta.id_usuario}">Numero de cuenta</td>
+                    <td style="text-align:center" th:text="${cuenta.estado}">Estado</td>
+                    <td style="text-align:center" th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
+                    <td style="text-align:center" th:text="${cuenta.saldo}">Saldo </td>
                                       
                 </tr>
             </table>
@@ -200,42 +200,48 @@
                </table>
                  <br/>
                                   
-        </div>
+           </div>
                  <h2> es: </h2>
                  
            <div >
              <table border="1" style="text-align: center">
                 <tr>
+                    <th>id_usuario</th>
                     <th>id_movimiento</th>
+                    <th>Descripcion</th>
                     <th>Tipo de movimiento</th>
                     <th>Cantidad (COL$)</th>
                     <th>Fecha del movimiento</th>
-                    <th>Saldo (COL$)</th>
+                    <th>Saldo inicial (COL$)</th>
+                    <th>Saldo actual (COL$)</th>
                                        
                 </tr>
-                <tr th:each="movimientos : ${movimientos}">
-                    <td th:text="${movimientos.id_movimiento}">id_movimiento</td>
-                    <td th:text="${movimientos.tipo_movimiento}">Tipo de movimiento</td>
-                    <td th:text="${movimientos.cantidad}">Cantidad</td>
-                    <td th:text="${movimientos.fecha_movimiento}">Fecha del movimiento</td>
-                    <td th:text="${movimientos.saldo_actual}">Saldo </td>
+                <tr th:each="movimiento : ${movimiento}">
+                    <td style="text-align:center" th:text="${movimiento.usuario}">id_usuario</td>
+                    <td style="text-align:center" th:text="${movimiento.id_movimiento}">id_movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.descripcion}">Descripcion </td>
+                    <td style="text-align:center" th:text="${movimiento.tipo_movimiento}">Tipo de movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.cantidad}">Cantidad</td>
+                    <td style="text-align:center" th:text="${movimiento.fecha_movimiento}">Fecha del movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.saldo_inicial}">Saldo inicial</td>
+                    <td style="text-align:center" th:text="${movimiento.saldo_actual}">Saldo actual</td>
                                       
                 </tr>
             </table>
                             
-        </div>
-        </br>
-        <br/>
-        <br/>
-        <br/>
-        </br>
-        <br/>
-        <br/>
-        <br/>
-        </br>
-        <br/>
-        <br/>
-        <br/>
+           </div>
+            </br>
+            <br/>
+            <br/>
+            <br/>
+            </br>
+            <br/>
+            <br/>
+            <br/>
+            </br>
+            <br/>
+            <br/>
+            <br/>
             <a class="boton-personalizado-5" th:href="@{/estadoCuenta}"> Regresar </a>
     
     

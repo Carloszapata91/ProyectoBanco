@@ -206,7 +206,33 @@
         <br/>
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
     
-       
+       <div >
+             <table border="1" style="text-align: center">
+                <tr>
+                    <th>id_usuario</th>
+                    <th>id_movimiento</th>
+                    <th>Descripcion</th>
+                    <th>Tipo de movimiento</th>
+                    <th>Cantidad (COL$)</th>
+                    <th>Fecha del movimiento</th>
+                    <th>Saldo inicial (COL$)</th>
+                    <th>Saldo actual (COL$)</th>
+                                       
+                </tr>
+                <tr th:each="movimiento : ${movimiento}">
+                    <td style="text-align:center" th:text="${movimiento.id_usuario}">id_usuario</td>
+                    <td style="text-align:center" th:text="${movimiento.id_movimiento}">id_movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.descripcion}">Descripcion </td>
+                    <td style="text-align:center" th:text="${movimiento.tipo_movimiento}">Tipo de movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.cantidad}">Cantidad</td>
+                    <td style="text-align:center" th:text="${movimiento.fecha_movimiento}">Fecha del movimiento</td>
+                    <td style="text-align:center" th:text="${movimiento.saldo_inicial}">Saldo inicial</td>
+                    <td style="text-align:center" th:text="${movimiento.saldo_actual}">Saldo actual</td>
+                                      
+                </tr>
+            </table>
+                            
+           </div>
     
     </body>
     
