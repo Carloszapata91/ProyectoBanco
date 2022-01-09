@@ -206,7 +206,7 @@
            <div >
              <table border="1" style="text-align: center">
                 <tr>
-                    <th>id_usuario</th>
+                  
                     <th>id_movimiento</th>
                     <th>Descripcion</th>
                     <th>Tipo de movimiento</th>
@@ -216,32 +216,32 @@
                     <th>Saldo actual (COL$)</th>
                                        
                 </tr>
-                <tr th:each="movimiento : ${movimiento}">
-                    <td style="text-align:center" th:text="${movimiento.usuario}">id_usuario</td>
-                    <td style="text-align:center" th:text="${movimiento.id_movimiento}">id_movimiento</td>
-                    <td style="text-align:center" th:text="${movimiento.descripcion}">Descripcion </td>
-                    <td style="text-align:center" th:text="${movimiento.tipo_movimiento}">Tipo de movimiento</td>
-                    <td style="text-align:center" th:text="${movimiento.cantidad}">Cantidad</td>
-                    <td style="text-align:center" th:text="${movimiento.fecha_movimiento}">Fecha del movimiento</td>
-                    <td style="text-align:center" th:text="${movimiento.saldo_inicial}">Saldo inicial</td>
-                    <td style="text-align:center" th:text="${movimiento.saldo_actual}">Saldo actual</td>
+                <tr th:each="movimientos : ${movimientos}">
+                   
+                    <td style="text-align:center" th:text="${movimientos.id_movimiento}">id_movimiento</td>
+                    <td style="text-align:center" th:text="${movimientos.descripcion}">Descripcion </td>
+                    <td style="text-align:center" th:text="${movimientos.tipo_movimiento}">Tipo de movimiento</td>
+                    <td style="text-align:center" th:text="${movimientos.cantidad}">Cantidad</td>
+                    <td style="text-align:center" th:text="${movimientos.fecha_movimiento}">Fecha del movimiento</td>
+                    <td style="text-align:center" th:text="${movimientos.saldo_inicial}">Saldo inicial</td>
+                    <td style="text-align:center" th:text="${movimientos.saldo_actual}">Saldo actual</td>
                                       
                 </tr>
             </table>
-                            
+              
+               
+               
+               
+               
            </div>
             </br>
             <br/>
             <br/>
             <br/>
             </br>
-            <br/>
-            <br/>
-            <br/>
-            </br>
-            <br/>
-            <br/>
-            <br/>
+            
+
+           
             <a class="boton-personalizado-5" th:href="@{/estadoCuenta}"> Regresar </a>
     
     

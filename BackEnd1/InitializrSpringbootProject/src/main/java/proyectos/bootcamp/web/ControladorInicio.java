@@ -44,7 +44,7 @@ public class ControladorInicio {
      
      var usuarios = usuarioService.listarUsuarios();
      var cuentas= cuentaService.listarCuentas();
-     //var movimientoss = movimientosService.listarMovimientos();
+     var movimientoss = movimientosService.listarMovimientos();
 
      log.info("Ejecutando un controlador Spring MVC");
      model.addAttribute("usuarios",usuarios);
@@ -170,7 +170,12 @@ public class ControladorInicio {
            }else {
                double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(movimientos.getCantidad()) ;
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
-               movimientosService.guardarMov(movimientos);
+                  if(saldo_actual>0){
+                     movimientosService.guardarMov(movimientos);
+                    }else{
+                     log.info("Movimiento no permitido: Saldo insuficiente");
+                }
+               
                }
                 return "redirect:/";
      }
@@ -181,24 +186,34 @@ public class ControladorInicio {
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
         var movimiento = movimientosService.listarMovimientos();
-        model.addAttribute("movimientos",movimiento);
+        model.addAttribute("movimiento",movimiento);
         return "estadoCuenta";
+    }
+
+    @GetMapping("/estadoCuenta_1")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String estadoCuenta1(Usuario usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
+        
+        var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        var movimiento = movimientosService.listarMovimientos();
+        model.addAttribute("movimiento",movimiento);
+        return "estadoCuenta_1";
     }
 
     @GetMapping("/estadoCuentaUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String estadoCuentaUsuario(Cuenta cuenta, Usuario usuario, Movimientos movimientos, Model model){ 
          
-         cuenta = cuentaService.encontrarCuenta(cuenta);
-         model.addAttribute("cuenta", cuenta);
+        cuenta = cuentaService.encontrarCuenta(cuenta);
+        model.addAttribute("cuenta", cuenta);
 
-         usuario = usuarioService.encontrarUsuario(usuario);
-         model.addAttribute("usuario", usuario);
+        usuario = usuarioService.encontrarUsuario(usuario);
+        model.addAttribute("usuario", usuario);
 
         var movimiento = movimientosService.listarMovimientos();
-        model.addAttribute("movimientos",movimientos);
+        model.addAttribute("movimientos",movimiento);
 
-         movimientos = movimientosService.encontrarMov(movimientos);
-         model.addAttribute("movimientos", movimiento);
+        movimientos = movimientosService.encontrarMov(movimientos);
+        model.addAttribute("movimientos", movimientos);
 
          return "estadoCuentaUsuario";
     }

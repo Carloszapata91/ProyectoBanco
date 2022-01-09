@@ -16,14 +16,14 @@ import lombok.Data;
 
 @Data   //Genera todos los Getter y Setter de los atributos de la clase
 @Entity
-@Table(name="movimientos") 
+@Table(name="movimiento") 
 public class Movimientos implements Serializable{
       private static final long serialVersionUID= 1L;
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long  id_usuario;    
     private Long  id_movimiento;
+    private Long  id_usuario; 
     private String  descripcion;
     private String saldo_inicial;
     private String tipo_movimiento;
