@@ -40,10 +40,19 @@
             background-color: #ffffff;
             }
             
+           
             </style>
+            
             
     </head>
     <body style="background-color:#cccc00; padding-left:50px ;">
+        
+         <!-- MENSAJES -->
+            <div th:if="${success != null}">
+              <label th:text="%{success}"></label>
+              
+            </div>
+            
         
         <br/>
         </br>  
@@ -102,6 +111,9 @@
             <br/>
             <br/>
                     </br>   
+            
+                     
+                     
             <input class="boton_personalizado" type="submit" name="guardar" value="Crear cliente"/>
         </form>
            </br>
@@ -123,10 +135,12 @@
                 />
 
 
-        </div>        </br>
+      </div>        </br>
 
-              </div>
+        </div>
        
+  
+        
     </body>
     
 </html>

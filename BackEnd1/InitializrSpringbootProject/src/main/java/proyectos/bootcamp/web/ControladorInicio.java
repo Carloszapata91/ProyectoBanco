@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import proyectos.bootcamp.dao.UsuarioDao;
 import proyectos.bootcamp.domain.Cuenta;
 import proyectos.bootcamp.domain.Movimientos;
@@ -59,15 +60,20 @@ public class ControladorInicio {
      }
 
      @PostMapping("/guardar")
-     public String guardar (Usuario usuario){
-          usuarioService.guardar(usuario);
-           return "redirect:/";
+     public String guardar (Usuario usuario,  RedirectAttributes attribute){
+        usuarioService.guardar(usuario);
+          
+        attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
+        return "redirect:/";
      }
 
      @GetMapping("/editar/{id_usuario}")
-     public String editar(Usuario usuario, Model model){
+     public String editar(Usuario usuario, Model model, RedirectAttributes attribute){
         usuario = usuarioService.encontrarUsuario(usuario);
         model.addAttribute("usuario", usuario);
+       
+        attribute.addFlashAttribute("success", "Cliente guardado exitosamente");
+        
         return "modificar";
      }
 
