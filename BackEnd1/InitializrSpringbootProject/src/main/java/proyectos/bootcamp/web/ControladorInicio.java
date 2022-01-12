@@ -5,6 +5,8 @@
 package proyectos.bootcamp.web;
 
 import static java.lang.System.console;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.stereotype.Controller;
@@ -61,6 +63,10 @@ public class ControladorInicio {
 
      @PostMapping("/guardar")
      public String guardar (Usuario usuario,  RedirectAttributes attribute){
+        usuario.setFecha_creacion_cuenta("2022-01-11");
+        Date fecha=new Date();
+        SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+        usuario.setFecha_creacion_cuenta(formatoFecha.format(fecha));
         usuarioService.guardar(usuario);
           
         attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
@@ -103,7 +109,9 @@ public class ControladorInicio {
     public String guardarC (Cuenta cuenta){
           log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
           if ( 0<=  Double.parseDouble(cuenta.getSaldo()) ){
-             cuentaService.guardarC(cuenta);
+            Date fecha=new Date();
+            SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+            cuenta.setFecha_apertura(formatoFecha.format(fecha));
               return "redirect:/";
           
            }else
