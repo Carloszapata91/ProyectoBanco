@@ -59,8 +59,12 @@
             <input type="number" name="id_usuario" placeholder="Numero cuenta" required="true" th:field="${movimientos.id_usuario}"/>
             <br/>
             <br/>
-            <label for="Tipo_cuenta">Tipo de cuenta:</label>
-            <input type="text" name="Tipo_cuenta" placeholder="Tipo de cuenta" required="true" th:field="${movimientos.tipo}"/>
+            <label for="tipo">Tipo de cuenta:</label>
+            <select name="tipo" required="true" th:field="${movimientos.tipo}">
+                    <option selected value="0"> Elige una opción </option>
+                        <option value="Ahorros">Ahorros</option> 
+                        <option value="Corriente">Corriente</option> 
+                </select>
             <br/>
             <br/>
             <label for="saldo_inicial">Saldo inicial (COL$):</label>
@@ -84,13 +88,7 @@
             <input type="text" name="descripción" placeholder="Descripción" required="true" th:field="${movimientos.descripcion}"/>
             <br/>
             <br/>
-              <label for="fecha_movimiento">Fecha movimiento:</label>
-                <input type="date" id="start" name="trip-start"
-                       value="2022-01-01"
-                min="1960-01-01" max="2022-01-12" required="true" th:field="${movimientos.fecha_movimiento}">
-            
-            <br/>
-            <br/>
+            <br/> 
             <br/> 
             <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer movimiento"/>
         </form> 

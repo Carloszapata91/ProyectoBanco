@@ -183,7 +183,12 @@ public class ControladorInicio {
              if ( Double.parseDouble(movimientos.getCantidad()) > 0){
               double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(movimientos.getSaldo_inicial());
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
-               movimientosService.guardarMov(movimientos);
+                   Date fecha=new Date();
+                   SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+                   movimientos.setFecha_movimiento(formatoFecha.format(fecha));
+
+                movimientosService.guardarMov(movimientos);
+            
               
               return "redirect:/";
           
