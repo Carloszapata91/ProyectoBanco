@@ -14,6 +14,10 @@ public interface CuentaService {
     public void eliminarC (Cuenta cuenta);
 
     public Cuenta encontrarCuenta (Cuenta cuenta);
+
+    public List<Cuenta> listarCuentas2(String a);
+
+   public List<Cuenta> listarProductosByID(Cuenta cuenta);
 }
 
 

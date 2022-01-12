@@ -191,7 +191,7 @@
                     
                     
                 </tr>
-                <tr th:each="cuenta : ${cuenta}">
+                <tr th:each="cuenta : ${cuentas}">
                     <td style="text-align:center; padding: 10px 20px 0px" th:text="${cuenta.tipo}">Tipo de cuenta</td>
                     <td style="text-align:center" th:text="${cuenta.id_usuario}">Numero de cuenta</td>
                     <td style="text-align:center" th:text="${cuenta.estado}">Estado</td>

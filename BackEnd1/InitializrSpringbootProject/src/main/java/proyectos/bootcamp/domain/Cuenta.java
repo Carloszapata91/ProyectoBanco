@@ -20,7 +20,7 @@ import javax.persistence.IdClass;
 @Data   //Genera todos los Getter y Setter de los atributos de la clase
 @Entity
 @Table(name="cuenta") 
-//@IdClass(value = CuentaPK.class)
+@IdClass(value = CuentaPK.class)
 public class Cuenta implements Serializable{
     
     private static final long serialVersionUID= 1L;
@@ -28,7 +28,7 @@ public class Cuenta implements Serializable{
     @Id
     //@GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long  id_usuario;
-    //@Id
+    @Id
     private String tipo;
     private String estado;
     private String fecha_apertura;

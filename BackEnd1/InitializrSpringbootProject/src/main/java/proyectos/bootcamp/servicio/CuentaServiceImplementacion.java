@@ -48,4 +48,16 @@ public class CuentaServiceImplementacion implements CuentaService{
          return cuentaDao.findById(cuenta.getId_usuario()).orElse(null);
     } 
 
+    @Override  //Ahora el controlador NO usa la capa de datos, si no la capa de servicio  UsuarioServiceImplemen (capa negocio)
+    @Transactional(readOnly=true) 
+    public List<Cuenta> listarCuentas2(String a){
+         return (List<Cuenta>) cuentaDao.findByCategory("algo");
+    } 
+
+    @Override  //Ahora el controlador NO usa la capa de datos, si no la capa de servicio  UsuarioServiceImplemen (capa negocio)
+    @Transactional(readOnly=true) 
+    public List<Cuenta> listarProductosByID(Cuenta cuenta){
+         return (List<Cuenta>) cuentaDao.findByID2(cuenta.getId_usuario());
+    }
+
 }

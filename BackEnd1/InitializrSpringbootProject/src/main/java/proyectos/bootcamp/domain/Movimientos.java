@@ -30,6 +30,7 @@ public class Movimientos implements Serializable{
     private String cantidad;
     private String fecha_movimiento;
     private String saldo_actual;
+    private String tipo;
     
     
 }

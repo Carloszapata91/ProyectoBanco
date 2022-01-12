@@ -59,6 +59,10 @@
             <input type="number" name="id_usuario" placeholder="Numero cuenta" required="true" th:field="${movimientos.id_usuario}"/>
             <br/>
             <br/>
+            <label for="Tipo_cuenta">Tipo de cuenta:</label>
+            <input type="text" name="Tipo_cuenta" placeholder="Tipo de cuenta" required="true" th:field="${movimientos.tipo}"/>
+            <br/>
+            <br/>
             <label for="saldo_inicial">Saldo inicial (COL$):</label>
             <input type="number" name="saldo_inicial" placeholder="Saldo inicial" required="true" th:field="${movimientos.saldo_inicial}"/>
             <br/>
@@ -87,13 +91,12 @@
             
             <br/>
             <br/>
-            <br/>
             <br/> 
             <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer movimiento"/>
         </form> 
         <br/>
         <br/>
-        <br/>
+      
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
       </div>    
     

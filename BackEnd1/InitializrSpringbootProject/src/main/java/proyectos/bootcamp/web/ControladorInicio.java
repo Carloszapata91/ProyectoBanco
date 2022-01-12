@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import proyectos.bootcamp.dao.UsuarioDao;
 import proyectos.bootcamp.domain.Cuenta;
@@ -47,7 +49,7 @@ public class ControladorInicio {
      
      var usuarios = usuarioService.listarUsuarios();
      var cuentas= cuentaService.listarCuentas();
-     var movimientoss = movimientosService.listarMovimientos();
+     //var movimientoss = movimientosService.listarMovimientos();
 
      log.info("Ejecutando un controlador Spring MVC");
      model.addAttribute("usuarios",usuarios);
@@ -112,6 +114,7 @@ public class ControladorInicio {
             Date fecha=new Date();
             SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
             cuenta.setFecha_apertura(formatoFecha.format(fecha));
+            cuentaService.guardarC(cuenta);
               return "redirect:/";
           
            }else
@@ -123,6 +126,7 @@ public class ControladorInicio {
     public String verCuentas(Model model){ 
         
         var cuentas = cuentaService.listarCuentas();
+        log.info("Coco coco logra ladrar");
         model.addAttribute("cuentas",cuentas);
 
         var usuarios = usuarioService.listarUsuarios();
@@ -159,8 +163,8 @@ public class ControladorInicio {
     @GetMapping("/productosUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String productosUsuario(Cuenta cuenta, Usuario usuario, Model model){ 
          
-         cuenta = cuentaService.encontrarCuenta(cuenta);
-         model.addAttribute("cuenta", cuenta);
+         var cuentas = cuentaService.listarProductosByID(cuenta);
+         model.addAttribute("cuentas", cuentas);
 
          usuario = usuarioService.encontrarUsuario(usuario);
          model.addAttribute("usuario", usuario);
@@ -201,17 +205,20 @@ public class ControladorInicio {
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
-        var movimiento = movimientosService.listarMovimientos();
+        var movimiento = movimientosService.listarMovimientos(cuenta);
         model.addAttribute("movimiento",movimiento);
         return "estadoCuenta";
     }
 
     @GetMapping("/estadoCuenta_1")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String estadoCuenta1(Usuario usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
+    public String estadoCuenta_1(@RequestParam Long coco, @RequestParam String tip ,Model model,Movimientos movimientos, Cuenta cuenta){ 
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
-        var movimiento = movimientosService.listarMovimientos();
+        cuenta.setId_usuario(coco);
+        cuenta.setTipo(tip);
+        var movimiento = movimientosService.listarMovimientos(cuenta);
+        log.info("La cuenta de Coco es : "+ coco);
         model.addAttribute("movimiento",movimiento);
         return "estadoCuenta_1";
     }
@@ -219,13 +226,13 @@ public class ControladorInicio {
     @GetMapping("/estadoCuentaUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String estadoCuentaUsuario(Cuenta cuenta, Usuario usuario, Movimientos movimientos, Model model){ 
          
-        cuenta = cuentaService.encontrarCuenta(cuenta);
-        model.addAttribute("cuenta", cuenta);
+        var cuentas = cuentaService.listarProductosByID(cuenta);
+        model.addAttribute("cuentas", cuentas);
 
         usuario = usuarioService.encontrarUsuario(usuario);
         model.addAttribute("usuario", usuario);
 
-        var movimiento = movimientosService.listarMovimientos();
+        var movimiento = movimientosService.listarMovimientos(cuenta);
         model.addAttribute("movimientos",movimiento);
 
         movimientos = movimientosService.encontrarMov(movimientos);

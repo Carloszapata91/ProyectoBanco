@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import proyectos.bootcamp.dao.MovimientosDao;
+import proyectos.bootcamp.domain.Cuenta;
 import proyectos.bootcamp.domain.Movimientos;
 
 
@@ -16,8 +17,8 @@ public class MovimientosServiceImplementacion implements MovimientosService{
 
     @Override  //Ahora el controlador NO usa la capa de datos, si no la capa de servicio  MovimientosServiceImplemen (capa negocio)
     @Transactional(readOnly=true) 
-    public List<Movimientos> listarMovimientos(){
-         return (List<Movimientos>) movimientosDao.findAll();
+    public List<Movimientos> listarMovimientos(Cuenta cuenta){
+         return (List<Movimientos>) movimientosDao.findTipoCuenta(cuenta.getId_usuario(),cuenta.getTipo());
     } 
 
     @Override
