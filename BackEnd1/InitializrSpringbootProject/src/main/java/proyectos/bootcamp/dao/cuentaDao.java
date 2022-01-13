@@ -23,7 +23,10 @@ public interface cuentaDao extends CrudRepository<Cuenta, Long>{    //CrudReposi
     //Aqui puedo definir todos los querys personalizados que necesite
 
    @Query("from Cuenta c where c.id_usuario = :id_usuario")
-   public List<Cuenta> findByID2(@Param("id_usuario") Long id_usuario);
+   public List<Cuenta> findByID2(@Param("id_usuario") Long id_usuario); 
+
+   @Query("from Cuenta c where c.id_usuario = :id_usuario and c.tipo = :tipo")
+   public Cuenta findByIDTipo(@Param("id_usuario") Long id_usuario, @Param("tipo") String tipo);
    
 }
 

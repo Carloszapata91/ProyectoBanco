@@ -179,27 +179,37 @@ public class ControladorInicio {
      }
 
      @PostMapping("/guardarMov")
-    public String guardarMov (Movimientos movimientos){
+    public String guardarMov (Movimientos movimientos, Cuenta cuenta){
             log.info(movimientos.getTipo_movimiento());
-
-             if ( Double.parseDouble(movimientos.getCantidad()) > 0){
-              double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(movimientos.getSaldo_inicial());
-               movimientos.setSaldo_actual(Double.toString(saldo_actual));
+            
+            Cuenta cuentaAuxiliar = new Cuenta(); 
+            cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
+            
+                   
+             if (Double.parseDouble(movimientos.getCantidad()) > 0){
+                double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(cuentaAuxiliar.getSaldo());
+                movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
+                movimientos.setSaldo_actual(Double.toString(saldo_actual));
+                cuentaAuxiliar.setSaldo(Double.toString(saldo_actual));
+                
                    Date fecha=new Date();
                    SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
-                   movimientos.setFecha_movimiento(formatoFecha.format(fecha));
+                  movimientos.setFecha_movimiento(formatoFecha.format(fecha));
 
+                cuentaService.guardarC(cuentaAuxiliar);
                 movimientosService.guardarMov(movimientos);
             
-              
-              return "redirect:/";
+               return "redirect:/";
           
            }else {
-               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(movimientos.getCantidad()) ;
+               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(cuenta.getSaldo()) ;
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                   if(saldo_actual>0){
-                     Date fecha=new Date();
+                    
+                      Date fecha=new Date();
                      SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+                     movimientos.setFecha_movimiento(formatoFecha.format(fecha));
+
                      movimientos.setFecha_movimiento(formatoFecha.format(fecha));
                      movimientosService.guardarMov(movimientos);
                     }else{

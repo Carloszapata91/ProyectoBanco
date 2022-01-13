@@ -18,6 +18,8 @@ public interface CuentaService {
     public List<Cuenta> listarCuentas2(String a);
 
    public List<Cuenta> listarProductosByID(Cuenta cuenta);
+
+   public Cuenta EncontrarByIDTipo(Cuenta cuenta);
 }
 
 

@@ -66,10 +66,7 @@
                         <option value="Corriente">Corriente</option> 
                 </select>
             <br/>
-            <br/>
-            <label for="saldo_inicial">Saldo inicial (COL$):</label>
-            <input type="number" name="saldo_inicial" placeholder="Saldo inicial" required="true" th:field="${movimientos.saldo_inicial}"/>
-            <br/>
+            
             <br/>
             <label for="tipoOper">Tipo de Operación:</label>
             <select name="tipoOper" required="true" th:field="${movimientos.tipo_movimiento}">
@@ -92,6 +89,7 @@
             <br/> 
             <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer movimiento"/>
         </form> 
+        <br/>
         <br/>
         <br/>
       
