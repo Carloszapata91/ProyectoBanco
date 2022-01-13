@@ -186,7 +186,7 @@ public class ControladorInicio {
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
             
                    
-             if (Double.parseDouble(movimientos.getCantidad()) > 0){
+             if (!movimientos.getTipo_movimiento().equals("Retiro")){
                 double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_actual(Double.toString(saldo_actual));
@@ -202,16 +202,25 @@ public class ControladorInicio {
                return "redirect:/";
           
            }else {
-               double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(cuenta.getSaldo()) ;
+               
+                 log.info("Hola: " + Double.parseDouble(cuentaAuxiliar.getSaldo()));
+               double saldo_actual =  Double.parseDouble(cuentaAuxiliar.getSaldo()) - Double.parseDouble(movimientos.getCantidad());
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
-                  if(saldo_actual>0){
+                        
+                  if(saldo_actual>=0 || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000)){
                     
-                      Date fecha=new Date();
-                     SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
-                     movimientos.setFecha_movimiento(formatoFecha.format(fecha));
+                    movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
+                    movimientos.setSaldo_actual(Double.toString(saldo_actual));
+                    cuentaAuxiliar.setSaldo(Double.toString(saldo_actual));
+                
+                    Date fecha=new Date();
+                    SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+                    movimientos.setFecha_movimiento(formatoFecha.format(fecha));
 
-                     movimientos.setFecha_movimiento(formatoFecha.format(fecha));
-                     movimientosService.guardarMov(movimientos);
+                    cuentaService.guardarC(cuentaAuxiliar);
+                    log.info("Hola Cocococococo:" + Double.toString(saldo_actual));
+                    movimientosService.guardarMov(movimientos);
+
                     }else{
                      log.info("Movimiento no permitido: Saldo insuficiente");
                 }
