@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import proyectos.bootcamp.dao.UsuarioDao;
 import proyectos.bootcamp.domain.Cuenta;
 import proyectos.bootcamp.domain.Movimientos;
+import proyectos.bootcamp.domain.Transferencia;
 import proyectos.bootcamp.domain.Usuario;
 import proyectos.bootcamp.servicio.CuentaService;
 import proyectos.bootcamp.servicio.UsuarioService;
@@ -101,6 +102,7 @@ public class ControladorInicio {
 
      @GetMapping("/crearCuenta")
      public String crearCuenta(Cuenta cuenta){
+         
          return "crearCuenta";
      }
      
@@ -196,6 +198,9 @@ public class ControladorInicio {
                double saldo_actual = Double.parseDouble(movimientos.getSaldo_inicial())+ Double.parseDouble(movimientos.getCantidad()) ;
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                   if(saldo_actual>0){
+                     Date fecha=new Date();
+                     SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+                     movimientos.setFecha_movimiento(formatoFecha.format(fecha));
                      movimientosService.guardarMov(movimientos);
                     }else{
                      log.info("Movimiento no permitido: Saldo insuficiente");
@@ -245,5 +250,10 @@ public class ControladorInicio {
 
          return "estadoCuentaUsuario";
     }
+
+    @GetMapping("/crearTransferencia")
+    public String crearTransferencia (Transferencia transferencia){
+          return "crearTransferencia";
+     }
 
 }

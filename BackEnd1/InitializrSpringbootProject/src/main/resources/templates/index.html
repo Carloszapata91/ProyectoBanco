@@ -122,14 +122,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
               opacity: 0.4;
               text-decoration: none;
             }
+            .boton_4{
+              text-decoration: none;
+              padding: 3px;
+              padding-left: 10px;
+              padding-right: 10px;
+              font-weight: 300;
+              font-size: 25px;
+              font-style: italic;
+              color: white;
+              background-color: #990099;
+              border-radius: 15px;
+              border: 3px double #000000;
+            }
+            .boton_4:hover{
+              opacity: 0.4;
+              text-decoration: none;
+            }
           </style>
           
     </head>
     
-    <body style="background-color:#ff9900; padding-left:50px ;">
+    <body style="background-color:#ff9900; padding-left:50px ; padding-bottom: 100px">
         
         </br>
-      <div style="width: 50%; float:left;   text-align: center; border: 2px solid grey;  width:500px; height:680px; border-radius:22px;">
+      <div style="width: 50%; float:left;   text-align: center; border: 2px solid grey;  width:500px; height:730px; border-radius:22px; padding-top: 10px">
       
     
         <h1>&nbsp;&nbsp; Bienvenido a MyBank </h1> 
@@ -160,6 +177,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
        &nbsp;&nbsp;&nbsp;&nbsp; <a class="boton_2" th:href="@{/crearMovimiento}"> Hacer Retiro/Consignación</a>
        <br/>
        <br/>  
+       <br>
+       &nbsp;&nbsp;&nbsp;&nbsp; <a class="boton_4" th:href="@{/crearTransferencia}"> Hacer Transferencia</a>
+       <br/>
+       <br/>  
        <br/>
        &nbsp;&nbsp;&nbsp;&nbsp; <a class="boton_3" th:href="@{/estadoCuenta}"> Ver Estado de cuenta</a>
        <br/>
@@ -174,7 +195,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         
       <div style="width: 50%; float:right">
                  
-        <div style="text-align: center;background-color: white;  border: 2px solid grey;  width:500px; height:680px; border-radius:22px; ">
+        <div style="text-align: center;background-color: white;  border: 2px solid grey;  width:500px; height:740px; border-radius:22px; ">
 
             <h1>  MyBank </h1>
 
@@ -190,19 +211,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                               <div class="text-center">
                                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
                                 <h4 class="mt-1 mb-5 pb-1">El banco que es simple, como tú</h4>
-                                <br>
+                                <br></br>
                                 <h4 class="mt-1 mb-5 pb-1">SIN COMISIONES</h4>
                                 <h4 class="mt-1 mb-5 pb-1">ATENCIÓN PERSONALIZADA</h4>
                               </div>
 
                               <form>
 
-                                <h4 class="mt-1 mb-5 pb-1">  SIN CONDICIONES </h4>  <br>
+                                <h4 class="mt-1 mb-5 pb-1">  SIN CONDICIONES </h4>  <br></br>
                                <div><p class="mb-0 me-2">Crea una cuenta de ahorros o corriente</p> </div>
                                 
                                   <div><p class="mb-0 me-2">Controla los movimientos de las cuentas</p> </div>
                                 
-
+                                   </br>
                                 <div class="d-flex align-items-center justify-content-center pb-4"> <br>
                                    <h4 class="mt-1 mb-5 pb-1">Esta es nuestra plataforma corporativa</h4>
                
