@@ -195,8 +195,8 @@ public class ControladorInicio {
             Cuenta cuentaAuxiliar = new Cuenta(); 
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
             
-                   
-             if (!movimientos.getTipo_movimiento().equals("Retiro")){
+         
+             if (!movimientos.getTipo_movimiento().equals("Retiro") ){
                 double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_actual(Double.toString(saldo_actual));
@@ -217,7 +217,7 @@ public class ControladorInicio {
                double saldo_actual =  Double.parseDouble(cuentaAuxiliar.getSaldo()) - Double.parseDouble(movimientos.getCantidad());
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                         
-                  if(saldo_actual>=0 || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000)){
+                  if( (saldo_actual>=0 && cuentaAuxiliar.getEstado().equals("Activa")) || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000 && cuentaAuxiliar.getEstado().equals("Activa"))){
                     
                     movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                     movimientos.setSaldo_actual(Double.toString(saldo_actual));
@@ -306,7 +306,9 @@ public class ControladorInicio {
  
             log.info("Aqui va todo bien bien bien: " + transferencia.getTipoCuentaDestino());
 
-            if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva")) && (Double.parseDouble(cuentaOrigen.getSaldo()) >= Double.parseDouble(transferencia.getCantidad())) ){
+            if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva"))  ){
+                    
+                 if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- Double.parseDouble(transferencia.getCantidad()))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- Double.parseDouble(transferencia.getCantidad()))>=0)  ) { 
                     //Cuenta origen
                       log.info("Aqui va todo bien bien bien");
                     double saldoNuevoOrigen = Double.parseDouble(cuentaOrigen.getSaldo()) - Double.parseDouble(transferencia.getCantidad());
@@ -352,9 +354,11 @@ public class ControladorInicio {
 
                     cuentaDestino.setSaldo(Double.toString(saldoNuevoDestino)); 
                     cuentaService.guardarC(cuentaDestino);
-                  
 
-                }else
+                  }else{log.info("No se puede hacer la transferencia por saldo insuficiente");
+                   }return "redirect:/";
+
+            }else
                  { log.info("No se puede hacer la transferencia por saldo insuficiente");
                  }
 
