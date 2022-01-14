@@ -23,7 +23,7 @@
                     <th>Tipo de cuenta</th>
                     <th>Estado</th>
                     <th>Fecha de apertura</th>
-                    <th>Saldo de apertura (COL$)</th>
+                    <th>Saldo (COL$)</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                     
@@ -35,9 +35,9 @@
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
                     <td th:text="${cuenta.saldo}">Saldo </td>
-                    <td> <a th:href="@{/crearCuenta/} + ${cuenta}" th:text="Editar"/></td>
+                    <td> <a th:href="@{/crearCuenta?cuentaID=} + ${cuenta.id_usuario}+'&tip=' +${cuenta.tipo} " th:text="Editar"/></td> 
                     <td> <a th:href="@{/eliminarC/} + ${cuenta.id_usuario}" th:text="Eliminar"/></td>
-                   
+                          
                 </tr>
             </table>
         </div>

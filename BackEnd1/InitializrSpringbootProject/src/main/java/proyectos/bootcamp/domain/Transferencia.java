@@ -13,6 +13,6 @@ public class Transferencia {
     private String  tipoCuentaOrigen;
     private String tipoCuentaDestino;
     private String cantidad;
-    private String descripcion;
+    
   
 }

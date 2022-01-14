@@ -72,7 +72,7 @@
             <br/>
             <br/>
             <label for="tipoCD">Tipo de cuenta destino:</label>
-            <select name="tipoCD" required="true" th:field="${transferencia.tipoCuentaOrigen}">
+            <select name="tipoCD" required="true" th:field="${transferencia.tipoCuentaDestino}">
                     <option selected value="0"> Elige una opción </option>
                         <option value="Ahorros">Ahorros</option> 
                         <option value="Corriente">Corriente</option> 
@@ -84,7 +84,7 @@
             <br/>
             <br/>
            <!-- <label for="descripcion">Descripción:</label>  -->
-            <input type="hidden" name="descripción" placeholder="Descripción" value="Transferencia" th:field="${transferencia.descripcion}"/> 
+           <!-- <input type="hidden" name="descripción" placeholder="Descripción" value="Transferencia" th:field="${transferencia.descripcion}"/>   -->
             <br/>
             <br/>
             <br/> 

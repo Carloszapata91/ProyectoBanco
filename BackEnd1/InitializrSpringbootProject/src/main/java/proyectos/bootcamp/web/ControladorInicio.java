@@ -137,11 +137,21 @@ public class ControladorInicio {
     }
 
     @GetMapping("/crearCuenta/{id_usuario}")
-     public String editarCuenta(Cuenta cuenta, Model model){
-        cuenta = cuentaService.encontrarCuenta(cuenta);
+     public String editarCuenta(@RequestParam Long cuentaID, @RequestParam String tip ,Cuenta cuenta, Model model){
+        //cuenta = cuentaService.encontrarCuenta(cuenta);
+ 
+        Cuenta cuentaAux = new Cuenta();
+        cuentaAux.setId_usuario(cuentaID);
+        log.info("CuentaID y tipo: " + cuentaID + tip );
+        cuentaAux.setTipo(tip);
+        cuenta =cuentaService.EncontrarByIDTipo(cuentaAux);
+
+
         model.addAttribute("cuenta", cuenta);
         return "crearCuenta";
      }
+
+    
 
     @GetMapping("/eliminarC/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String eliminarC(Cuenta cuenta){ 
@@ -275,4 +285,79 @@ public class ControladorInicio {
           return "crearTransferencia";
      }
 
+         @PostMapping("/guardarTransferencia")
+    public String guardarTransferencia (Movimientos movimientos, Cuenta cuenta, Transferencia transferencia){
+         
+          log.info("Cuenta de origen del Cococococococcococococo: " + transferencia.getTipoCuentaOrigen());
+           
+            Cuenta cuentaAux = new Cuenta(); 
+            cuentaAux.setId_usuario(transferencia.getCuentaOrigen()); 
+            cuentaAux.setTipo(transferencia.getTipoCuentaOrigen());
+            cuentaAux = cuentaService.EncontrarByIDTipo(cuentaAux);
+
+            Cuenta cuentaOrigen = new Cuenta(); 
+            cuentaOrigen=cuentaService.EncontrarByIDTipo(cuentaAux);
+
+            Cuenta cuentaDestino = new Cuenta(); 
+            Cuenta cuentaAux2 = new Cuenta();
+            cuentaAux2.setId_usuario(transferencia.getCuentaDestino()); 
+            cuentaAux2.setTipo(transferencia.getTipoCuentaDestino());
+            cuentaDestino=cuentaService.EncontrarByIDTipo(cuentaAux2);
+ 
+            log.info("Aqui va todo bien bien bien: " + transferencia.getTipoCuentaDestino());
+
+            if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva")) && (Double.parseDouble(cuentaOrigen.getSaldo()) >= Double.parseDouble(transferencia.getCantidad())) ){
+                    //Cuenta origen
+                      log.info("Aqui va todo bien bien bien");
+                    double saldoNuevoOrigen = Double.parseDouble(cuentaOrigen.getSaldo()) - Double.parseDouble(transferencia.getCantidad());
+                     
+                    movimientos.setSaldo_inicial(cuentaOrigen.getSaldo());
+                    movimientos.setSaldo_actual(Double.toString(saldoNuevoOrigen));
+                    movimientos.setId_usuario(cuentaOrigen.getId_usuario());
+                    movimientos.setDescripcion("Debito por transferencia");
+                    movimientos.setTipo_movimiento("Transferencia");
+                    movimientos.setCantidad(transferencia.getCantidad());
+                    
+                    Date fecha=new Date();
+                    SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+                    movimientos.setFecha_movimiento(formatoFecha.format(fecha));
+   
+                    movimientos.setTipo(transferencia.getTipoCuentaOrigen());
+
+                    movimientosService.guardarMov(movimientos);
+
+                    cuentaOrigen.setSaldo(Double.toString(saldoNuevoOrigen)); 
+                    cuentaService.guardarC(cuentaOrigen);
+
+                    //Cuenta destino
+                    double saldoNuevoDestino = Double.parseDouble(cuentaDestino.getSaldo()) + Double.parseDouble(transferencia.getCantidad());
+                    
+                    Movimientos movimientoT = new Movimientos();
+
+                    movimientoT.setSaldo_inicial(cuentaDestino.getSaldo());
+                    movimientoT.setSaldo_actual(Double.toString(saldoNuevoDestino));
+                    movimientoT.setId_usuario(cuentaDestino.getId_usuario());
+                    movimientoT.setDescripcion("Credito por transferencia");
+                    movimientoT.setTipo_movimiento("Transferencia");
+                    movimientoT.setCantidad(transferencia.getCantidad());
+                    
+                    Date fecha2=new Date();
+                    SimpleDateFormat  formatoFecha2 = new SimpleDateFormat("YYYY-MM-dd");
+                    movimientoT.setFecha_movimiento(formatoFecha2.format(fecha2));
+
+                    movimientoT.setTipo(transferencia.getTipoCuentaDestino());
+
+                    movimientosService.guardarMov(movimientoT);
+
+
+                    cuentaDestino.setSaldo(Double.toString(saldoNuevoDestino)); 
+                    cuentaService.guardarC(cuentaDestino);
+                  
+
+                }else
+                 { log.info("No se puede hacer la transferencia por saldo insuficiente");
+                 }
+
+         return "redirect:/";
+     }
 }
