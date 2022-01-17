@@ -306,7 +306,7 @@ public class ControladorInicio {
  
             log.info("Aqui va todo bien bien bien: " + transferencia.getTipoCuentaDestino());
 
-            if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva"))  ){
+            if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva")) && (!cuentaDestino.getEstado().equals("Cancelada")) ){
                     
                  if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- Double.parseDouble(transferencia.getCantidad()))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- Double.parseDouble(transferencia.getCantidad()))>=0)  ) { 
                     //Cuenta origen
