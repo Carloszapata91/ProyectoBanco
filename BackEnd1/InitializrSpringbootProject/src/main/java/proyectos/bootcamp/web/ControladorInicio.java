@@ -196,7 +196,7 @@ public class ControladorInicio {
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
             
          
-             if (!movimientos.getTipo_movimiento().equals("Retiro") ){
+             if (!movimientos.getTipo_movimiento().equals("Retiro") && !movimientos.getTipo_movimiento().equals("0") ){
                 double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_actual(Double.toString(saldo_actual));
@@ -217,7 +217,7 @@ public class ControladorInicio {
                double saldo_actual =  Double.parseDouble(cuentaAuxiliar.getSaldo()) - Double.parseDouble(movimientos.getCantidad());
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                         
-                  if( (saldo_actual>=0 && cuentaAuxiliar.getEstado().equals("Activa")) || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000 && cuentaAuxiliar.getEstado().equals("Activa"))){
+                  if( (saldo_actual>=0 && cuentaAuxiliar.getEstado().equals("Activa") && !movimientos.getTipo_movimiento().equals("0")) || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000 && cuentaAuxiliar.getEstado().equals("Activa") && !movimientos.getTipo_movimiento().equals("0"))){
                     
                     movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                     movimientos.setSaldo_actual(Double.toString(saldo_actual));
