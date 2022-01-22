@@ -1,4 +1,4 @@
-ProyectoBanco
+ProyectoBanco: MyBank
 
 Proyecto realizado como reto final del Bootcamp Fullstack de Sophos Solutions.
 
