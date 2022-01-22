@@ -50,12 +50,10 @@
         <h2>Transferencia</h2>
         <br/>
         <br/>
-        
-        <form th:action="@{/guardarTransferencia}" method="post" th:object="${transferencia}" >
+                
+        <form style="font-size: 20" th:action="@{/guardarTransferencia}" method="post" th:object="${transferencia}" >
               
-              
-            
-           <label for="cuentaOrigen">Numero cuenta origen:</label>
+            <label for="cuentaOrigen">Numero cuenta origen:</label>
             <input type="number" name="cuentaOrigen" placeholder="Numero cuenta origen" required="true" th:field="${transferencia.cuentaOrigen}"/>
             <br/>
             <br/>
@@ -87,7 +85,7 @@
            <!-- <input type="hidden" name="descripción" placeholder="Descripción" value="Transferencia" th:field="${transferencia.descripcion}"/>   -->
             <br/>
             <br/>
-            <br/> 
+            
             
             <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer transferencia"/>
         </form> 

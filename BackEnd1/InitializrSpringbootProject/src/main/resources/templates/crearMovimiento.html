@@ -51,12 +51,12 @@
         <br/>
         <br/>
         
-        <form th:action="@{/guardarMov}" method="post" th:object="${movimientos}" >
+        <form style="font-size:20" th:action="@{/guardarMov}" method="post" th:object="${movimientos}" >
               
               
             
-           <label for="id_usuario">Numero Cuenta:</label>
-            <input type="number" name="id_usuario" placeholder="Numero cuenta" required="true" th:field="${movimientos.id_usuario}"/>
+           <label for="id_usuario">Número de Cuenta:</label>
+            <input type="number" name="id_usuario" placeholder="Número de cuenta" required="true" th:field="${movimientos.id_usuario}"/>
             <br/>
             <br/>
             <label for="tipo">Tipo de cuenta:</label>
