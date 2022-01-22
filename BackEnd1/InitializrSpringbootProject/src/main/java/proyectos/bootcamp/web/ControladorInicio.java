@@ -89,15 +89,20 @@ public class ControladorInicio {
     @GetMapping("/verUsuarios")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verUsuarios(Model model){ 
         
-        var usuarios = usuarioService.listarUsuarios();
+       var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
         return "verUsuarios";
     }
 
     @GetMapping("/eliminar/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String eliminar(Usuario usuario){ 
+        try{
         usuarioService.eliminar(usuario);
         return "redirect:/";
+        }catch (Exception e) {
+          log.info("No es posible eliminar a este cliente, porque tiene productos activos");
+          return "redirect:/";
+        }
     }
 
      @GetMapping("/crearCuenta")
@@ -191,7 +196,7 @@ public class ControladorInicio {
      @PostMapping("/guardarMov")
     public String guardarMov (Movimientos movimientos, Cuenta cuenta){
             log.info(movimientos.getTipo_movimiento());
-            
+        try{    
             Cuenta cuentaAuxiliar = new Cuenta(); 
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
             
@@ -237,6 +242,12 @@ public class ControladorInicio {
                
                }
                 return "redirect:/";
+
+        }catch (Exception e) {
+          log.info("No es posible hacer esta operacion: cuenta inexistente");
+          return "redirect:/";
+        }
+        
      }
 
     @GetMapping("/estadoCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
@@ -287,7 +298,7 @@ public class ControladorInicio {
 
          @PostMapping("/guardarTransferencia")
     public String guardarTransferencia (Movimientos movimientos, Cuenta cuenta, Transferencia transferencia){
-         
+        try{ 
           log.info("Cuenta de origen del Cococococococcococococo: " + transferencia.getTipoCuentaOrigen());
            
             Cuenta cuentaAux = new Cuenta(); 
@@ -363,5 +374,11 @@ public class ControladorInicio {
                  }
 
          return "redirect:/";
+
+
+       }catch (Exception e) {
+          log.info("No es posible hacer la transferencia: alguna de la cuentas no existe");
+          return "redirect:/";
+        }
      }
 }
