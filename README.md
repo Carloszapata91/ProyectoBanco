@@ -1,6 +1,8 @@
 ProyectoBanco
 
- Desarrollo de una aplicación Web para una entidad financiera, que permite el registro de 
+Proyecto realizado como reto final del Bootcamp Fullstack de Sophos Solutions.
+
+Desarrollo de una aplicación Web para una entidad financiera, que permite el registro de 
 clientes, crear cuentas bancarias de ahorro o corriente, crear movimientos (retiros y consignaciones), hacer transferencias entre cuentas y consultar 
 los estados de cuenta.
 
