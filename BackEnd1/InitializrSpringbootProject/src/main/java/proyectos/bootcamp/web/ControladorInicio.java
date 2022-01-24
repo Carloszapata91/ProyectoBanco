@@ -219,7 +219,7 @@ public class ControladorInicio {
            }else {
                
                  log.info("Hola: " + Double.parseDouble(cuentaAuxiliar.getSaldo()));
-               double saldo_actual =  Double.parseDouble(cuentaAuxiliar.getSaldo()) - ((1.001)*Double.parseDouble(movimientos.getCantidad()));
+               double saldo_actual =  Double.parseDouble(cuentaAuxiliar.getSaldo()) - ((1.004)*Double.parseDouble(movimientos.getCantidad()));
                movimientos.setSaldo_actual(Double.toString(saldo_actual));
                         
                   if( (saldo_actual>=0 && cuentaAuxiliar.getEstado().equals("Activa") && !movimientos.getTipo_movimiento().equals("0")) || (cuentaAuxiliar.getTipo().equals("Corriente") && saldo_actual>=-2000000 && cuentaAuxiliar.getEstado().equals("Activa") && !movimientos.getTipo_movimiento().equals("0"))){
@@ -319,10 +319,10 @@ public class ControladorInicio {
 
             if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva")) && (!cuentaDestino.getEstado().equals("Cancelada")) ){
                     
-                 if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.001*Double.parseDouble(transferencia.getCantidad())))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.001*Double.parseDouble(transferencia.getCantidad())))>=0)  ) { 
+                 if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.004*Double.parseDouble(transferencia.getCantidad())))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.001*Double.parseDouble(transferencia.getCantidad())))>=0)  ) { 
                     //Cuenta origen
                       log.info("Aqui va todo bien bien bien");
-                    double saldoNuevoOrigen = Double.parseDouble(cuentaOrigen.getSaldo()) - (1.001*Double.parseDouble(transferencia.getCantidad()));
+                    double saldoNuevoOrigen = Double.parseDouble(cuentaOrigen.getSaldo()) - (1.004*Double.parseDouble(transferencia.getCantidad()));
                      
                     movimientos.setSaldo_inicial(cuentaOrigen.getSaldo());
                     movimientos.setSaldo_actual(Double.toString(saldoNuevoOrigen));
