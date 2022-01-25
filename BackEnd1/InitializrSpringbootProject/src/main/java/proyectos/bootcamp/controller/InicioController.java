@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import proyectos.bootcamp.repository.UsuarioDao;
 import proyectos.bootcamp.entity.Cuenta;
 import proyectos.bootcamp.entity.Movimientos;
 import proyectos.bootcamp.entity.Transferencia;
-import proyectos.bootcamp.entity.Usuario;
+import proyectos.bootcamp.entity.Cliente;
 import proyectos.bootcamp.service.CuentaService;
-import proyectos.bootcamp.service.UsuarioService;
 import proyectos.bootcamp.service.MovimientosService;
+import proyectos.bootcamp.repository.ClienteDao;
+import proyectos.bootcamp.service.ClienteService;
 
 
 /**
@@ -37,7 +37,7 @@ import proyectos.bootcamp.service.MovimientosService;
 public class InicioController {
 
     @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
-    private UsuarioService usuarioService;
+    private ClienteService usuarioService;
 
     @Autowired
     private CuentaService cuentaService;
@@ -60,12 +60,12 @@ public class InicioController {
      }
 
      @GetMapping("/crearUsuario")
-     public String crearUsuario(Usuario usuario){
+     public String crearUsuario(Cliente usuario){
          return "modificar";
      }
 
      @PostMapping("/guardar")
-     public String guardar (Usuario usuario,  RedirectAttributes attribute){
+     public String guardar (Cliente usuario,  RedirectAttributes attribute){
         usuario.setFecha_creacion_cuenta("2022-01-11");
         Date fecha=new Date();
         SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
@@ -77,7 +77,7 @@ public class InicioController {
      }
 
      @GetMapping("/editar/{id_usuario}")
-     public String editar(Usuario usuario, Model model, RedirectAttributes attribute){
+     public String editar(Cliente usuario, Model model, RedirectAttributes attribute){
         usuario = usuarioService.encontrarUsuario(usuario);
         model.addAttribute("usuario", usuario);
        
@@ -95,7 +95,7 @@ public class InicioController {
     }
 
     @GetMapping("/eliminar/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String eliminar(Usuario usuario){ 
+    public String eliminar(Cliente usuario){ 
         try{
         usuarioService.eliminar(usuario);
         return "redirect:/";
@@ -170,7 +170,7 @@ public class InicioController {
     }
 
     @GetMapping("/resumenUsuario")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String resumenUsuario(Usuario usuario, Cuenta cuenta, Model model){ 
+    public String resumenUsuario(Cliente usuario, Cuenta cuenta, Model model){ 
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
@@ -178,7 +178,7 @@ public class InicioController {
     }
 
     @GetMapping("/productosUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String productosUsuario(Cuenta cuenta, Usuario usuario, Model model){ 
+    public String productosUsuario(Cuenta cuenta, Cliente usuario, Model model){ 
          
          var cuentas = cuentaService.listarProductosByID(cuenta);
          model.addAttribute("cuentas", cuentas);
@@ -251,7 +251,7 @@ public class InicioController {
      }
 
     @GetMapping("/estadoCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String estadoCuenta(Usuario usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
+    public String estadoCuenta(Cliente usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
@@ -274,7 +274,7 @@ public class InicioController {
     }
 
     @GetMapping("/estadoCuentaUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String estadoCuentaUsuario(Cuenta cuenta, Usuario usuario, Movimientos movimientos, Model model){ 
+    public String estadoCuentaUsuario(Cuenta cuenta, Cliente usuario, Movimientos movimientos, Model model){ 
          
         var cuentas = cuentaService.listarProductosByID(cuenta);
         model.addAttribute("cuentas", cuentas);

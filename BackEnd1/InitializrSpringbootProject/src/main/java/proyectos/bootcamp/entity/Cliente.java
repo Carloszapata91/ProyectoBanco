@@ -14,7 +14,7 @@ import lombok.Data;
 @Data   //Genera todos los Getter y Setter de los atributos de la clase
 @Entity
 @Table(name="cliente")  //Para evitar problemas entre el nombre de la tabla en base de datos (usuario) y el nombre de la clase (Usuario)
-public class Usuario implements Serializable {
+public class Cliente implements Serializable {
 
     private static final long serialVersionUID= 1L;
 

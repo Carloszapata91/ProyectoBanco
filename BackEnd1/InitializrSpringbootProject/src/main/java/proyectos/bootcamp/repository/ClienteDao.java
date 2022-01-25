@@ -5,13 +5,13 @@
 package proyectos.bootcamp.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import proyectos.bootcamp.entity.Usuario;
+import proyectos.bootcamp.entity.Cliente;
 
 /**
  *
  * @author cocot
  */
-public interface UsuarioDao extends CrudRepository<Usuario, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
+public interface ClienteDao extends CrudRepository<Cliente, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
     //Aqui puedo definir todos los querys personalizados que necesite
 }
 
