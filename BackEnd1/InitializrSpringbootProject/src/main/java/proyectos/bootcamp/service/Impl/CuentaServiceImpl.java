@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyectos.bootcamp.service;
+package proyectos.bootcamp.service.Impl;
 
 import proyectos.bootcamp.repository.cuentaDao;
 import proyectos.bootcamp.entity.Cuenta;
@@ -11,12 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import proyectos.bootcamp.entity.CuentaPK;
+import proyectos.bootcamp.service.CuentaService;
 /**
  *
  * @author cocot
  */
 @Service
-public class CuentaServiceImplementacion implements CuentaService{
+public class CuentaServiceImpl implements CuentaService{
      
     @Autowired
     private cuentaDao cuentaDao;
