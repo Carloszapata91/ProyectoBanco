@@ -1,4 +1,4 @@
-package proyectos.bootcamp.domain;
+package proyectos.bootcamp.entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;

@@ -1,12 +1,12 @@
 
-package proyectos.bootcamp.dao;
+package proyectos.bootcamp.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import proyectos.bootcamp.domain.Cuenta;
-import proyectos.bootcamp.domain.Movimientos;
+import proyectos.bootcamp.entity.Cuenta;
+import proyectos.bootcamp.entity.Movimientos;
 
 /**
  *

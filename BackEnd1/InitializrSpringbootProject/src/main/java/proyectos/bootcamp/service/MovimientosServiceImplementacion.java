@@ -1,12 +1,12 @@
-package proyectos.bootcamp.servicio;
+package proyectos.bootcamp.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import proyectos.bootcamp.dao.MovimientosDao;
-import proyectos.bootcamp.domain.Cuenta;
-import proyectos.bootcamp.domain.Movimientos;
+import proyectos.bootcamp.repository.MovimientosDao;
+import proyectos.bootcamp.entity.Cuenta;
+import proyectos.bootcamp.entity.Movimientos;
 
 
 @Service  //De esta manera se reconoce a esta clase como un servicio y la podre inyectar en el controlador

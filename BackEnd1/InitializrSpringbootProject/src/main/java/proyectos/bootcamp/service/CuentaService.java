@@ -1,7 +1,7 @@
-package proyectos.bootcamp.servicio;
+package proyectos.bootcamp.service;
 
 import java.util.List;
-import proyectos.bootcamp.domain.Cuenta;
+import proyectos.bootcamp.entity.Cuenta;
 
 
 

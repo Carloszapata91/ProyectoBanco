@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package proyectos.bootcamp.web;
+package proyectos.bootcamp.controller;
 
 import static java.lang.System.console;
 import java.text.SimpleDateFormat;
@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import proyectos.bootcamp.dao.UsuarioDao;
-import proyectos.bootcamp.domain.Cuenta;
-import proyectos.bootcamp.domain.Movimientos;
-import proyectos.bootcamp.domain.Transferencia;
-import proyectos.bootcamp.domain.Usuario;
-import proyectos.bootcamp.servicio.CuentaService;
-import proyectos.bootcamp.servicio.UsuarioService;
-import proyectos.bootcamp.servicio.MovimientosService;
+import proyectos.bootcamp.repository.UsuarioDao;
+import proyectos.bootcamp.entity.Cuenta;
+import proyectos.bootcamp.entity.Movimientos;
+import proyectos.bootcamp.entity.Transferencia;
+import proyectos.bootcamp.entity.Usuario;
+import proyectos.bootcamp.service.CuentaService;
+import proyectos.bootcamp.service.UsuarioService;
+import proyectos.bootcamp.service.MovimientosService;
 
 
 /**

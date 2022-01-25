@@ -1,8 +1,8 @@
 
-package proyectos.bootcamp.servicio;
+package proyectos.bootcamp.service;
 
 import java.util.List;
-import proyectos.bootcamp.domain.Usuario;
+import proyectos.bootcamp.entity.Usuario;
 
 
 public interface UsuarioService {

@@ -1,12 +1,12 @@
 
-package proyectos.bootcamp.servicio;
+package proyectos.bootcamp.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import proyectos.bootcamp.dao.UsuarioDao;
-import proyectos.bootcamp.domain.Usuario;
+import proyectos.bootcamp.repository.UsuarioDao;
+import proyectos.bootcamp.entity.Usuario;
 
 @Service  //De esta manera se reconoce a esta clase como un servicio y la podre inyectar en el controlador
 public class UsuarioServiceImplementacion implements UsuarioService {
