@@ -11,7 +11,7 @@
 	<groupId>proyectos</groupId>
 	<artifactId>bootcamp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>BackEnd</name>
+	<name>BackEnd2</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
