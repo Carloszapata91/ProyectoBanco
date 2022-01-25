@@ -60,26 +60,26 @@ public class InicioController {
      }
 
      @GetMapping("/crearUsuario")
-     public String crearUsuario(Cliente usuario){
+     public String crearUsuario(Cliente cliente){
          return "modificar";
      }
 
      @PostMapping("/guardar")
-     public String guardar (Cliente usuario,  RedirectAttributes attribute){
-        usuario.setFecha_creacion_cuenta("2022-01-11");
+     public String guardar (Cliente cliente,  RedirectAttributes attribute){
+        cliente.setFecha_creacion_cuenta("2022-01-11");
         Date fecha=new Date();
         SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
-        usuario.setFecha_creacion_cuenta(formatoFecha.format(fecha));
-        usuarioService.guardar(usuario);
+        cliente.setFecha_creacion_cuenta(formatoFecha.format(fecha));
+        usuarioService.guardar(cliente);
           
         attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
         return "redirect:/";
      }
 
      @GetMapping("/editar/{id_usuario}")
-     public String editar(Cliente usuario, Model model, RedirectAttributes attribute){
-        usuario = usuarioService.encontrarUsuario(usuario);
-        model.addAttribute("usuario", usuario);
+     public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
+        cliente = usuarioService.encontrarUsuario(cliente);
+        model.addAttribute("usuario", cliente);
        
         attribute.addFlashAttribute("success", "Cliente guardado exitosamente");
         
