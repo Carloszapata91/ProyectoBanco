@@ -200,7 +200,7 @@
                     <td th:text="${usuario.fecha_nacimiento}">Fecha nacimiento</td>
                     <td th:text="${usuario.fecha_creacion_cuenta}">Fecha creacion cuenta</td>
                     <td th:text="${usuario.telefono}">Mostrar Teléfono</td>
-                    <td> &nbsp;<a th:href="@{/editar/} + ${usuario.id_usuario}" class="boton-personalizado-6" th:text="Editar"/></td>
+                    <td> &nbsp;<a th:href="@{/editarCliente/} + ${usuario.id_usuario}" class="boton-personalizado-6" th:text="Editar"/></td>
                     <td > &nbsp;<a th:href="@{/eliminar/} + ${usuario.id_usuario}" class="boton-personalizado-7" th:text="Eliminar"/></td>
                 </tr>
             </table>

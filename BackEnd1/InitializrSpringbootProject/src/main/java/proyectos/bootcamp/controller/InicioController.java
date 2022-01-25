@@ -59,7 +59,7 @@ public class InicioController {
        return "index";
      }
 
-     @GetMapping("/crearUsuario")
+     @GetMapping("/Cliente")
      public String crearUsuario(Cliente cliente){
          return "modificar";
      }
@@ -76,7 +76,7 @@ public class InicioController {
         return "redirect:/";
      }
 
-     @GetMapping("/editar/{id_usuario}")
+     @GetMapping("/editarCliente/{id_usuario}")
      public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
         cliente = usuarioService.encontrarUsuario(cliente);
         model.addAttribute("usuario", cliente);
@@ -86,7 +86,7 @@ public class InicioController {
         return "modificar";
      }
 
-    @GetMapping("/verUsuarios")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/verClientes")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verUsuarios(Model model){ 
         
        var usuarios = usuarioService.listarUsuarios();
@@ -105,7 +105,7 @@ public class InicioController {
         }
     }
 
-     @GetMapping("/crearCuenta")
+     @GetMapping("/Cuenta")
      public String crearCuenta(Cuenta cuenta){
          
          return "crearCuenta";
@@ -129,7 +129,7 @@ public class InicioController {
                 return "redirect:/";
      }
 
-    @GetMapping("/editarCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/verCuentas")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verCuentas(Model model){ 
         
         var cuentas = cuentaService.listarCuentas();
@@ -169,15 +169,15 @@ public class InicioController {
               return "redirect:/";
     }
 
-    @GetMapping("/resumenUsuario")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/resumenCliente")     //Solicitud GET (metodo de solicitud) para la consulta
     public String resumenUsuario(Cliente usuario, Cuenta cuenta, Model model){ 
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
-        return "resumenUsuario";
+        return "resumenCliente";
     }
 
-    @GetMapping("/productosUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/productosCliente/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String productosUsuario(Cuenta cuenta, Cliente usuario, Model model){ 
          
          var cuentas = cuentaService.listarProductosByID(cuenta);
@@ -185,7 +185,7 @@ public class InicioController {
 
          usuario = usuarioService.encontrarUsuario(usuario);
          model.addAttribute("usuario", usuario);
-         return "productosUsuario";
+         return "productosCliente";
     }
     
     @GetMapping("/crearMovimiento")
@@ -273,7 +273,7 @@ public class InicioController {
         return "estadoCuenta_1";
     }
 
-    @GetMapping("/estadoCuentaUsuario/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/estadoCuentaCliente/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String estadoCuentaUsuario(Cuenta cuenta, Cliente usuario, Movimientos movimientos, Model model){ 
          
         var cuentas = cuentaService.listarProductosByID(cuenta);
@@ -288,7 +288,7 @@ public class InicioController {
         movimientos = movimientosService.encontrarMov(movimientos);
         model.addAttribute("movimientos", movimientos);
 
-         return "estadoCuentaUsuario";
+         return "estadoCuentaCliente";
     }
 
     @GetMapping("/crearTransferencia")
