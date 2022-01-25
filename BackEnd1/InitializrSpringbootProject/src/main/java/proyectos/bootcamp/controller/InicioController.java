@@ -34,7 +34,7 @@ import proyectos.bootcamp.service.MovimientosService;
  */
 @Controller   //Controlador MVC de Thymeleaf (tecnologia de despliegue) .. da el acceso al metodo
 @Slf4j       //Facilita visualizar mensajes en la consola (log.console)
-public class ControladorInicio {
+public class InicioController {
 
     @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
     private UsuarioService usuarioService;
