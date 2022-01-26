@@ -55,8 +55,8 @@ public class CuentaController {
                 return "501ISE";
          
         }catch(Exception e) {
-          log.info("Internal Server Error");
-          return "501ISE";
+          log.info("Internal Server Error: Cliente inexistente");
+          return "501ISE_1";
         }
      }
 

@@ -96,7 +96,7 @@ public class MovimientosController {
 
         }catch (Exception e) {
           log.info("0 - Operacion fallida");
-          return "operacionFallida";
+          return "501ISE_2";
         }
         
      }

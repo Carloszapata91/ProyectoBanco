@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Success - My Bank</title>
+        <title>Error - My Bank</title>
        
           <style>
          .boton-personalizado-5 {
@@ -30,23 +30,27 @@
           
     </head>
     
-    <body style="background-color:#82b085; text-align: center; padding-left: 80px;">
+    <body style="background-color:#F12727; text-align: center; padding-left: 80px;">
         <div style="width: 100%;  margin-top: 40px;  text-align: center; border: 2px solid grey;  width:1150px; height:570px; border-radius:22px;">
         <br/>
         <h1> MyBank </h1>
-        <br/>
+  
         <div> <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo"> </div>
-        <br/>
-        <div> <h2> 200 OK </h2> </div>
-        <br/>
-        <br/>
-        <div> <h2> 0 - Operación exitosa </h2> </div>
         
-        <br/>
-        <br/>
-        <br/>
+       
+        <div> <h2>  </h2> </div>
+       
+        <div> <h2> 501 Internal Server Error - Operación fallida </h2> </div>
         
-        
+      
+        <br/>
+        <h2> No es posible hacer la transferencia: cuenta inexistente </h2>
+       
+        <br/>
+        <h2> Verifique la información ingresada </h2>
+        <br/>
+      
+        <br/>
             <a class="boton-personalizado-5" th:href="@{/}"> Continuar </a>
     
     

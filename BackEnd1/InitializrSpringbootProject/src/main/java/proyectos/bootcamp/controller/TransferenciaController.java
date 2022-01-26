@@ -118,8 +118,8 @@ public class TransferenciaController {
 
 
        }catch (Exception e) {
-          log.info("No es posible hacer la transferencia: alguna de la cuentas no existe");
-          return "501ISE";
+          log.info("No es posible hacer la transferencia: alguna de las cuentas no existe");
+          return "501ISE_2";
         }
      }
 
