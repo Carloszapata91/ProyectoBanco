@@ -42,7 +42,7 @@ public class ClienteController {
             .addFlashAttribute("clase", "success");
         //attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
          log.info("200 OK - Cliente creado con exito ");
-        return "201Created";
+        return "201Created_1";
      }
 
      @GetMapping("/editarCliente/{id_usuario}")

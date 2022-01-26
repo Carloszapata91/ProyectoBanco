@@ -41,7 +41,7 @@ public class CuentaController {
     public String guardarC (Cuenta cuenta){
         try{
           log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
-          if ( 0<=  Double.parseDouble(cuenta.getSaldo()) ){
+          if ( 0<=  Double.parseDouble(cuenta.getSaldo()) && !cuenta.getTipo().equals("0")){
             Date fecha=new Date();
             SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
             cuenta.setFecha_apertura(formatoFecha.format(fecha));
