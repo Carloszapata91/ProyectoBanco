@@ -1,0 +1,38 @@
+.izquierda{
+    width: 30%;
+    background-color: red;
+    display: flex;
+
+}
+
+.derecha{
+    width: 30%;
+    background-color: blue;
+    display: flex;
+
+}
+
+body {
+    margin-top: 30px;
+    background-color: rgba(86,61,124,.05);
+  }
+  
+  a,
+  a:hover {
+    color: #212529;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .block {
+    height: 350px;
+    background: rgba(86,61,124,.15);
+    margin-bottom: 30px;
+  }
+  
+  .label {
+    font-size: .99rem;
+    font-weight: bold;
+  }
