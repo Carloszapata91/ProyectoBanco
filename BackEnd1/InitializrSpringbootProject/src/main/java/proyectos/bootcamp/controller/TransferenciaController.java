@@ -60,7 +60,7 @@ public class TransferenciaController {
 
             if (cuentaOrigen.getEstado().equals("Activa")  && (!cuentaDestino.getEstado().equals("Inactiva")) && (!cuentaDestino.getEstado().equals("Cancelada")) ){
                     
-                 if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.004*Double.parseDouble(transferencia.getCantidad())))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.004*Double.parseDouble(transferencia.getCantidad())))>=0)  ) { 
+                if ( (cuentaOrigen.getTipo().equals("Corriente")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.004*Double.parseDouble(transferencia.getCantidad())))>= (-2000000)) || ( cuentaOrigen.getTipo().equals("Ahorros")&& (Double.parseDouble(cuentaOrigen.getSaldo())- (1.004*Double.parseDouble(transferencia.getCantidad())))>=0)  ) { 
                     
                    //Cuenta origen
                     log.info("Aqui va todo bien bien bien");
@@ -107,20 +107,19 @@ public class TransferenciaController {
 
                     cuentaDestino.setSaldo(Double.toString(saldoNuevoDestino)); 
                     cuentaService.guardarC(cuentaDestino);
-
-                  }else{log.info("No se puede hacer la transferencia por saldo insuficiente");
-                   }return "redirect:/";
+                    return "200OK";
+                  
+                }else{log.info("2 - No se puede hacer la transferencia por saldo insuficiente");
+                   }return "fondosInsuficientes";
 
             }else
-                 { log.info("No se puede hacer la transferencia por saldo insuficiente");
-                 }
-
-         return "redirect:/";
+                 { log.info("No se puede hacer la transferencia por cuenta inactiva o cancelada");
+                 } return "cuentaInactivaCancelada";
 
 
        }catch (Exception e) {
           log.info("No es posible hacer la transferencia: alguna de la cuentas no existe");
-          return "redirect:/";
+          return "501ISE";
         }
      }
 

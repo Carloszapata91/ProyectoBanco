@@ -30,15 +30,19 @@ public class ClienteController {
      }
 
      @PostMapping("/guardar")
-     public String guardar (Cliente cliente,  RedirectAttributes attribute){
+     public String guardar (Cliente cliente,  RedirectAttributes redirectAttrs){
         cliente.setFecha_creacion_cuenta("2022-01-11");
         Date fecha=new Date();
         SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
         cliente.setFecha_creacion_cuenta(formatoFecha.format(fecha));
         usuarioService.guardar(cliente);
           
-        attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
-        return "redirect:/";
+        redirectAttrs
+            .addFlashAttribute("mensaje", "Cliente guardado correctamente")
+            .addFlashAttribute("clase", "success");
+        //attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
+         log.info("200 OK - Cliente creado con exito ");
+        return "201Created";
      }
 
      @GetMapping("/editarCliente/{id_usuario}")
@@ -63,10 +67,12 @@ public class ClienteController {
     public String eliminar(Cliente usuario){ 
         try{
         usuarioService.eliminar(usuario);
-        return "redirect:/";
+        log.info("Cliente eliminado exitosamente ");
+        return "200OK";
+     
         }catch (Exception e) {
           log.info("No es posible eliminar a este cliente, porque tiene productos activos");
-          return "redirect:/";
+          return "errorEliminarCliente";
         }
     }
 }

@@ -117,6 +117,8 @@
             
       
       </div>  
+         
+                           
         
       <div style="width: 50%; float:right">
                  
@@ -137,5 +139,8 @@
   
         
     </body>
+    
+    <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}" th:text="${mensaje}">
+                          </div> 
     
 </html>

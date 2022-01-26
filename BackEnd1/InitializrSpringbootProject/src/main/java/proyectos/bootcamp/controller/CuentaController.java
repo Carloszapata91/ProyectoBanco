@@ -39,20 +39,28 @@ public class CuentaController {
 
     @PostMapping("/guardarC")
     public String guardarC (Cuenta cuenta){
+        try{
           log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
           if ( 0<=  Double.parseDouble(cuenta.getSaldo()) ){
             Date fecha=new Date();
             SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
             cuenta.setFecha_apertura(formatoFecha.format(fecha));
             cuentaService.guardarC(cuenta);
-              return "redirect:/";
+
+            log.info("201 Created: Cuenta creada exitosamente ");
+              return "201Created";
           
            }else
            log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
-                return "redirect:/";
+                return "501ISE";
+         
+        }catch(Exception e) {
+          log.info("Internal Server Error");
+          return "501ISE";
+        }
      }
 
-    @GetMapping("/verCuentas")     //Solicitud GET (metodo de solicitud) para la consulta
+   @GetMapping("/verCuentas")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verCuentas(Model model){ 
         
         var cuentas = cuentaService.listarCuentas();
@@ -88,6 +96,6 @@ public class CuentaController {
                    cuentaService.eliminarC(cuenta);
              //    }else
                 log.info("No permitido: Solo se pueden eliminar cuentas con saldo igual a cero (0)");
-              return "redirect:/";
+              return "errorEliminarCuenta";
     }
 }

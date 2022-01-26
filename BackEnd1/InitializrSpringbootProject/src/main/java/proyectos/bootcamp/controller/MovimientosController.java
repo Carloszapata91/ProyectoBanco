@@ -57,7 +57,7 @@ public class MovimientosController {
                 cuentaService.guardarC(cuentaAuxiliar);
                 movimientosService.guardarMov(movimientos);
             
-               return "redirect:/";
+               return "200OK";
           
            }else {
                
@@ -79,16 +79,24 @@ public class MovimientosController {
                     log.info("Hola Cocococococo:" + Double.toString(saldo_actual));
                     movimientosService.guardarMov(movimientos);
 
-                    }else{
-                     log.info("Movimiento no permitido: Saldo insuficiente");
-                }
+                   }else{
+                        if (!cuentaAuxiliar.getEstado().equals("Activa")){
+                             log.info("Operacion no permitida: Saldo insuficiente o cuenta cancelada/inactiva");
+                            return "cuentaInactivaCancelada";
+                           }
+                            else{
+                                log.info("Movimiento no permitido: Saldo insuficiente o cuenta cancelada/inactiva");
+                                  return "fondosInsuf";
+                             }
+                                               
+                     }
                
-               }
-                return "redirect:/";
+                 }
+                return "200OK";
 
         }catch (Exception e) {
-          log.info("No es posible hacer esta operacion: cuenta inexistente");
-          return "redirect:/";
+          log.info("0 - Operacion fallida");
+          return "operacionFallida";
         }
         
      }
