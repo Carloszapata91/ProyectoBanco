@@ -4,7 +4,6 @@
  */
 package proyectos.bootcamp.service.Impl;
 
-import proyectos.bootcamp.repository.cuentaDao;
 import proyectos.bootcamp.entity.Cuenta;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import proyectos.bootcamp.entity.CuentaPK;
 import proyectos.bootcamp.service.CuentaService;
+import proyectos.bootcamp.repository.cuentaRepository;
 /**
  *
  * @author cocot
@@ -20,7 +20,7 @@ import proyectos.bootcamp.service.CuentaService;
 public class CuentaServiceImpl implements CuentaService{
      
     @Autowired
-    private cuentaDao cuentaDao;
+    private cuentaRepository cuentaDao;
 
     @Override  //Ahora el controlador NO usa la capa de datos, si no la capa de servicio  UsuarioServiceImplemen (capa negocio)
     @Transactional(readOnly=true) 

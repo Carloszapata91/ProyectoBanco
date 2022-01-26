@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import proyectos.bootcamp.entity.Cliente;
-import proyectos.bootcamp.repository.ClienteDao;
 import proyectos.bootcamp.service.ClienteService;
+import proyectos.bootcamp.repository.ClienteRepository;
 
 @Service  //De esta manera se reconoce a esta clase como un servicio y la podre inyectar en el controlador
 public class ClienteServiceImpl implements ClienteService {
   
     @Autowired
-    private ClienteDao usuarioDao;
+    private ClienteRepository usuarioDao;
 
     @Override  //Ahora el controlador NO usa la capa de datos, si no la capa de servicio  UsuarioServiceImplemen (capa negocio)
     @Transactional(readOnly=true) 

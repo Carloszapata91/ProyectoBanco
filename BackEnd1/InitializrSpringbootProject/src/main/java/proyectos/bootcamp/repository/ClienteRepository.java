@@ -11,7 +11,7 @@ import proyectos.bootcamp.entity.Cliente;
  *
  * @author cocot
  */
-public interface ClienteDao extends CrudRepository<Cliente, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
+public interface ClienteRepository extends CrudRepository<Cliente, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
     //Aqui puedo definir todos los querys personalizados que necesite
 }
 

@@ -14,7 +14,7 @@ import proyectos.bootcamp.entity.CuentaPK;
  * @author cocot
  */
 
-public interface cuentaDao extends CrudRepository<Cuenta, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
+public interface cuentaRepository extends CrudRepository<Cuenta, Long>{    //CrudRepository me da acceso a las consultas mas habituales de SQL
 
     @Query("from Cuenta c where c.id_usuario = 2") //Test1
    public List<Cuenta> findByCategory(@Param("categoryName") String categoryName);
