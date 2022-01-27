@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 //Componentes 
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './core/dashboard.component';
 import {AuthInterceptorService} from './shared/services/auth-interceptor.service';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { RegistroComponent } from './screens/registro/registro.component';

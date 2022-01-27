@@ -197,7 +197,7 @@
                     <td style="text-align:center" th:text="${usuario.apellido}">Mostrar Apellido</td>
                     <td style="text-align:center" th:text="${usuario.tipo_identificacion}">Tipo identificación</td>
                     <td style="text-align:center" th:text="${usuario.numero_identificacion}">Numero identificación</td>
-                    <td style="text-align:center"> <a style="color:red" th:href="@{/estadoCuentaCliente/} + ${usuario.id_usuario}" th:text="Ver_estado_cuenta"/></td>
+                    <td style="text-align:center"> <a style="color:red" th:href="@{/balanceAccountCustomer/} + ${usuario.id_usuario}" th:text="Ver_estado_cuenta"/></td>
                     
                 </tr>
             </table >

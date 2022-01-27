@@ -65,7 +65,7 @@
         <h2>Datos del nuevo cliente</h2>
         </br>
         
-        <form style="font-size: 20" th:action="@{/guardar}" method="post" th:object="${cliente}" >
+        <form style="font-size: 20" th:action="@{/guardarCliente}" method="post" th:object="${cliente}" >
             <input type="hidden" name="id_usuario" th:field="*{id_usuario}"/>
             
             <label for="nombre">Nombre:</label>

@@ -53,7 +53,7 @@ public class ProductosController {
     
     
 
-    @GetMapping("/estadoCuenta")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/balanceAccounts")     //Solicitud GET (metodo de solicitud) para la consulta
     public String estadoCuenta(Cliente usuario, Movimientos movimientos, Cuenta cuenta, Model model){ 
         
         var usuarios = usuarioService.listarUsuarios();
@@ -64,19 +64,19 @@ public class ProductosController {
     }
 
     @GetMapping("/estadoCuenta_1")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String estadoCuenta_1(@RequestParam Long coco, @RequestParam String tip ,Model model,Movimientos movimientos, Cuenta cuenta){ 
+    public String estadoCuenta_1(@RequestParam Long id, @RequestParam String tip ,Model model,Movimientos movimientos, Cuenta cuenta){ 
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
-        cuenta.setId_usuario(coco);
+        cuenta.setId_usuario(id);
         cuenta.setTipo(tip);
         var movimiento = movimientosService.listarMovimientos(cuenta);
-        log.info("La cuenta de Coco es : "+ coco);
+        log.info("La cuenta de Coco es : "+ id);
         model.addAttribute("movimiento",movimiento);
         return "estadoCuenta_1";
     }
 
-    @GetMapping("/estadoCuentaCliente/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/balanceAccountCustomer/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String estadoCuentaUsuario(Cuenta cuenta, Cliente usuario, Movimientos movimientos, Model model){ 
          
         var cuentas = cuentaService.listarProductosByID(cuenta);

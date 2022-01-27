@@ -195,7 +195,7 @@
                     <td style="text-align:center" th:text="${cuenta.estado}">Estado</td>
                     <td style="text-align:center" th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
                     <td style="text-align:center" th:text="${cuenta.saldo}">Saldo </td>
-                    <td style="text-align:center"><a class="boton-personalizado-5" th:href="@{/estadoCuenta_1?coco=} + ${cuenta.id_usuario}+'&tip=' +${cuenta.tipo} "> Ver movimientos </a> </td>
+                    <td style="text-align:center"><a class="boton-personalizado-5" th:href="@{/estadoCuenta_1?id=} + ${cuenta.id_usuario}+'&tip=' +${cuenta.tipo} "> Ver movimientos </a> </td>
                                       
                 </tr>
             </table>

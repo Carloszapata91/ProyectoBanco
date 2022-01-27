@@ -31,7 +31,7 @@ public class MovimientosController {
     private MovimientosService movimientosService;
  
 
-    @GetMapping("/crearMovimiento")
+    @GetMapping("/newTransaction")
     public String crearMovimiento (Movimientos movimientos){
           return "crearMovimiento";
      }

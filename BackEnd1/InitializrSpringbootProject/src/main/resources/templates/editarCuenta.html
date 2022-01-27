@@ -35,7 +35,7 @@
                     <td th:text="${cuenta.estado}">Estado</td>
                     <td th:text="${cuenta.fecha_apertura}">Fecha de apertura</td>
                     <td th:text="${cuenta.saldo}">Saldo </td>
-                    <td> <a th:href="@{/Cuenta?cuentaID=} + ${cuenta.id_usuario}+'&tip=' +${cuenta.tipo} " th:text="Editar"/></td> 
+                    <td> <a th:href="@{/accounts?cuentaID=} + ${cuenta.id_usuario}+'&tip=' +${cuenta.tipo} " th:text="Editar"/></td> 
                     <td> <a th:href="@{/eliminarC/} + ${cuenta.id_usuario}" th:text="Eliminar"/></td>
                           
                 </tr>

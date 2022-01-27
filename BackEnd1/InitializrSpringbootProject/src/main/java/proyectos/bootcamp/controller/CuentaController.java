@@ -28,7 +28,7 @@ public class CuentaController {
     @Autowired
     private CuentaService cuentaService;
  
-    @GetMapping("/Cuenta")
+    @GetMapping("/accounts")
     public String crearCuenta(Cuenta cuenta){
          
          return "crearCuenta";
@@ -60,7 +60,7 @@ public class CuentaController {
         }
      }
 
-   @GetMapping("/verCuentas")     //Solicitud GET (metodo de solicitud) para la consulta
+   @GetMapping("/allAccounts")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verCuentas(Model model){ 
         
         var cuentas = cuentaService.listarCuentas();
@@ -72,7 +72,7 @@ public class CuentaController {
         return "editarCuenta";
     }
 
-    @GetMapping("/crearCuenta/{id_usuario}")
+    @GetMapping("/accounts/{id_usuario}")
      public String editarCuenta(@RequestParam Long cuentaID, @RequestParam String tip ,Cuenta cuenta, Model model){
         //cuenta = cuentaService.encontrarCuenta(cuenta);
  

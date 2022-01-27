@@ -32,7 +32,7 @@ public class TransferenciaController {
     @Autowired
     private MovimientosService movimientosService;
 
-    @GetMapping("/crearTransferencia")
+    @GetMapping("/transfer")
     public String crearTransferencia (Transferencia transferencia){
           return "crearTransferencia";
     }
