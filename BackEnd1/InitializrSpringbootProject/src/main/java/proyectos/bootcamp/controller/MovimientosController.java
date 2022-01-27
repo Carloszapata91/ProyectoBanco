@@ -39,6 +39,8 @@ public class MovimientosController {
     @PostMapping("/guardarMov")
     public String guardarMov (Movimientos movimientos, Cuenta cuenta){
             log.info(movimientos.getTipo_movimiento());
+      
+      if(Double.parseDouble(movimientos.getCantidad())>=0){
         try{    
             Cuenta cuentaAuxiliar = new Cuenta(); 
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
@@ -98,6 +100,10 @@ public class MovimientosController {
           log.info("0 - Operacion fallida");
           return "501ISE_2";
         }
-        
-     }
+
+     }else{return "501ISE_3";}  
+     
+    }
+
+    
 }

@@ -39,6 +39,8 @@ public class TransferenciaController {
 
     @PostMapping("/guardarTransferencia")
     public String guardarTransferencia (Movimientos movimientos, Cuenta cuenta, Transferencia transferencia){
+      
+      if(Double.parseDouble(transferencia.getCantidad())>=0){
         try{ 
           log.info("Cuenta de origen del Cococococococcococococo: " + transferencia.getTipoCuentaOrigen());
            
@@ -121,7 +123,9 @@ public class TransferenciaController {
           log.info("No es posible hacer la transferencia: alguna de las cuentas no existe");
           return "501ISE_2";
         }
-     }
+
+      }else{return"501ISE_3";}
+    }
 
 
 }
