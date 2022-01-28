@@ -6,7 +6,7 @@ import{ HomeComponent } from '../home/home.component';
 import { ContactoComponent } from '../contacto/contacto.component';
 import { UsuarioComponent } from 'src/app/usuario/usuario.component';
 import { RegistroComponent } from '../registro/registro.component';
-import { OperacionesComponent } from 'src/app/operaciones/operaciones.component';
+import { OperacionesComponent } from 'src/app/transactions/operaciones.component';
 
 import { DashboardComponent } from './dashboard.component';
 
