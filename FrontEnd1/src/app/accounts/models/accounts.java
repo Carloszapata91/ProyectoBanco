@@ -1,0 +1,81 @@
+@Controller   //Controlador MVC de Thymeleaf (tecnologia de despliegue) .. da el acceso al metodo
+@Slf4j       //Facilita visualizar mensajes en la consola (log.console)
+public class CuentaController {
+    
+    @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
+    private ClienteService usuarioService;
+
+    @Autowired
+    private CuentaService cuentaService;
+ 
+    @GetMapping("/accounts")
+    public String crearCuenta(Cuenta cuenta){
+         
+         return "crearCuenta";
+     }
+     
+  //  @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface CuentaService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (cuentaDao)
+ //   private CuentaService cuentaService;
+
+    @PostMapping("/guardarC")
+    public String guardarC (Cuenta cuenta){
+        try{
+          log.info("Coco coco coco coco coco coco " + cuenta.getId_usuario() + " Tipo: " + cuenta.getTipo()) ;
+          if ( 0<=  Double.parseDouble(cuenta.getSaldo()) && !cuenta.getTipo().equals("0")){
+            Date fecha=new Date();
+            SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
+            cuenta.setFecha_apertura(formatoFecha.format(fecha));
+            cuentaService.guardarC(cuenta);
+
+            log.info("201 Created: Cuenta creada exitosamente ");
+              return "201Created";
+          
+           }else
+           log.info("Saldo incorrecto: No puede ser inferior a cero (0)");
+                return "501ISE";
+         
+        }catch(Exception e) {
+          log.info("Internal Server Error: Cliente inexistente");
+          return "501ISE_1";
+        }
+     }
+
+   @GetMapping("/allAccounts")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String verCuentas(Model model){ 
+        
+        var cuentas = cuentaService.listarCuentas();
+        log.info("Coco coco logra ladrar");
+        model.addAttribute("cuentas",cuentas);
+
+        var usuarios = usuarioService.listarUsuarios();
+        model.addAttribute("usuarios",usuarios);
+        return "editarCuenta";
+    }
+
+    @GetMapping("/accounts/{id_usuario}")
+     public String editarCuenta(@RequestParam Long cuentaID, @RequestParam String tip ,Cuenta cuenta, Model model){
+        //cuenta = cuentaService.encontrarCuenta(cuenta);
+ 
+        Cuenta cuentaAux = new Cuenta();
+        cuentaAux.setId_usuario(cuentaID);
+        log.info("CuentaID y tipo: " + cuentaID + tip );
+        cuentaAux.setTipo(tip);
+        cuenta =cuentaService.EncontrarByIDTipo(cuentaAux);
+
+
+        model.addAttribute("cuenta", cuenta);
+        return "crearCuenta";
+     }
+
+    
+    @GetMapping("/eliminarC/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String eliminarC(Cuenta cuenta){ 
+       
+               //if (Double.parseDouble(cuenta.getSaldo())==0){
+                   log.info("El saldo es: " + cuenta.getSaldo());
+                   cuentaService.eliminarC(cuenta);
+             //    }else
+                log.info("No permitido: Solo se pueden eliminar cuentas con saldo igual a cero (0)");
+              return "errorEliminarCuenta";
+    }
+}

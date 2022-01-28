@@ -1,20 +1,23 @@
-
-package proyectos.bootcamp.service;
-
 import java.util.List;
-import proyectos.bootcamp.entity.Cliente;
+import proyectos.bootcamp.entity.Cuenta;
 
 
-public interface ClienteService {
+
+public interface CuentaService {
+
+    public List<Cuenta> listarCuentas();
+
+    public void guardarC (Cuenta cuenta);
     
-    public List<Cliente> listarUsuarios();
+    public void eliminarC (Cuenta cuenta);
 
-    public void guardar (Cliente usuario);
-    
-    public void eliminar (Cliente usuario);
+    public Cuenta encontrarCuenta (Cuenta cuenta);
 
-    public Cliente encontrarUsuario (Cliente usuario);
+    public List<Cuenta> listarCuentas2(String a);
 
-   
-   
+   public List<Cuenta> listarProductosByID(Cuenta cuenta);
+
+   public Cuenta EncontrarByIDTipo(Cuenta cuenta);
 }
+
+
