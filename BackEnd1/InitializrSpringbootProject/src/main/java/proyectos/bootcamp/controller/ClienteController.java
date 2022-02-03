@@ -45,10 +45,10 @@ public class ClienteController {
         return "201Created_1";
      }
 
-     @GetMapping("/editarCliente/{id_usuario}")
+     @GetMapping("/editCustomer/{id_usuario}")
      public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
         cliente = usuarioService.encontrarUsuario(cliente);
-        model.addAttribute("usuario", cliente);
+        model.addAttribute("cliente", cliente);
        
         attribute.addFlashAttribute("success", "Cliente guardado exitosamente");
         
@@ -64,9 +64,9 @@ public class ClienteController {
     }
 
     @GetMapping("/eliminar/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
-    public String eliminar(Cliente usuario){ 
+    public String eliminar(Cliente cliente){ 
         try{
-        usuarioService.eliminar(usuario);
+        usuarioService.eliminar(cliente);
         log.info("Cliente eliminado exitosamente ");
         return "200OK";
      

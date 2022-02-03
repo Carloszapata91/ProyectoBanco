@@ -31,7 +31,7 @@ public class MovimientosController {
     private MovimientosService movimientosService;
  
 
-    @GetMapping("/newTransaction")
+    @GetMapping("/transaction")
     public String crearMovimiento (Movimientos movimientos){
           return "crearMovimiento";
      }
@@ -46,7 +46,7 @@ public class MovimientosController {
             cuentaAuxiliar=cuentaService.EncontrarByIDTipo(cuenta);
             
          
-             if (!movimientos.getTipo_movimiento().equals("Retiro") && !movimientos.getTipo_movimiento().equals("0") ){
+             if (!movimientos.getTipo_movimiento().equals("Retiro") && !movimientos.getTipo_movimiento().equals("0") && cuentaAuxiliar.getEstado().equals("Activa")){
                 double saldo_actual = Double.parseDouble(movimientos.getCantidad()) + Double.parseDouble(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_inicial(cuentaAuxiliar.getSaldo());
                 movimientos.setSaldo_actual(Double.toString(saldo_actual));
