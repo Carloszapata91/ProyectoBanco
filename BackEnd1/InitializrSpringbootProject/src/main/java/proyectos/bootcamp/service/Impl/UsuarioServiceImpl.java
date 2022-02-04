@@ -1,13 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package proyectos.bootcamp.service.Impl;
 
-/**
- *
- * @author cocot
- */
-public class UsuarioServiceImpl {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import proyectos.bootcamp.entity.Usuario;
+import proyectos.bootcamp.repository.UsuarioRepository;
+import proyectos.bootcamp.service.UsuarioService;
+
+@Service
+public class UsuarioServiceImpl implements UsuarioService {
     
+    @Autowired
+    private UsuarioRepository usuarrioDao;
+
+        @Override
+        @Transactional 
+        public void guardarUsuario (Usuario usuarrio){
+        usuarrioDao.save(usuarrio);
+    }
+        
+        @Override
+        @Transactional
+        public void eliminarUsuario (Usuario usuarrio){
+        usuarrioDao.delete(usuarrio);
+    }
+        
+        @Override
+        @Transactional(readOnly=true)
+        public Usuario encontrarUsuarrio (Usuario usuarrio){
+         return usuarrioDao.findById(usuarrio.getId()).orElse(null);
+    } 
+
 }

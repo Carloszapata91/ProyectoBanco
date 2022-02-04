@@ -24,13 +24,13 @@ public class ClienteController {
     @Autowired  //Inyecto una dependencia administrada por otro contenedor -> Inyecto la interface UsuarioService en esta clase.. porque trabajo con la capa de negocio y no directamente con la capa de datos (usuarioDao)
     private ClienteService usuarioService;
 
-      @GetMapping("/customers")
-     public String crearCliente(Cliente cliente){
+    @GetMapping("/customers")
+    public String crearCliente(Cliente cliente){
          return "modificar";
      }
 
-     @PostMapping("/guardarCliente")
-     public String guardarCliente (Cliente cliente,  RedirectAttributes redirectAttrs){
+    @PostMapping("/guardarCliente")
+    public String guardarCliente (Cliente cliente,  RedirectAttributes redirectAttrs){
         cliente.setFecha_creacion_cuenta("2022-01-11");
         Date fecha=new Date();
         SimpleDateFormat  formatoFecha = new SimpleDateFormat("YYYY-MM-dd");
@@ -45,8 +45,8 @@ public class ClienteController {
         return "201Created_1";
      }
 
-     @GetMapping("/editCustomer/{id_usuario}")
-     public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
+    @GetMapping("/editCustomer/{id_usuario}")
+    public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
         cliente = usuarioService.encontrarUsuario(cliente);
         model.addAttribute("cliente", cliente);
        

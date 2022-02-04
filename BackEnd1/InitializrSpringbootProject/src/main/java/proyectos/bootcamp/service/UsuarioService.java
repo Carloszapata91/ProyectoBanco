@@ -1,13 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package proyectos.bootcamp.service;
 
-/**
- *
- * @author cocot
- */
-public class UsuarioService {
+
+import proyectos.bootcamp.entity.Usuario;
+
+
+public interface UsuarioService {
     
+        public void guardarUsuario (Usuario usuarrio);
+    
+        public void eliminarUsuario (Usuario usuarrio);
+
+        public Usuario encontrarUsuarrio (Usuario usuarrio);
+
 }

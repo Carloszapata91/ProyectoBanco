@@ -2,7 +2,6 @@
 package proyectos.bootcamp.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.*;
 import javax.persistence.Table;
 import lombok.Data;
@@ -30,19 +29,5 @@ public class Cliente implements Serializable {
     private String fecha_creacion_cuenta;
     private String telefono;
  
-
- //    public void setCuenta(Cuenta cuenta){
- //      this.cuenta=cuenta;
- //    }
-
- //   public Cuenta getCuenta(){
-//        return cuenta;
- //    }
-
- //   @OneToOne(cascade=CascadeType.ALL)
- //   @JoinColumn(name="id_usuario",unique=true)
- //   private  Cuenta cuenta;
-
-  
    
 }
