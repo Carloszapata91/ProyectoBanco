@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Nueva operación</title>
+        <title>Nueva Consignación</title>
          
         <style>
          .boton-personalizado-5 {
@@ -47,11 +47,11 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2>Nueva operación</h2>
+        <h2>Nueva consignación</h2>
         <br/>
         <br/>
         
-        <form style="font-size:20" th:action="@{/guardarMov}" method="post" th:object="${movimientos}" >
+        <form style="font-size:20" th:action="@{/guardarConsig}" method="post" th:object="${movimientos}" >
               
               
             
@@ -68,16 +68,8 @@
             <br/>
             
             <br/>
-            <label for="tipoOper">Tipo de Operación:</label>
-            <select name="tipoOper" required="true" th:field="${movimientos.tipo_movimiento}">
-                    <option selected value="0"> Elige una opción </option>
-                        <option value="Retiro">Retiro</option> 
-                        <option value="Consignación">Consignación</option> 
-                </select>
-            
-            <br/>
-            <br/>
-            <label for="cantidad">Cantidad (COL$):</label>
+          
+            <label for="cantidad">Cantidad a consignar (COL$):</label>
             <input type="number" name="cantidad" placeholder="Cantidad" required="true" th:field="${movimientos.cantidad}"/>
             <br/>
             <br/>

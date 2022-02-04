@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Nueva Transferencia</title>
+        <title>Nuevo Retiro</title>
          
         <style>
          .boton-personalizado-5 {
@@ -47,51 +47,44 @@
         <br/>
         <h1> MyBank </h1>
         <br/>
-        <h2>Nueva transferencia</h2>
+        <h2>Nuevo Retiro</h2>
         <br/>
         <br/>
-                
-        <form style="font-size: 20" th:action="@{/guardarTransferencia}" method="post" th:object="${transferencia}" >
+        
+        <form style="font-size:20" th:action="@{/guardarRetiro}" method="post" th:object="${movimientos}" >
               
-            <label for="cuentaOrigen">Numero cuenta origen:</label>
-            <input type="number" name="cuentaOrigen" placeholder="Numero cuenta origen" required="true" th:field="${transferencia.cuentaOrigen}"/>
+              
+            
+           <label for="id_usuario">Número de Cuenta:</label>
+            <input type="number" name="id_usuario" placeholder="Número de cuenta" required="true" th:field="${movimientos.id_usuario}"/>
             <br/>
             <br/>
-            <label for="tipoCO">Tipo de cuenta origen:</label>
-            <select name="tipoCO" required="true" th:field="${transferencia.tipoCuentaOrigen}">
+            <label for="tipo">Tipo de cuenta:</label>
+            <select name="tipo" required="true" th:field="${movimientos.tipo}">
                     <option selected value="0"> Elige una opción </option>
                         <option value="Ahorros">Ahorros</option> 
                         <option value="Corriente">Corriente</option> 
                 </select>
             <br/>
-            <br/>
-            <label for="cuentaDestino">Numero cuenta destino:</label>
-            <input type="number" name="cuentaDestino" placeholder="Numero cuenta destino" required="true" th:field="${transferencia.CuentaDestino}"/>
-            <br/>
-            <br/>
-            <label for="tipoCD">Tipo de cuenta destino:</label>
-            <select name="tipoCD" required="true" th:field="${transferencia.tipoCuentaDestino}">
-                    <option selected value="0"> Elige una opción </option>
-                        <option value="Ahorros">Ahorros</option> 
-                        <option value="Corriente">Corriente</option> 
-                </select>
-            <br/>
-            <br/>
-            <label for="cantidad">Cantidad a transferir (COL$):</label>
-            <input type="number" name="cantidad" placeholder="Cantidad" required="true" th:field="${transferencia.cantidad}"/>
-            <br/>
-            <br/>
-           <!-- <label for="descripcion">Descripción:</label>  -->
-           <!-- <input type="hidden" name="descripción" placeholder="Descripción" value="Transferencia" th:field="${transferencia.descripcion}"/>   -->
-            <br/>
-            <br/>
             
-            
-            <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer transferencia"/>
+            <br/>
+          
+            <label for="cantidad">Cantidad a retirar (COL$):</label>
+            <input type="number" name="cantidad" placeholder="Cantidad" required="true" th:field="${movimientos.cantidad}"/>
+            <br/>
+            <br/>
+            <label for="descripcion">Descripción:</label>
+            <input type="text" name="descripción" placeholder="Descripción" required="true" th:field="${movimientos.descripcion}"/>
+            <br/>
+            <br/>
+            <br/> 
+            <br/> 
+            <input class="boton_personalizado" type="submit" name="guardar"   value="Hacer movimiento"/>
         </form> 
         <br/>
         <br/>
-       <br/> 
+        <br/>
+      
             <a class="boton-personalizado-5" th:href="@{/}"> Regresar </a>
       </div>    
     

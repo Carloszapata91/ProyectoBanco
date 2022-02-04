@@ -32,7 +32,7 @@ public class ProductosController {
     @Autowired
     private MovimientosService movimientosService;
 
-    @GetMapping("/resumenCliente")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/customersSummary")     //Solicitud GET (metodo de solicitud) para la consulta
     public String resumenUsuario(Cliente usuario, Cuenta cuenta, Model model){ 
         
         var usuarios = usuarioService.listarUsuarios();
@@ -40,7 +40,7 @@ public class ProductosController {
         return "resumenCliente";
     }
 
-    @GetMapping("/productosCliente/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/customerProducts/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta
     public String productosUsuario(Cuenta cuenta, Cliente usuario, Model model){ 
          
          var cuentas = cuentaService.listarProductosByID(cuenta);

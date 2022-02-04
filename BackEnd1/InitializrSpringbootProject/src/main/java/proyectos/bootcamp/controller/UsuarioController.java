@@ -21,7 +21,7 @@ public class UsuarioController {
     @Autowired  
     private UsuarioService usuarrioService;
 
-    @GetMapping("/usuarios")
+    @GetMapping("/users")
     public String guardarUsuario(Usuario usuarrio){
         return "modificar";
      }
