@@ -1,15 +1,11 @@
 
 package proyectos.bootcamp.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import proyectos.bootcamp.entity.Cliente;
 import proyectos.bootcamp.entity.Usuario;
 import proyectos.bootcamp.service.UsuarioService;
 
@@ -22,18 +18,18 @@ public class UsuarioController {
     private UsuarioService usuarrioService;
 
     @GetMapping("/users")
-    public String guardarUsuario(Usuario usuarrio){
-        return "modificar";
+    public String guardarUsuario(Usuario usuario){
+        return "crearUsuario";
      }
 
     @PostMapping("/guardarUsuario")
-    public String guardarUsuar (Usuario usuarrio){
+    public String guardarUsuar (Usuario usuario){
         
-        usuarrioService.guardarUsuario(usuarrio);
+        usuarrioService.guardarUsuario(usuario);
           
     
 
-         log.info("200 OK - Cliente creado con exito ");
+         log.info("200 OK - Usuario creado con exito ");
         return "201Created_1";
      }
 
