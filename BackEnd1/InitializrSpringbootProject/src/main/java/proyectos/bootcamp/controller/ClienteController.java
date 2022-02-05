@@ -60,7 +60,7 @@ public class ClienteController {
         
         var usuarios = usuarioService.listarUsuarios();
         model.addAttribute("usuarios",usuarios);
-        return "verUsuarios";
+        return "verClientes";
     }
 
     @GetMapping("/eliminar/{id_usuario}")     //Solicitud GET (metodo de solicitud) para la consulta

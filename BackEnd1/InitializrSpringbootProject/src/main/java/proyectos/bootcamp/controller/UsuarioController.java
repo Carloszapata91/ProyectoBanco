@@ -14,10 +14,18 @@ import proyectos.bootcamp.service.UsuarioService;
 @Slf4j   
 public class UsuarioController {
     
+
+    @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
+    public String inicio( Usuario datos ){ 
+     
+          return "loginn";
+     }
+
+
     @Autowired  
     private UsuarioService usuarrioService;
 
-    @GetMapping("/users")
+    @GetMapping("/newUser")
     public String guardarUsuario(Usuario usuario){
         return "crearUsuario";
      }
@@ -26,11 +34,16 @@ public class UsuarioController {
     public String guardarUsuar (Usuario usuario){
         
         usuarrioService.guardarUsuario(usuario);
-          
-    
+        
+        log.info("200 OK - Usuario creado con exito ");
+        return "201Created_1_1";
+     }
 
-         log.info("200 OK - Usuario creado con exito ");
-        return "201Created_1";
+    @GetMapping("/loguearse")
+    public String loguearse (Usuario datos){
+        
+
+        return "home";
      }
 
 }

@@ -29,7 +29,7 @@ public class InicioController {
     @Autowired
     private MovimientosService movimientosService;
 
-    @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping("/home")     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio(Model model){ 
      
         var usuarios = usuarioService.listarUsuarios();
