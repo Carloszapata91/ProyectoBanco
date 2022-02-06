@@ -30,7 +30,7 @@ public class CuentaController {
  
     @GetMapping("/accounts")
     public String crearCuenta(Cuenta cuenta){
-         
+         log.info("Esta entrando a accounts" );
          return "crearCuenta";
      }
      
@@ -72,10 +72,10 @@ public class CuentaController {
         return "editarCuenta";
     }
 
-    @GetMapping("/accounts/{id_usuario}")
+    @GetMapping("/account")
      public String editarCuenta(@RequestParam Long cuentaID, @RequestParam String tip ,Cuenta cuenta, Model model){
         //cuenta = cuentaService.encontrarCuenta(cuenta);
- 
+        log.info("Entramos a editarCuenta" );
         Cuenta cuentaAux = new Cuenta();
         cuentaAux.setId_usuario(cuentaID);
         log.info("CuentaID y tipo: " + cuentaID + tip );

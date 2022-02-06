@@ -4,6 +4,7 @@ package proyectos.bootcamp.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import proyectos.bootcamp.entity.Usuario;
@@ -50,7 +51,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/buscarUsuario")
-    public String buscarUsuario (Usuario usuario){
+    public String buscarUsuario (Usuario usuario, Model model){
         
         usuario =usuarrioService.encontrarUsuarrio(usuario);
 
@@ -59,7 +60,9 @@ public class UsuarioController {
         if (null ==  usuario){
          return "errorUsuarioContrasena";   
         }else
-        {return "editarUsuario";}
+        {
+         model.addAttribute(usuario);
+         return "editarUsuario";}
     }
 
     @GetMapping("/editUser")
