@@ -18,18 +18,18 @@ public class UsuarioServiceImpl implements UsuarioService {
         @Transactional 
         public void guardarUsuario (Usuario usuarrio){
         usuarrioDao.save(usuarrio);
-    }
+        }
         
         @Override
         @Transactional
         public void eliminarUsuario (Usuario usuarrio){
         usuarrioDao.delete(usuarrio);
-    }
+        }
         
         @Override
         @Transactional(readOnly=true)
         public Usuario encontrarUsuarrio (Usuario usuarrio){
-         return usuarrioDao.findById(usuarrio.getId()).orElse(null);
-    } 
+        return usuarrioDao.findUsuario(usuarrio.getUserName(), usuarrio.getContrasena());
+        } 
 
 }

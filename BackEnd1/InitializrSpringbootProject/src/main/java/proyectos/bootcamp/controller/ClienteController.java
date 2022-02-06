@@ -27,7 +27,7 @@ public class ClienteController {
     @GetMapping("/customers")
     public String crearCliente(Cliente cliente){
          return "modificar";
-     }
+    }
 
     @PostMapping("/guardarCliente")
     public String guardarCliente (Cliente cliente,  RedirectAttributes redirectAttrs){
@@ -43,7 +43,7 @@ public class ClienteController {
         //attribute.addFlashAttribute("sucess", "Cliente guardado exitosamente");
          log.info("200 OK - Cliente creado con exito ");
         return "201Created_1";
-     }
+    }
 
     @GetMapping("/editCustomer/{id_usuario}")
     public String editar(Cliente cliente, Model model, RedirectAttributes attribute){
@@ -53,7 +53,7 @@ public class ClienteController {
         attribute.addFlashAttribute("success", "Cliente guardado exitosamente");
         
         return "modificar";
-     }
+    }
 
     @GetMapping("/allCustomers")     //Solicitud GET (metodo de solicitud) para la consulta
     public String verUsuarios(Model model){ 

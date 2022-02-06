@@ -17,13 +17,13 @@ public class Usuario implements Serializable{
      private static final long serialVersionUID= 1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private String userName;
     private Long  id;
     private String nombre;
     private String apellido;
     private String tipoDoc;
     private String numeroDoc;
-    private String userName;
+    
     private String contrasena;
 
 

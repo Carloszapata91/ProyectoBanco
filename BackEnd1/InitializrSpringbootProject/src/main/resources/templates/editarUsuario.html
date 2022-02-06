@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Login - MyBank</title>
+        <title>Editar usuario</title>
          
         <style>
          .boton-personalizado-5 {
@@ -45,7 +45,7 @@
             
             
     </head>
-    <body style="background-color:#9E7777; padding-left:80px ;">
+    <body style="background-color:#4FBDBA; padding-left:80px ;">
         
          <!-- MENSAJES -->
             <div th:if="${success != null}">
@@ -57,38 +57,59 @@
         <br/>
         </br>  
                       
-      <div style="width: 70%; float:left;   text-align: center; border: 2px solid white;  width:530px; height:680px; border-radius:22px;">
+      <div style="width: 70%; float:left;   text-align: center; border: 2px solid grey;  width:530px; height:680px; border-radius:22px;">
                
         <br/>
         <h1> MyBank </h1>
         </br>
-        <h2>Ingreso a la plataforma</h2>
+        <h2>Datos del usuario</h2>
         </br>
-         </br>
-        <form style="font-size: 20" th:action="@{/home}" method="post" th:object="${usuario}" >
+        
+        <form style="font-size: 20" th:action="@{/editarUsuario}" method="post" th:object="${usuario}" >
+            <input type="hidden" name="id_usuario" th:field="*{id}"/>
             
+            <label for="nombre">Nombre:</label>
+            <input type="text" placeholder="Nombre" required="true" autocomplete="off" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <br/>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" placeholder="Apellidos" required="true" th:field="*{apellido}"/>
+            <br/>
+            <br/>
+            <label for="tipo_identificacion">Tipo de identificación:</label>
+            <select name="tipo_identificacion" required="true" th:field="*{tipoDoc}">
+            <option selected value="0"> Elige una opción </option>
+                <option value="CC">Cedula de ciudadania</option> 
+                <option value="TI">Tarjeta de identidad</option> 
+                <option value="P">Pasaporte</option> 
+            </select>
+            
+            <br/>
+            <br/>
+            <label for="numero_identificacion">Numero de identificación:</label>
+            <input type="number" name="numero_identificacion" placeholder="Numero de identificación" required="true"  th:field="*{numeroDoc}"/>
+            <br/>
+            <br/>
            <label for="userName">Username:</label>
-            <input type="text" name="UserName" placeholder="Username" required="true" th:field="*{userName}"/>
-            <br/> <!-- th:field="*{userName}" -->
+            <input type="text" name="UserName" placeholder="UserName" required="true" th:field="*{userName}"/>
             <br/>
-             </br>
+            <br/>
+            
             <label for="contrasena">Contraseña:</label>
-            <input type="password" name="contrasena" placeholder="Contraseña" required="true" th:field="*{contrasena}" />
-            <br/>    <!-- th:field="*{contrasena}" -->
+            <input type="password" name="contrasena" placeholder="Contraseña" required="true" th:field="*{contrasena}"/>
             <br/>
-            </br>   
-         
+            <br/>
+                    </br>   
+            
                      
-            <input class="boton_personalizado" type="submit" name="entrar" value="Entrar"/>
+                     
+            <input class="boton_personalizado" type="submit" name="guardar" value="Editar usuario"/>
         </form>
            </br>
         <br/>
-             <br/>
-            <h3>&nbsp;&nbsp;&nbsp; Crear usuario &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Modificar usuario</h3>
-             </br>
+            <a class="boton-personalizado-5" th:href="@{/}"> Regresar al inicio</a>
             
-       <a class="boton-personalizado-5" th:href="@{/newUser}"> Ir a crear usuario </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       <a class="boton-personalizado-5" th:href="@{/user}"> Ir a modificar usuario </a>
+      
       </div>  
          
                            

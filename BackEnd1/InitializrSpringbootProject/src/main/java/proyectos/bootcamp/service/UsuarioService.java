@@ -11,6 +11,7 @@ public interface UsuarioService {
     
         public void eliminarUsuario (Usuario usuarrio);
 
+
         public Usuario encontrarUsuarrio (Usuario usuarrio);
 
 }

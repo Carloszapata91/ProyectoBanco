@@ -25,10 +25,11 @@ public class UsuarioController {
     @Autowired  
     private UsuarioService usuarrioService;
 
+
     @GetMapping("/newUser")
     public String guardarUsuario(Usuario usuario){
         return "crearUsuario";
-     }
+    }
 
     @PostMapping("/guardarUsuario")
     public String guardarUsuar (Usuario usuario){
@@ -37,13 +38,62 @@ public class UsuarioController {
         
         log.info("200 OK - Usuario creado con exito ");
         return "201Created_1_1";
-     }
+    }
 
-    @GetMapping("/loguearse")
-    public String loguearse (Usuario datos){
+    @GetMapping("/user")
+    public String buscarUsuar (Usuario usuario){
         
+        //usuarrioService.guardarUsuario(usuario);
+        
+        log.info("200 OK - Usuario encontrado con exito ");
+        return "buscarUsuario";
+    }
 
-        return "home";
-     }
+    @PostMapping("/buscarUsuario")
+    public String buscarUsuario (Usuario usuario){
+        
+        usuario =usuarrioService.encontrarUsuarrio(usuario);
+
+        log.info(" Usuario localizado ");
+
+        if (null ==  usuario){
+         return "errorUsuarioContrasena";   
+        }else
+        {return "editarUsuario";}
+    }
+
+    @GetMapping("/editUser")
+    public String editarUsuario (Usuario usuario){
+        
+        //usuarrioService.guardarUsuario(usuario);
+        
+        log.info("200 OK - Usuario creado con exito ");
+        return "editarUsuario";
+    }
+
+
+    @PostMapping("/editarUsuario")
+    public String editarUsuar (Usuario usuario){
+        
+        usuarrioService.guardarUsuario(usuario);
+        
+        log.info("200 OK - Usuario editado con exito ");
+        return "200OK_1_1";
+    }
+
+
+    @PostMapping("/home")
+    public String loguearse (Usuario usuario){
+        log.info ("El username es: " + usuario.getUserName() );
+       
+        Usuario user =usuarrioService.encontrarUsuarrio(usuario);
+
+
+         if (null ==  user ){
+         return "errorUsuarioContrasena";   
+        }else
+        {return "index";}
+        
+    }
 
 }
