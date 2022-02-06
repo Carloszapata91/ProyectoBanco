@@ -10,6 +10,6 @@ import proyectos.bootcamp.entity.Usuario;
 
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
-      @Query("from Usuario u where u.userName = :user_Name and u.contrasena = :contrasena")
-   public Usuario findUsuario(@Param("user_Name") String userName, @Param("contrasena") String contrasena);
+      @Query("from Usuario u where u.userName = :user_Name ")
+   public Usuario findUsuario(@Param("user_Name") String userName);
 }

@@ -3,6 +3,7 @@ package proyectos.bootcamp.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,15 +27,23 @@ public class UsuarioController {
     @Autowired  
     private UsuarioService usuarrioService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @GetMapping("/newUser")
     public String guardarUsuario(Usuario usuario){
         return "crearUsuario";
     }
-
+                                                            //BCryptPasswordEncoder
     @PostMapping("/guardarUsuario")
     public String guardarUsuar (Usuario usuario){
         
+        String pass= usuario.getContrasena();
+        String passEncrip = passwordEncoder.encode(pass);
+
+        usuario.setContrasena(passEncrip);
+
         usuarrioService.guardarUsuario(usuario);
         
         log.info("200 OK - Usuario creado con exito ");
@@ -53,17 +62,29 @@ public class UsuarioController {
     @PostMapping("/buscarUsuario")
     public String buscarUsuario (Usuario usuario, Model model){
         
-        usuario =usuarrioService.encontrarUsuarrio(usuario);
+        String passwordTemporal = usuario.getContrasena();
+        //usuario = usuarrioService.encontrarUsuarrio(usuario);
+        Usuario user = usuarrioService.encontrarUsuarrio(usuario);
 
-        log.info(" Usuario localizado ");
+      if ( !(user == null)){
 
-        if (null ==  usuario){
-         return "errorUsuarioContrasena";   
-        }else
-        {
-         model.addAttribute(usuario);
-         return "editarUsuario";}
-    }
+
+        String passEncrypted = user.getContrasena();
+        
+        boolean test = passwordEncoder.matches(passwordTemporal, passEncrypted);
+
+        log.info("El resultado del test es: " + test + " " + passwordTemporal + " " + passEncrypted);
+
+
+        if (test){
+          model.addAttribute(user);
+         return "editarUsuario";
+         
+         }else {return "errorUsuarioContrasena";}
+       
+      }else {return "errorUsuarioContrasena";}
+
+     }
 
     @GetMapping("/editUser")
     public String editarUsuario (Usuario usuario){
@@ -78,6 +99,11 @@ public class UsuarioController {
     @PostMapping("/editarUsuario")
     public String editarUsuar (Usuario usuario){
         
+        String pass= usuario.getContrasena();
+        String passEncrip = passwordEncoder.encode(pass);
+
+        usuario.setContrasena(passEncrip);
+  
         usuarrioService.guardarUsuario(usuario);
         
         log.info("200 OK - Usuario editado con exito ");
@@ -89,13 +115,33 @@ public class UsuarioController {
     public String loguearse (Usuario usuario){
         log.info ("El username es: " + usuario.getUserName() );
        
+        String passwordTemporal = usuario.getContrasena();
+        //String passDigitada = passwordEncoder.encode(UserNameTemporal);
+       // usuario.setContrasena(passDigitada); 
+
+      //  log.info("La contraseña encriptada es: " + passDigitada);
+     
         Usuario user =usuarrioService.encontrarUsuarrio(usuario);
 
+     if ( !(user == null)){
 
-         if (null ==  user ){
-         return "errorUsuarioContrasena";   
-        }else
-        {return "index";}
+        String passEncrypted = user.getContrasena();
+        
+        boolean test = passwordEncoder.matches(passwordTemporal, passEncrypted);
+
+        log.info("El resultado del test es: " + test + " " + passwordTemporal + " " + passEncrypted);
+
+
+        if (test){  
+          return "200OK";
+         }
+
+         else {
+         return "errorUsuarioContrasena";   }
+         //else
+          //{return "200OK";}
+
+      }else{ return "errorUsuarioContrasena"; }
         
     }
 

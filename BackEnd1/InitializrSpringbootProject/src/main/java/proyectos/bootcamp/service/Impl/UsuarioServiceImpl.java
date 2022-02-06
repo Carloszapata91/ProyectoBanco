@@ -29,7 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         @Override
         @Transactional(readOnly=true)
         public Usuario encontrarUsuarrio (Usuario usuarrio){
-        return usuarrioDao.findUsuario(usuarrio.getUserName(), usuarrio.getContrasena());
+        return usuarrioDao.findUsuario(usuarrio.getUserName());
         } 
 
 }
