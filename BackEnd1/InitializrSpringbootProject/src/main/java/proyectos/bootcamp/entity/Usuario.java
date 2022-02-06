@@ -18,7 +18,7 @@ public class Usuario implements Serializable{
 
     @Id
     private String userName;
-    private Long  id;
+    //private Long  id;
     private String nombre;
     private String apellido;
     private String tipoDoc;

@@ -66,7 +66,7 @@
         </br>
         
         <form style="font-size: 20" th:action="@{/guardarUsuario}" method="post" th:object="${usuario}" >
-            <input type="hidden" name="id_usuario" th:field="*{id}"/>
+ 
             
             <label for="nombre">Nombre:</label>
             <input type="text" placeholder="Nombre" required="true" autocomplete="off" name="nombre" th:field="*{nombre}"/>
