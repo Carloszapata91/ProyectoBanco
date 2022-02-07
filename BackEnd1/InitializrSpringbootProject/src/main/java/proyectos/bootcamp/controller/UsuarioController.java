@@ -17,7 +17,7 @@ import proyectos.bootcamp.service.UsuarioService;
 public class UsuarioController {
     
 
-    @GetMapping("/")     //Solicitud GET (metodo de solicitud) para la consulta
+    @GetMapping({"/","/login"})     //Solicitud GET (metodo de solicitud) para la consulta
     public String inicio( Usuario datos ){ 
      
           return "loginn";

@@ -23,6 +23,12 @@ import proyectos.bootcamp.service.Impl.UsuarioServiceImpl;
 @EnableWebSecurity
 public class SecurityConfigur extends WebSecurityConfigurerAdapter{
     
+            String[] resources = new String[]{
+            "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
+            };
+
+
+
         @Autowired
 	private UsuarioServiceImpl userDetailsService;
 	
@@ -47,14 +53,28 @@ public class SecurityConfigur extends WebSecurityConfigurerAdapter{
         {
           security.httpBasic().disable();
 
-        
-
-        
-
-
-
-
         }
+
+        //@Override
+        protected void configuren(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+	        .antMatchers(resources).permitAll()  
+	        .antMatchers("/","/login","/newUser","/user").permitAll()
+	        .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .defaultSuccessUrl("/home")
+                .failureUrl("/errorUsuarioContrasena") 
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .and()
+            .logout()
+                .permitAll()
+                .logoutSuccessUrl("/login");
+    }
 
        
        
